@@ -1,0 +1,413 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── FONTS ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
+
+/* ─── CSS VARIABLES ──────────────────────────────────── */
+:root {
+  --purple:     #3b2f3d;
+  --terracotta: #b23a3a;
+  --blue:       #5d6d7e;
+  --sage:       #7b8476;
+  --dark:       #1c1519;
+  --offwhite:   #f5f3ee;
+  --ease-leven: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── BASE ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--dark);
+  color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* ─── CUSTOM CURSOR ──────────────────────────────────── */
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease, transform 0.1s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s var(--ease-leven),
+              height 0.3s var(--ease-leven),
+              border-color 0.3s ease,
+              top 0.12s var(--ease-leven),
+              left 0.12s var(--ease-leven);
+}
+
+body:has(a:hover) .cursor-ring,
+body:has(button:hover) .cursor-ring {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* ─── GRAIN TEXTURE ──────────────────────────────────── */
+.grain {
+  position: relative;
+}
+
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* ─── SCROLL REVEAL ANIMATIONS ───────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s var(--ease-leven), transform 0.9s var(--ease-leven);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.45s; }
+.reveal-delay-5 { transition-delay: 0.6s; }
+
+/* ─── CLIP REVEAL (lines) ────────────────────────────── */
+.clip-reveal {
+  overflow: hidden;
+}
+
+.clip-reveal > span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 1.1s var(--ease-leven);
+}
+
+.clip-reveal.visible > span {
+  transform: translateY(0);
+}
+
+/* ─── HERO ANIMATION ─────────────────────────────────── */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-line {
+  overflow: hidden;
+}
+
+.hero-line > span {
+  display: block;
+  animation: heroFadeUp 1.2s var(--ease-leven) both;
+}
+
+.hero-line:nth-child(1) > span { animation-delay: 0.3s; }
+.hero-line:nth-child(2) > span { animation-delay: 0.5s; }
+.hero-line:nth-child(3) > span { animation-delay: 0.7s; }
+.hero-line:nth-child(4) > span { animation-delay: 0.9s; }
+.hero-line:nth-child(5) > span { animation-delay: 1.1s; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-sub {
+  animation: fadeIn 1s ease both;
+  animation-delay: 1.4s;
+}
+
+.hero-cta {
+  animation: fadeIn 1s ease both;
+  animation-delay: 1.7s;
+}
+
+/* ─── MARQUEE ────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-inner {
+  display: flex;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
+/* ─── LINK HOVER ─────────────────────────────────────── */
+.link-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.4s var(--ease-leven);
+}
+
+.link-hover:hover::after { width: 100%; }
+
+/* ─── BUTTON ─────────────────────────────────────────── */
+.btn-leven {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: none;
+  transition: background 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+.btn-leven:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--dark);
+}
+
+.btn-leven-filled {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  color: #fff;
+}
+
+.btn-leven-filled:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--dark);
+}
+
+/* ─── NAV ────────────────────────────────────────────── */
+.nav-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 28px 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: padding 0.5s ease, background 0.5s ease, transform 0.5s var(--ease-leven), border-color 0.5s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-root.scrolled {
+  padding: 18px 52px;
+  background: rgba(10, 8, 9, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.nav-root.hidden {
+  transform: translateY(-100%);
+}
+
+@media (max-width: 768px) {
+  .nav-root       { padding: 20px 24px; }
+  .nav-root.scrolled { padding: 14px 24px; }
+}
+
+/* ─── IMAGE HOVER ────────────────────────────────────── */
+.img-hover {
+  overflow: hidden;
+}
+
+.img-hover img {
+  transition: transform 0.8s var(--ease-leven);
+}
+
+.img-hover:hover img {
+  transform: scale(1.04);
+}
+
+/* ─── FORM INPUTS ────────────────────────────────────── */
+.input-leven {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 14px 0;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  cursor: none;
+}
+
+.input-leven::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
+}
+
+.input-leven:focus {
+  border-bottom-color: var(--sage);
+}
+
+.input-leven.error {
+  border-bottom-color: var(--terracotta);
+}
+
+select.input-leven option {
+  background: var(--dark);
+  color: #fff;
+}
+
+/* ─── HORIZONTAL RULE ────────────────────────────────── */
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--sage);
+}
+
+/* ─── UNIT BADGE ─────────────────────────────────────── */
+.unit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 2px;
+}
+
+/* ─── MEMBERSHIP CARD ────────────────────────────────── */
+.membership-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 40px 32px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.membership-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.membership-card.featured {
+  border-color: var(--sage);
+}
+
+.membership-card.featured::before {
+  content: 'MÁS ELEGIDO';
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  padding: 6px 12px;
+  background: var(--sage);
+  color: #fff;
+}
+
+/* ─── CHECK ROW ──────────────────────────────────────── */
+.check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.check-row:last-child { border-bottom: none; }
+
+/* ─── WAVE FLOW ANIMATIONS ───────────────────────────── */
+/* SVG element is width:200%. translateX(-50%) = -1 viewport.
+   Section overflow:hidden clips correctly. Path tiles at 50%. */
+@keyframes waveSweep {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.wave-svg-a {
+  animation: waveSweep 30s linear infinite;
+}
+.wave-svg-b {
+  animation: waveSweep 22s linear infinite;
+  animation-delay: -8s;
+}
+.wave-svg-c {
+  animation: waveSweep 16s linear infinite;
+  animation-delay: -5s;
+}
+
+/* ─── SCROLLBAR ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--sage); border-radius: 2px; }
+
+/* ─── SELECTION ──────────────────────────────────────── */
+::selection {
+  background: var(--sage);
+  color: #fff;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-root { padding: 20px 24px; }
+  .nav-root.scrolled { padding: 16px 24px; }
+  body { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
+}
