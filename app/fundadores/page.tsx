@@ -52,9 +52,10 @@ export default function FoundersPage() {
       >
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1920&q=80"
+            src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1400&q=75"
             alt="Casa Leven Founders"
             fill priority
+            sizes="100vw"
             className="object-cover"
             style={{ opacity: 0.22 }}
           />

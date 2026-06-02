@@ -5,10 +5,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 // Premium architectural / wellness images matching Radisson RED Funes aesthetic
+// Using w=1200 for an adequate full-bleed quality without the 1920 overhead
 const slides = [
-  'https://images.unsplash.com/photo-1596178060810-72f53ce9a65c?auto=format&fit=crop&w=1920&q=80', // elite spa dark moody
-  'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1920&q=80', // spa warm dark
-  'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1920&q=80', // luxury pool exterior
+  'https://images.unsplash.com/photo-1596178060810-72f53ce9a65c?auto=format&fit=crop&w=1400&q=75', // elite spa dark moody
+  'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1400&q=75', // spa warm dark
+  'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1400&q=75', // luxury pool exterior
 ]
 
 export default function HeroHome() {
@@ -24,7 +25,7 @@ export default function HeroHome() {
     const onIntroDone = () => setContentReady(true)
     window.addEventListener('logo-intro-done', onIntroDone)
     // Fallback in case LogoIntro doesn't fire (e.g., subpages)
-    const fallback = setTimeout(() => setContentReady(true), 4500)
+    const fallback = setTimeout(() => setContentReady(true), 2500)
     return () => {
       window.removeEventListener('logo-intro-done', onIntroDone)
       clearTimeout(fallback)
@@ -54,7 +55,7 @@ export default function HeroHome() {
             transition: active === i ? 'transform 9000ms ease-out' : 'none',
             transformOrigin: '55% 45%',
           }}>
-            <Image src={src} alt="" fill priority={i === 0} className="object-cover" style={{ opacity: 0.28 }} />
+            <Image src={src} alt="" fill priority={i === 0} loading={i === 0 ? 'eager' : 'lazy'} sizes="100vw" className="object-cover" style={{ opacity: 0.28 }} />
           </div>
         </div>
       ))}

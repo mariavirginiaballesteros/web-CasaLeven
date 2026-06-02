@@ -30,7 +30,7 @@ export default function LogoIntro() {
       }, 950)
     }
     window.addEventListener('mousemove', trigger, { once: true })
-    const t = setTimeout(trigger, 3200)
+    const t = setTimeout(trigger, 1200)
     return () => {
       window.removeEventListener('mousemove', trigger)
       clearTimeout(t)
