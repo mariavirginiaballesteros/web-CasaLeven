@@ -152,7 +152,7 @@ export default function HomePage() {
                     <Image src={unit.img} alt={unit.name} fill className="object-cover opacity-45 group-hover:opacity-70 transition-opacity duration-700" />
                     <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${unit.color}55 0%, transparent 55%)` }} />
                     <div className="absolute top-5 left-5">
-                      <span className="font-display font-semibold" style={{ fontSize: '9px', letterSpacing: '0.3em', color: unit.color, padding: '4px 9px', background: `${unit.color}15`, border: `1px solid ${unit.color}35` }}>
+                      <span className="font-display font-semibold" style={{ fontSize: '9px', letterSpacing: '0.3em', color: unit.color, padding: '4px 9px', background: `${unit.color}15` }}>
                         {unit.label.toUpperCase()}
                       </span>
                     </div>
@@ -280,7 +280,7 @@ export default function HomePage() {
               </div>
 
               <a
-                href="https://share.google/J19suzl2pCDOGH2p6"
+                href="https://www.google.com/maps?sca_esv=0ebe05bff86267c7&rlz=1C5CHFA_enAR1102AR1102&cs=1&kgmid=/g/11njplxr86&shem=rimspwouoe&shndl=30&kgs=c746785ab726b9e5&um=1&ie=UTF-8&fb=1&gl=ar&sa=X&geocode=KZXoEWerTbaVMakHuSd5Dz9z&daddr=RN9,+S2132+Rosario,+Santa+Fe"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-leven btn-leven-filled self-start flex items-center gap-3"
@@ -297,7 +297,7 @@ export default function HomePage() {
             {/* Map card */}
             <RevealSection delay={150}>
               <a
-                href="https://share.google/J19suzl2pCDOGH2p6"
+                href="https://www.google.com/maps?sca_esv=0ebe05bff86267c7&rlz=1C5CHFA_enAR1102AR1102&cs=1&kgmid=/g/11njplxr86&shem=rimspwouoe&shndl=30&kgs=c746785ab726b9e5&um=1&ie=UTF-8&fb=1&gl=ar&sa=X&geocode=KZXoEWerTbaVMakHuSd5Dz9z&daddr=RN9,+S2132+Rosario,+Santa+Fe"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block relative overflow-hidden"
