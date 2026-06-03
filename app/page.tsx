@@ -240,6 +240,117 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── CÓMO LLEGAR ──────────────────────── */}
+      <section className="py-24 md:py-32" style={{ background: 'var(--dark)' }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-14">
+          <RevealSection className="mb-12">
+            <div className="flex items-center gap-6 mb-4">
+              <div className="divider" />
+              <span className="font-display font-medium text-white/30" style={{ fontSize: '9px', letterSpacing: '0.38em' }}>UBICACIÓN</span>
+            </div>
+            <h2 className="font-display font-bold text-white leading-tight" style={{ fontSize: 'clamp(28px, 4vw, 52px)', letterSpacing: '-0.02em' }}>
+              Cómo llegar.
+            </h2>
+          </RevealSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+
+            {/* Info column */}
+            <RevealSection className="flex flex-col justify-between gap-8">
+              <div>
+                <p className="font-sans text-white/45 leading-relaxed mb-8" style={{ fontSize: '15px', maxWidth: '380px' }}>
+                  Casa Leven está dentro del Radisson RED Funes. A minutos del centro de Rosario, en un entorno diseñado para desconectarse del ruido.
+                </p>
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-start gap-4">
+                    <span style={{ color: 'var(--terracotta)', fontSize: '16px', flexShrink: 0, marginTop: '2px' }}>◈</span>
+                    <div>
+                      <p className="font-display font-medium text-white/80 mb-0.5" style={{ fontSize: '13px', letterSpacing: '0.05em' }}>RADISSON RED FUNES</p>
+                      <p className="font-sans text-white/35" style={{ fontSize: '13px' }}>Funes, Santa Fe, Argentina</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <span style={{ color: 'var(--sage)', fontSize: '16px', flexShrink: 0, marginTop: '2px' }}>◈</span>
+                    <div>
+                      <p className="font-display font-medium text-white/80 mb-0.5" style={{ fontSize: '13px', letterSpacing: '0.05em' }}>ACCESO VEHICULAR</p>
+                      <p className="font-sans text-white/35" style={{ fontSize: '13px' }}>Estacionamiento propio disponible</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="https://share.google/J19suzl2pCDOGH2p6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-leven btn-leven-filled self-start flex items-center gap-3"
+                style={{ fontSize: '11px', padding: '16px 32px' }}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                  <circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Ver en Google Maps →
+              </a>
+            </RevealSection>
+
+            {/* Map card */}
+            <RevealSection delay={150}>
+              <a
+                href="https://share.google/J19suzl2pCDOGH2p6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block relative overflow-hidden"
+                style={{
+                  minHeight: '280px',
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  transition: 'border-color 0.3s ease',
+                }}
+              >
+                {/* Decorative map-like background */}
+                <div style={{
+                  position: 'absolute', inset: 0,
+                  background: 'linear-gradient(135deg, rgba(46,39,53,0.6) 0%, rgba(13,11,14,0.8) 100%)',
+                }}/>
+                {/* Grid lines suggesting a map */}
+                <svg style={{ position:'absolute', inset:0, width:'100%', height:'100%' }} preserveAspectRatio="none">
+                  <defs>
+                    <pattern id="mapgrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.7"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#mapgrid)"/>
+                  {/* Stylised road lines */}
+                  <line x1="0" y1="55%" x2="100%" y2="55%" stroke="rgba(255,255,255,0.07)" strokeWidth="1.5"/>
+                  <line x1="38%" y1="0" x2="38%" y2="100%" stroke="rgba(255,255,255,0.05)" strokeWidth="1"/>
+                  <line x1="65%" y1="0" x2="65%" y2="100%" stroke="rgba(255,255,255,0.04)" strokeWidth="0.8"/>
+                  <line x1="0" y1="30%" x2="100%" y2="30%" stroke="rgba(255,255,255,0.04)" strokeWidth="0.8"/>
+                  {/* Pin marker */}
+                  <circle cx="50%" cy="50%" r="22" fill="rgba(175,47,61,0.15)" stroke="rgba(175,47,61,0.3)" strokeWidth="1"/>
+                  <circle cx="50%" cy="50%" r="8" fill="#af2f3d" opacity="0.9"/>
+                  <circle cx="50%" cy="50%" r="3" fill="white" opacity="0.9"/>
+                </svg>
+                {/* Hover overlay */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: 'rgba(10,8,9,0.55)' }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.8 }}>
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                    <circle cx="12" cy="9" r="2.5"/>
+                  </svg>
+                  <span className="font-display font-medium text-white/80" style={{ fontSize: '11px', letterSpacing: '0.25em' }}>ABRIR MAPA</span>
+                </div>
+                {/* Bottom label */}
+                <div className="absolute bottom-0 left-0 right-0 px-5 py-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', background: 'rgba(10,8,9,0.7)' }}>
+                  <p className="font-display font-medium text-white/60" style={{ fontSize: '11px', letterSpacing: '0.12em' }}>RADISSON RED FUNES · FUNES, ARGENTINA</p>
+                </div>
+              </a>
+            </RevealSection>
+
+          </div>
+        </div>
+      </section>
+
       {/* ─── FOUNDERS ─────────────────────────── */}
       <section className="grain relative overflow-hidden py-28 md:py-44" style={{ background: 'var(--purple)' }}>
         <div className="absolute inset-0 z-0">

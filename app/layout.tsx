@@ -21,9 +21,9 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'Casa Leven · Método Integral de Bienestar · Funes, Rosario',
-  description: 'El primer espacio donde movimiento, recuperación y nutrición conviven bajo un mismo método. Para quienes viven con intensidad. Funes, Santa Fe.',
-  keywords: 'gym funes, spa funes, wellness rosario, membresía bienestar funes, centro bienestar funes',
+  title: 'Casa Leven · Método Integral de Bienestar · Funes, Argentina',
+  description: 'El primer espacio donde movimiento, recuperación y nutrición conviven bajo un mismo método. Para quienes viven con intensidad. Funes, Argentina.',
+  keywords: 'gym funes, spa funes, wellness funes, membresía bienestar funes, centro bienestar argentina',
   openGraph: {
     title: 'Casa Leven · Un método. Un refugio.',
     description: 'Para quienes sostienen el mundo y necesitan un lugar donde sostenerse.',
