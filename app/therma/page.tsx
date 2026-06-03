@@ -17,28 +17,28 @@ const circuits = [
     name: 'RESET',
     tagline: 'Entrada al equilibrio',
     duration: '60 min',
-    price: '$100.000',
+    price: 'USD 100',
     includes: ['Sauna', 'Sala de relax + colación', 'Ducha escocesa', 'Baño de vapor'],
   },
   {
     name: 'RESTORE',
     tagline: 'Cuerpo y profundidad',
     duration: '90 min',
-    price: '$180.000',
+    price: 'USD 180',
     includes: ['Sauna', 'Sala de relax + colación', 'Exfoliación corporal', 'Nutrición corporal', 'Ducha escocesa', 'Baño de vapor'],
   },
   {
     name: 'DEEP',
     tagline: 'La experiencia completa',
     duration: '150 min',
-    price: '$280.000',
+    price: 'USD 280',
     includes: ['Sauna', 'Sala de relax + colación', 'Exfoliación corporal', 'Hidromasaje', 'Pediluvios', 'Ducha escocesa', 'Baño de vapor'],
   },
   {
     name: 'LEVEN RITUAL',
     tagline: 'El día completo',
     duration: '290 min',
-    price: '$300.000',
+    price: 'USD 300',
     highlight: true,
     includes: ['Gym (60 min)', 'Sauna + ducha escocesa', 'Almuerzo saludable', 'Piscina Kneipp', 'Masajes completos', 'Limpieza facial'],
   },
@@ -57,9 +57,9 @@ const individual = [
 ]
 
 const faciales = [
-  { name: 'Facial Premium', desc: 'Máscaras, higiene facial, masaje relajante', duration: '60 min', price: '$80.000' },
-  { name: 'Facial Renovador', desc: 'Peeling mecánico, limpieza profunda, máscara', duration: '75 min', price: '$120.000' },
-  { name: 'Facial Revitalizante', desc: 'Máscara de fango, masaje revitalizante', duration: '60 min', price: '$90.000' },
+  { name: 'Facial Premium', desc: 'Máscaras, higiene facial, masaje relajante', duration: '60 min' },
+  { name: 'Facial Renovador', desc: 'Peeling mecánico, limpieza profunda, máscara', duration: '75 min' },
+  { name: 'Facial Revitalizante', desc: 'Máscara de fango, masaje revitalizante', duration: '60 min' },
 ]
 
 export default function ThermaPage() {
@@ -155,9 +155,8 @@ export default function ThermaPage() {
               <div className="flex flex-col gap-4">
                 {faciales.map((f, i) => (
                   <div key={i} className="p-5" style={{ border: '1px solid rgba(46,39,53,0.1)', background: 'rgba(46,39,53,0.02)' }}>
-                    <div className="flex justify-between items-start mb-2">
+                    <div className="mb-2">
                       <span className="font-display font-bold text-leven-purple" style={{ fontSize: '13px', letterSpacing: '0.05em' }}>{f.name}</span>
-                      <span className="font-display font-bold" style={{ fontSize: '13px', color: COLOR }}>{f.price}</span>
                     </div>
                     <p className="font-sans text-leven-purple/50" style={{ fontSize: '12px' }}>{f.desc} · {f.duration}</p>
                   </div>
