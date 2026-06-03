@@ -177,6 +177,47 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── LO QUE ENCONTRÁS ─────────────────────────── */}
+      <section className="py-20 md:py-28" style={{ background: 'var(--dark)', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-14">
+          <RevealSection className="mb-12">
+            <div className="flex items-center gap-5">
+              <div className="divider" />
+              <span className="font-display font-medium text-white/25" style={{ fontSize: '9px', letterSpacing: '0.35em' }}>LO QUE ENCONTRÁS</span>
+            </div>
+          </RevealSection>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ border: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.06)' }}>
+            {[
+              { label: 'Gym con metodología',        sub: 'Entrenamiento con criterio y progresión real',         icon: '◈', color: '#af2f3d' },
+              { label: 'Sauna finlandés',             sub: 'Calor seco de alto rendimiento para la recuperación',  icon: '◈', color: '#af2f3d' },
+              { label: 'Circuito hídrico frío-calor', sub: 'Contraste térmico, reducción de inflamación y stress', icon: '◈', color: '#526478' },
+              { label: 'Masajes con protocolo',       sub: 'Deportivo, relajación profunda y descontracturante',   icon: '◈', color: '#526478' },
+              { label: 'Consulta nutricional',        sub: 'Plan alimentario funcional adaptado a tu ritmo',       icon: '◈', color: '#6a7a6b' },
+              { label: 'Tratamientos faciales',       sub: 'Skincare de resultado en entorno de wellness premium', icon: '◈', color: '#6a7a6b' },
+            ].map((item, i) => (
+              <RevealSection key={item.label} delay={i * 70}>
+                <div className="flex flex-col gap-3 p-7 md:p-8 h-full" style={{ background: 'var(--dark)' }}>
+                  <span style={{ fontSize: '10px', color: item.color, letterSpacing: '0.1em' }}>{item.icon}</span>
+                  <p className="font-display font-semibold text-white leading-tight" style={{ fontSize: 'clamp(15px, 1.4vw, 18px)' }}>
+                    {item.label}
+                  </p>
+                  <p className="font-sans text-white/35 leading-relaxed" style={{ fontSize: '13px' }}>
+                    {item.sub}
+                  </p>
+                </div>
+              </RevealSection>
+            ))}
+          </div>
+
+          <RevealSection delay={200} className="mt-8 flex justify-center">
+            <Link href="/therma" className="font-display font-medium text-white/30 hover:text-white/60 transition-colors" style={{ fontSize: '10px', letterSpacing: '0.25em' }}>
+              VER TODOS LOS SERVICIOS →
+            </Link>
+          </RevealSection>
+        </div>
+      </section>
+
       {/* ─── EL REFUGIO ────────────────────────────────── */}
       <section className="grain py-28 md:py-48" style={{ background: '#09080a' }}>
         <div className="max-w-4xl mx-auto px-6 md:px-14 text-center">
