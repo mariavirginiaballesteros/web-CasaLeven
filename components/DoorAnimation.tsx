@@ -53,12 +53,12 @@ export default function DoorAnimation() {
         perspective:'400px',
       }}
     >
-      {/* ── Warm amber glow visible when doors open ── */}
+      {/* ── Borravino/wine glow visible when doors open ── */}
       <div style={{
         position:   'absolute',
         left: FW, right: FW, top: AT, bottom: 0,
         background: open
-          ? 'radial-gradient(ellipse 80% 50% at 50% 22%,rgba(215,145,55,0.40) 0%,rgba(175,47,61,0.10) 58%,transparent 84%)'
+          ? 'radial-gradient(ellipse 80% 55% at 50% 20%,rgba(108,18,38,0.58) 0%,rgba(80,10,28,0.28) 52%,rgba(55,5,18,0.08) 75%,transparent 92%)'
           : 'transparent',
         transition: 'background 2.2s ease 0.65s',
         zIndex: 0,

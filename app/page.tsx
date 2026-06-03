@@ -70,16 +70,16 @@ export default function HomePage() {
       {/* ─── NARRATIVA ─────────────────────────────────── */}
       <section className="py-28 md:py-44" style={{ background: 'var(--offwhite)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-14">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-            <RevealSection className="md:col-span-3 md:pt-2">
-              <div className="divider mb-5" style={{ background: '#2e2735' }} />
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
+            <RevealSection className="md:col-span-4 md:pt-2 flex flex-col items-center md:items-start text-center md:text-left">
+              <div className="divider mb-5 mx-auto md:mx-0" style={{ background: '#2e2735' }} />
               <span className="font-display font-medium text-leven-purple/35" style={{ fontSize: '9px', letterSpacing: '0.35em' }}>
                 POR QUÉ EXISTIMOS
               </span>
               <DoorAnimation />
             </RevealSection>
 
-            <div className="md:col-span-9">
+            <div className="md:col-span-8">
               {[
                 { text: 'Decidís mucho.', w: 700, d: 0 },
                 { text: 'Sostenés equipos.', w: 700, d: 100 },
@@ -383,7 +383,6 @@ export default function HomePage() {
                   'El precio más bajo que existirá en Casa Leven',
                   'Prioridad absoluta en agenda y horarios',
                   'Evento privado de pre-apertura — solo por invitación',
-                  'Tu nombre en el muro de los que estuvieron desde el inicio',
                   'Congelamiento gratuito el primer año',
                   'Descuentos permanentes en servicios adicionales',
                 ].map((b, i) => (
