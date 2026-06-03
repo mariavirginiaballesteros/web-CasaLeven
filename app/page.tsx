@@ -189,12 +189,16 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ border: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.06)' }}>
             {[
-              { label: 'Gym con metodología',        sub: 'Entrenamiento con criterio y progresión real',         icon: '◈', color: '#af2f3d' },
-              { label: 'Sauna finlandés',             sub: 'Calor seco de alto rendimiento para la recuperación',  icon: '◈', color: '#af2f3d' },
-              { label: 'Circuito hídrico frío-calor', sub: 'Contraste térmico, reducción de inflamación y stress', icon: '◈', color: '#526478' },
-              { label: 'Masajes con protocolo',       sub: 'Deportivo, relajación profunda y descontracturante',   icon: '◈', color: '#526478' },
-              { label: 'Consulta nutricional',        sub: 'Plan alimentario funcional adaptado a tu ritmo',       icon: '◈', color: '#6a7a6b' },
-              { label: 'Tratamientos faciales',       sub: 'Skincare de resultado en entorno de wellness premium', icon: '◈', color: '#6a7a6b' },
+              { label: 'Gym con metodología',                                   sub: 'Entrenamiento con criterio y progresión real',                                icon: '◈', color: '#af2f3d' },
+              { label: 'Sauna finlandés',                                       sub: 'Calor seco de alto rendimiento para la recuperación',                         icon: '◈', color: '#af2f3d' },
+              { label: 'Circuito hídrico frío-calor',                          sub: 'Contraste térmico, reducción de inflamación y stress',                        icon: '◈', color: '#526478' },
+              { label: 'Masajes con protocolo',                                 sub: 'Deportivo, relajación profunda y descontracturante',                          icon: '◈', color: '#526478' },
+              { label: 'Consulta nutricional',                                  sub: 'Plan alimentario funcional adaptado a tu ritmo',                              icon: '◈', color: '#6a7a6b' },
+              { label: 'Tratamientos faciales',                                 sub: 'Skincare de resultado en entorno de wellness premium',                        icon: '◈', color: '#6a7a6b' },
+              { label: 'Tratamientos cognitivos de técnica en el deporte',      sub: 'Psicología deportiva y entrenamiento mental para el rendimiento',             icon: '◈', color: '#af2f3d' },
+              { label: 'Acompañamiento nutricional y médico',                   sub: 'Seguimiento integral de salud con equipo profesional',                        icon: '◈', color: '#6a7a6b' },
+              { label: 'Tratamientos hídricos termales y camino Kneipp',        sub: 'Hidroterapia y contraste térmico para la recuperación profunda',              icon: '◈', color: '#526478' },
+              { label: 'Reprogramación de hábitos alimentarios por hipnosis',   sub: 'Técnica mente-cuerpo para transformar la relación con la alimentación',      icon: '◈', color: '#6a7a6b' },
             ].map((item, i) => (
               <RevealSection key={item.label} delay={i * 70}>
                 <div className="flex flex-col gap-3 p-7 md:p-8 h-full" style={{ background: 'var(--dark)' }}>
@@ -340,8 +344,8 @@ export default function HomePage() {
                   </svg>
                   <span className="font-display font-medium text-white/80" style={{ fontSize: '11px', letterSpacing: '0.25em' }}>ABRIR MAPA</span>
                 </div>
-                {/* Bottom label */}
-                <div className="absolute bottom-0 left-0 right-0 px-5 py-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', background: 'rgba(10,8,9,0.7)' }}>
+                {/* Bottom label — hidden on mobile (already shown in info column above) */}
+                <div className="hidden md:block absolute bottom-0 left-0 right-0 px-5 py-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', background: 'rgba(10,8,9,0.7)' }}>
                   <p className="font-display font-medium text-white/60" style={{ fontSize: '11px', letterSpacing: '0.12em' }}>RADISSON RED FUNES · FUNES, ARGENTINA</p>
                 </div>
               </a>
