@@ -193,7 +193,7 @@ export default function HomePage() {
               { label: 'Sauna finlandés',                                       sub: 'Calor seco de alto rendimiento para la recuperación',                         icon: '◈', color: '#af2f3d' },
               { label: 'Circuito hídrico frío-calor',                          sub: 'Contraste térmico, reducción de inflamación y stress',                        icon: '◈', color: '#526478' },
               { label: 'Masajes con protocolo',                                 sub: 'Deportivo, relajación profunda y descontracturante',                          icon: '◈', color: '#526478' },
-              { label: 'Consulta nutricional',                                  sub: 'Plan alimentario funcional adaptado a tu ritmo',                              icon: '◈', color: '#6a7a6b' },
+
               { label: 'Tratamientos faciales',                                 sub: 'Skincare de resultado en entorno de wellness premium',                        icon: '◈', color: '#6a7a6b' },
               { label: 'Tratamientos cognitivos de técnica en el deporte',      sub: 'Psicología deportiva y entrenamiento mental para el rendimiento',             icon: '◈', color: '#af2f3d' },
               { label: 'Acompañamiento nutricional y médico',                   sub: 'Seguimiento integral de salud con equipo profesional',                        icon: '◈', color: '#6a7a6b' },
