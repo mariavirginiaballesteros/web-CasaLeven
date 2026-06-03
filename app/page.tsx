@@ -270,7 +270,7 @@ export default function HomePage() {
                     <span style={{ color: 'var(--terracotta)', fontSize: '16px', flexShrink: 0, marginTop: '2px' }}>◈</span>
                     <div>
                       <p className="font-display font-medium text-white/80 mb-0.5" style={{ fontSize: '13px', letterSpacing: '0.05em' }}>RADISSON RED FUNES</p>
-                      <p className="font-sans text-white/35" style={{ fontSize: '13px' }}>Funes, Santa Fe, Argentina</p>
+                      <p className="hidden md:block font-sans text-white/35" style={{ fontSize: '13px' }}>Funes, Santa Fe, Argentina</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
