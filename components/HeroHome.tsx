@@ -132,7 +132,7 @@ export default function HeroHome() {
                 Esta es su casa.
               </span>
             </h1>
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-5 mb-5">
               <Link href="/fundadores" className="btn-leven btn-leven-filled" style={{ fontSize: '10px', padding: '13px 28px' }}>
                 Founders
               </Link>
@@ -140,6 +140,9 @@ export default function HeroHome() {
                 EXPLORAR ↓
               </Link>
             </div>
+            <p className="font-display font-light" style={{ fontSize: '10px', letterSpacing: '0.28em', color: 'rgba(255,255,255,0.22)' }}>
+              CENTRO DE BIENESTAR INTEGRAL · FUNES, ROSARIO
+            </p>
           </div>
 
           {/* Location — Radisson RED Funes (correct name) */}

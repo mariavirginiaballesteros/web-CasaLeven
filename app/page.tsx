@@ -189,6 +189,13 @@ export default function HomePage() {
               <em style={{ color: 'var(--sage)', fontStyle: 'italic' }}>donde sostenerse."</em>
             </blockquote>
           </RevealSection>
+          <RevealSection delay={300}>
+            <div className="mt-14">
+              <Link href="/fundadores" className="btn-leven btn-leven-filled" style={{ fontSize: '11px', padding: '16px 40px' }}>
+                Quiero pertenecer →
+              </Link>
+            </div>
+          </RevealSection>
         </div>
       </section>
 
