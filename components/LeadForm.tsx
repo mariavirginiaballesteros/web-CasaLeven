@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useTransition } from 'react'
+import { useState, useTransition, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { submitLead } from '@/actions/submitLead'
 
 interface Props {
@@ -14,9 +15,19 @@ export default function LeadForm({
   canal      = 'Sitio Web',
   showEmpresa = false,
 }: Props) {
+  const router = useRouter()
   const [isPending, startTransition] = useTransition()
   const [success,   setSuccess]      = useState(false)
   const [error,     setError]        = useState('')
+
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => {
+        router.push('/')
+      }, 3500)
+      return () => clearTimeout(timer)
+    }
+  }, [success, router])
 
   const [form, setForm] = useState({
     nombre:            '',
@@ -59,18 +70,10 @@ export default function LeadForm({
         >
           ¡Listo.
         </div>
-        <p className="font-sans text-white/60 leading-relaxed" style={{ fontSize: '15px' }}>
-          Recibimos tu registro. Te contactamos en menos de 24 horas
-          para confirmar tu lugar como Founder.
+        <p className="font-sans text-white/60 leading-relaxed" style={{ fontSize: '15px', maxWidth: '480px', margin: '0 auto' }}>
+          Estás a un paso de ser parte de esta casa, revisá tu correo —
+          te enviaremos todo lo que necesitás saber para que puedas sumarte.
         </p>
-        <div className="mt-8">
-          <a
-            href="https://wa.me/5493415000000?text=Hola, acabo de registrarme como Founder de Casa Leven"
-            className="btn-leven inline-flex"
-          >
-            WhatsApp directo →
-          </a>
-        </div>
       </div>
     )
   }
