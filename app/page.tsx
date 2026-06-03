@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import HeroHome from '@/components/HeroHome'
 import RevealSection from '@/components/RevealSection'
+import DoorAnimation from '@/components/DoorAnimation'
 
 const units = [
   {
@@ -75,6 +76,7 @@ export default function HomePage() {
               <span className="font-display font-medium text-leven-purple/35" style={{ fontSize: '9px', letterSpacing: '0.35em' }}>
                 POR QUÉ EXISTIMOS
               </span>
+              <DoorAnimation />
             </RevealSection>
 
             <div className="md:col-span-9">
@@ -93,9 +95,9 @@ export default function HomePage() {
               <RevealSection delay={500} className="mt-10">
                 <div className="w-8 h-px mb-6" style={{ background: '#af2f3d' }} />
                 <p className="font-sans text-leven-purple/55 leading-relaxed max-w-lg" style={{ fontSize: '16px' }}>
-                  Casa Leven fue diseñada para ese momento.
-                  El lugar donde la energía se gestiona, no se desperdicia.
-                  Un refugio que conoce tu ritmo.
+                  Casa Leven fue diseñada para ese momento. El lugar donde la energía se gestiona, la recuperación es la meta.<br /><br />
+                  Un refugio que conoce tu ritmo.<br />
+                  Una casa donde sentirte cuidado.
                 </p>
               </RevealSection>
             </div>
