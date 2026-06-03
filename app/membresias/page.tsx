@@ -4,7 +4,7 @@ import RevealSection from '@/components/RevealSection'
 
 export const metadata: Metadata = {
   title: 'Membresías · Casa Leven · Planes de Bienestar Integral',
-  description: 'Elegí tu membresía en Casa Leven. STARTER, FLOW, SPORT y POWER SPORT. Acceso a gym, spa, nutrición y más. Funes, Rosario.',
+  description: 'Elegí tu membresía en Casa Leven. STARTER, FLOW, SPORT y POWER SPORT. Acceso a gym, spa, nutrición y más. Funes, Argentina.',
 }
 
 const plans = [

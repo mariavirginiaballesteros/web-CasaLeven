@@ -7,7 +7,7 @@ import BrandImages from '@/components/BrandImages'
 
 export const metadata: Metadata = {
   title: 'Leven Therma · Spa y Recuperación Profunda · Casa Leven Funes',
-  description: 'Circuitos termales, masajes con protocolo y tratamientos de recuperación. La habilidad más sofisticada de los que más rinden. Funes, Rosario.',
+  description: 'Circuitos termales, masajes con protocolo y tratamientos de recuperación. La habilidad más sofisticada de los que más rinden. Funes, Argentina.',
 }
 
 const COLOR = '#526478'

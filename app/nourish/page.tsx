@@ -7,7 +7,7 @@ import BrandImages from '@/components/BrandImages'
 
 export const metadata: Metadata = {
   title: 'Leven Nourish · Nutrición Funcional · Casa Leven Funes',
-  description: 'Nutrición funcional. Aguas internacionales, jugos naturales y alimentos Esenio. El tercer pilar del sistema Casa Leven. Funes, Rosario.',
+  description: 'Nutrición funcional. Aguas internacionales, jugos naturales y alimentos Esenio. El tercer pilar del sistema Casa Leven. Funes, Argentina.',
 }
 
 const COLOR = '#6a7a6b'

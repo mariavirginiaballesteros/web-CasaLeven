@@ -141,7 +141,7 @@ export default function HeroHome() {
               </Link>
             </div>
             <p className="font-display font-light" style={{ fontSize: '10px', letterSpacing: '0.28em', color: 'rgba(255,255,255,0.22)' }}>
-              CENTRO DE BIENESTAR Y RECUPERACIÓN INTEGRAL · FUNES, ROSARIO
+              CENTRO DE BIENESTAR Y RECUPERACIÓN INTEGRAL · FUNES, ARGENTINA
             </p>
           </div>
 

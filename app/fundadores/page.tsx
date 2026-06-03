@@ -6,7 +6,7 @@ import RevealSection from '@/components/RevealSection'
 
 export const metadata: Metadata = {
   title: 'Founders · Casa Leven · Precio Exclusivo Pre-Apertura',
-  description: 'Sé uno de los primeros socios de Casa Leven. Precio exclusivo antes de la apertura. Beneficios únicos. Cupos limitados. Funes, Rosario.',
+  description: 'Sé uno de los primeros socios de Casa Leven. Precio exclusivo antes de la apertura. Beneficios únicos. Cupos limitados. Funes, Argentina.',
 }
 
 const benefits = [
