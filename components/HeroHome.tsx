@@ -9,7 +9,7 @@ import Link from 'next/link'
 const slides = [
   'https://images.unsplash.com/photo-1596178060810-72f53ce9a65c?auto=format&fit=crop&w=1400&q=75', // elite spa dark moody
   'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1400&q=75', // spa warm dark
-  'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1400&q=75', // luxury pool exterior
+  'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=75', // luxury gym dark moody
 ]
 
 export default function HeroHome() {
