@@ -280,7 +280,7 @@ export default function HomePage() {
               </div>
 
               <a
-                href="https://www.google.com/maps?sca_esv=0ebe05bff86267c7&rlz=1C5CHFA_enAR1102AR1102&cs=1&kgmid=/g/11njplxr86&shem=rimspwouoe&shndl=30&kgs=c746785ab726b9e5&um=1&ie=UTF-8&fb=1&gl=ar&sa=X&geocode=KZXoEWerTbaVMakHuSd5Dz9z&daddr=RN9,+S2132+Rosario,+Santa+Fe"
+                href="https://www.google.com/maps/dir/-32.9082395,-60.8095537/Radisson+RED+Funes,+2+de+abril+3501,+S2132+Funes,+Santa+Fe/@-32.9253949,-60.8388681,6505m/data=!3m2!1e3!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x95b64db892bd072b:0x279332880741753b!2m2!1d-60.8307717!2d-32.9365745?entry=ttu&g_ep=EgoyMDI2MDUzMS4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-leven btn-leven-filled self-start flex items-center gap-3"
@@ -297,7 +297,7 @@ export default function HomePage() {
             {/* Map card */}
             <RevealSection delay={150}>
               <a
-                href="https://www.google.com/maps?sca_esv=0ebe05bff86267c7&rlz=1C5CHFA_enAR1102AR1102&cs=1&kgmid=/g/11njplxr86&shem=rimspwouoe&shndl=30&kgs=c746785ab726b9e5&um=1&ie=UTF-8&fb=1&gl=ar&sa=X&geocode=KZXoEWerTbaVMakHuSd5Dz9z&daddr=RN9,+S2132+Rosario,+Santa+Fe"
+                href="https://www.google.com/maps/dir/-32.9082395,-60.8095537/Radisson+RED+Funes,+2+de+abril+3501,+S2132+Funes,+Santa+Fe/@-32.9253949,-60.8388681,6505m/data=!3m2!1e3!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x95b64db892bd072b:0x279332880741753b!2m2!1d-60.8307717!2d-32.9365745?entry=ttu&g_ep=EgoyMDI2MDUzMS4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block relative overflow-hidden"
@@ -365,7 +365,7 @@ export default function HomePage() {
               <p className="font-display font-light text-white/30 mb-3" style={{ fontSize: '10px', letterSpacing: '0.4em' }}>PROGRAMA EXCLUSIVO</p>
               <h2 className="font-display font-bold text-white leading-tight mb-6" style={{ fontSize: 'clamp(32px, 5vw, 60px)', letterSpacing: '-0.02em' }}>
                 Antes de que el mundo<br />descubra Casa Leven,<br />
-                <em style={{ fontWeight: 300, fontStyle: 'italic', color: 'var(--sage)' }}>algunos ya viven aquí.</em>
+                <em style={{ fontWeight: 300, fontStyle: 'italic', color: 'var(--sage)' }}>algunos ya cruzaron la puerta.</em>
               </h2>
               <p className="font-sans text-white/45 leading-relaxed mb-10" style={{ fontSize: '15px', maxWidth: '400px' }}>
                 Los Founders son quienes eligen Casa Leven
