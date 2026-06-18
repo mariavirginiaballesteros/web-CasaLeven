@@ -14,7 +14,7 @@ const plans = [
     price:    'USD 89',
     after:    'USD 120',
     color:    'rgba(255,255,255,0.05)',
-    accentColor: 'rgba(255,255,255,0.3)',
+    accentColor: 'rgba(255,255,255,0.7)',
     services: [
       { label: 'Acceso Gym (Leven Motion)', included: true },
       { label: 'Vestuarios + duchas ilimitados', included: true },
@@ -33,8 +33,8 @@ const plans = [
     tagline:  'Movimiento + recuperación + nutrición.',
     price:    'USD 149',
     after:    'USD 199',
-    color:    'rgba(123,132,118,0.08)',
-    accentColor: '#7b8476',
+    color:    'rgba(59,47,61,0.15)',
+    accentColor: 'rgba(255,255,255,0.7)',
     featured: true,
     services: [
       { label: 'Acceso Gym (Leven Motion)', included: true },
@@ -54,8 +54,8 @@ const plans = [
     tagline:  'Rendimiento + recuperación física.',
     price:    'USD 179',
     after:    'USD 239',
-    color:    'rgba(93,109,126,0.08)',
-    accentColor: '#5d6d7e',
+    color:    'rgba(255,255,255,0.05)',
+    accentColor: 'rgba(255,255,255,0.7)',
     services: [
       { label: 'Acceso Gym (Leven Motion)', included: true },
       { label: 'Vestuarios + duchas ilimitados', included: true },
@@ -74,8 +74,8 @@ const plans = [
     tagline:  'El sistema completo. Sin restricciones.',
     price:    'USD 229',
     after:    'USD 299',
-    color:    'rgba(178,58,58,0.06)',
-    accentColor: '#b23a3a',
+    color:    'rgba(255,255,255,0.05)',
+    accentColor: 'rgba(255,255,255,0.7)',
     services: [
       { label: 'Acceso Gym (Leven Motion)', included: true },
       { label: 'Vestuarios + duchas ilimitados', included: true },
@@ -144,7 +144,7 @@ export default function MembresiasPage() {
                   {d.discount && (
                     <span
                       className="font-display font-bold"
-                      style={{ fontSize: '10px', color: 'var(--sage)', letterSpacing: '0.1em' }}
+                      style={{ fontSize: '10px', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em' }}
                     >
                       {d.discount}
                     </span>
@@ -169,18 +169,23 @@ export default function MembresiasPage() {
             {plans.map((plan, i) => (
               <RevealSection key={plan.name} delay={i * 80}>
                 <div
-                  className={`membership-card flex flex-col h-full ${plan.featured ? 'featured' : ''}`}
-                  style={{ background: plan.color, minHeight: '600px' }}
+                  className="membership-card flex flex-col h-full"
+                  style={{ background: plan.color, minHeight: '600px', borderColor: plan.featured ? 'rgba(255,255,255,0.4)' : 'rgba(255,255,255,0.08)' }}
                 >
+                  {plan.featured && (
+                    <div className="absolute top-0 right-0 font-display font-bold text-white" style={{ fontSize: '8px', letterSpacing: '0.2em', padding: '5px 10px', background: 'var(--purple)' }}>
+                      MÁS ELEGIDO
+                    </div>
+                  )}
                   {/* Header */}
                   <div className="mb-6">
                     <div
                       className="font-display font-bold text-white mb-2"
-                      style={{ fontSize: '10px', letterSpacing: '0.25em' }}
+                      style={{ fontSize: '12px', letterSpacing: '0.25em' }}
                     >
                       {plan.name}
                     </div>
-                    <p className="font-sans text-white/40 leading-relaxed" style={{ fontSize: '12px' }}>
+                    <p className="font-sans text-white/40 leading-relaxed" style={{ fontSize: '14px' }}>
                       {plan.tagline}
                     </p>
                   </div>
@@ -204,7 +209,7 @@ export default function MembresiasPage() {
                     <div className="mt-2">
                       <span
                         className="font-display font-semibold"
-                        style={{ fontSize: '9px', letterSpacing: '0.2em', color: 'var(--terracotta)' }}
+                        style={{ fontSize: '9px', letterSpacing: '0.2em', color: 'rgba(255,255,255,0.6)' }}
                       >
                         PRECIO FUNDADOR
                       </span>
@@ -232,7 +237,7 @@ export default function MembresiasPage() {
                         <span
                           className="font-sans leading-snug"
                           style={{
-                            fontSize: '12px',
+                            fontSize: '13px',
                             color: s.included ? 'rgba(255,255,255,0.65)' : 'rgba(255,255,255,0.2)',
                           }}
                         >
@@ -243,7 +248,7 @@ export default function MembresiasPage() {
                   </div>
 
                   {/* CTA */}
-                  <Link href="/fundadores" className="btn-leven w-full justify-center" style={{ borderColor: plan.accentColor + '60' }}>
+                  <Link href="/fundadores" className="btn-leven w-full justify-center" style={{ borderColor: 'rgba(255,255,255,0.3)' }}>
                     Elegir {plan.name}
                   </Link>
                 </div>

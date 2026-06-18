@@ -130,7 +130,7 @@ export default function ThermaPage() {
             {/* Individual massages */}
             <RevealSection>
               <div className="w-8 h-px mb-6" style={{ background: COLOR }} />
-              <h3 className="font-display font-bold text-leven-purple mb-8" style={{ fontSize: 'clamp(22px, 3vw, 36px)', letterSpacing: '-0.01em' }}>
+              <h3 className="font-display font-bold mb-8" style={{ fontSize: 'clamp(22px, 3vw, 36px)', letterSpacing: '-0.01em', color: COLOR }}>
                 Masajes individuales.
               </h3>
               <div className="flex flex-col gap-0">
@@ -149,7 +149,7 @@ export default function ThermaPage() {
             {/* Facial treatments */}
             <RevealSection delay={150}>
               <div className="w-8 h-px mb-6" style={{ background: COLOR }} />
-              <h3 className="font-display font-bold text-leven-purple mb-8" style={{ fontSize: 'clamp(22px, 3vw, 36px)', letterSpacing: '-0.01em' }}>
+              <h3 className="font-display font-bold mb-8" style={{ fontSize: 'clamp(22px, 3vw, 36px)', letterSpacing: '-0.01em', color: COLOR }}>
                 Tratamientos faciales.
               </h3>
               <div className="flex flex-col gap-4">
@@ -164,6 +164,12 @@ export default function ThermaPage() {
               </div>
             </RevealSection>
           </div>
+
+          <RevealSection className="mt-14 text-center">
+            <Link href="/fundadores" className="btn-leven btn-leven-therma" style={{ borderColor: `${COLOR}80` }}>
+              Reservar tratamiento →
+            </Link>
+          </RevealSection>
         </div>
       </section>
 
@@ -189,10 +195,10 @@ export default function ThermaPage() {
           </RevealSection>
           <RevealSection delay={150}>
             <div className="flex gap-4">
-              <Link href="/fundadores" className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.5)', color: '#fff', whiteSpace: 'nowrap' }}>
+              <Link href="/fundadores" className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.5)', whiteSpace: 'nowrap' }}>
                 Founders →
               </Link>
-              <a href="https://wa.me/5493415000000?text=Hola, quiero reservar en Leven Therma" className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.3)', color: 'rgba(255,255,255,0.7)', whiteSpace: 'nowrap' }}>
+              <a href="https://wa.me/5493415000000?text=Hola, quiero reservar en Leven Therma" className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.3)', whiteSpace: 'nowrap' }}>
                 WhatsApp
               </a>
             </div>

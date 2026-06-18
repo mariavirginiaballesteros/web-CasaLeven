@@ -110,6 +110,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-14 py-10 md:py-12">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-0 mb-2">
+                <span className="font-display font-bold" style={{ fontSize: '10px', letterSpacing: '0.12em', color: '#fff', background: '#1a1a1a', padding: '4px 9px' }}>RADISSON</span>
+                <span className="font-display font-bold" style={{ fontSize: '10px', letterSpacing: '0.12em', color: '#fff', background: '#e31837', padding: '4px 9px' }}>RED</span>
+              </div>
               <p className="font-display font-bold text-white" style={{ fontSize: 'clamp(16px, 2vw, 22px)', letterSpacing: '-0.01em' }}>
                 Dentro del Radisson RED Funes.
               </p>
@@ -150,14 +154,13 @@ export default function HomePage() {
                 <Link href={unit.href} className="block">
                   <div className="img-hover relative mb-6 overflow-hidden" style={{ aspectRatio: '3/4' }}>
                     <Image src={unit.img} alt={unit.name} fill className="object-cover opacity-45 group-hover:opacity-70 transition-opacity duration-700" />
-                    <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${unit.color}55 0%, transparent 55%)` }} />
                     <div className="absolute top-5 left-5">
                       <span className="font-display font-semibold" style={{ fontSize: '9px', letterSpacing: '0.3em', color: unit.color, padding: '4px 9px', background: `${unit.color}15` }}>
                         {unit.label.toUpperCase()}
                       </span>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 p-5">
-                      <p className="font-display font-bold text-white leading-tight" style={{ fontSize: 'clamp(17px, 2vw, 22px)' }}>
+                    <div className="absolute bottom-0 left-0 right-0 px-5 py-4" style={{ background: unit.color }}>
+                      <p className="font-display font-bold text-white leading-tight" style={{ fontSize: 'clamp(19px, 2.5vw, 26px)' }}>
                         {unit.line1}<br />{unit.line2}
                       </p>
                     </div>
@@ -178,16 +181,16 @@ export default function HomePage() {
       </section>
 
       {/* ─── LO QUE ENCONTRÁS ─────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: 'var(--dark)', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+      <section className="py-20 md:py-28" style={{ background: 'var(--offwhite)', borderTop: '1px solid rgba(46,39,53,0.06)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-14">
           <RevealSection className="mb-12">
             <div className="flex items-center gap-5">
               <div className="divider" />
-              <span className="font-display font-medium text-white/25" style={{ fontSize: '9px', letterSpacing: '0.35em' }}>LO QUE ENCONTRÁS</span>
+              <span className="font-display font-medium text-leven-purple/30" style={{ fontSize: '9px', letterSpacing: '0.35em' }}>LO QUE ENCONTRÁS</span>
             </div>
           </RevealSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ border: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.06)' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ border: '1px solid rgba(46,39,53,0.08)', background: 'rgba(46,39,53,0.08)' }}>
             {[
               { label: 'Gym con metodología',                                   sub: 'Entrenamiento con criterio y progresión real',                                icon: '◈', color: '#b23a3a' },
               { label: 'Sauna finlandés',                                       sub: 'Calor seco de alto rendimiento para la recuperación',                         icon: '◈', color: '#b23a3a' },
@@ -201,12 +204,12 @@ export default function HomePage() {
               { label: 'Reprogramación de hábitos alimentarios por hipnosis',   sub: 'Técnica mente-cuerpo para transformar la relación con la alimentación',      icon: '◈', color: '#7b8476' },
             ].map((item, i) => (
               <RevealSection key={item.label} delay={i * 70}>
-                <div className="flex flex-col gap-3 p-7 md:p-8 h-full" style={{ background: 'var(--dark)' }}>
+                <div className="flex flex-col gap-3 p-7 md:p-8 h-full" style={{ background: 'var(--offwhite)' }}>
                   <span style={{ fontSize: '10px', color: item.color, letterSpacing: '0.1em' }}>{item.icon}</span>
-                  <p className="font-display font-semibold text-white leading-tight" style={{ fontSize: 'clamp(15px, 1.4vw, 18px)' }}>
+                  <p className="font-display font-semibold text-leven-purple leading-tight" style={{ fontSize: 'clamp(15px, 1.4vw, 18px)' }}>
                     {item.label}
                   </p>
-                  <p className="font-sans text-white/35 leading-relaxed" style={{ fontSize: '13px' }}>
+                  <p className="font-sans text-leven-purple/45 leading-relaxed" style={{ fontSize: '13px' }}>
                     {item.sub}
                   </p>
                 </div>
@@ -215,7 +218,7 @@ export default function HomePage() {
           </div>
 
           <RevealSection delay={200} className="mt-8 flex justify-center">
-            <Link href="/therma" className="font-display font-medium text-white/30 hover:text-white/60 transition-colors" style={{ fontSize: '10px', letterSpacing: '0.25em' }}>
+            <Link href="/therma" className="font-display font-medium text-leven-purple/30 hover:text-leven-purple/60 transition-colors" style={{ fontSize: '10px', letterSpacing: '0.25em' }}>
               VER TODOS LOS SERVICIOS →
             </Link>
           </RevealSection>
@@ -356,22 +359,17 @@ export default function HomePage() {
       </section>
 
       {/* ─── FOUNDERS ─────────────────────────── */}
-      <section className="grain relative overflow-hidden py-28 md:py-44" style={{ background: 'var(--purple)' }}>
-        <div className="absolute inset-0 z-0">
-          <Image src="https://images.unsplash.com/photo-1574271143515-5cddf8da19be?auto=format&fit=crop&w=1920&q=80" alt="" fill className="object-cover" style={{ opacity: 0.08 }} />
-        </div>
-        <div className="absolute inset-0 z-[1]" style={{ background: 'linear-gradient(135deg, rgba(46,39,53,0.92) 0%, rgba(13,11,14,0.96) 100%)' }} />
-
-        <div className="relative z-[2] max-w-7xl mx-auto px-6 md:px-14">
+      <section className="grain py-28 md:py-44" style={{ background: 'var(--offwhite)' }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-14">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
             <RevealSection>
               <div className="divider mb-8" />
-              <p className="font-display text-white/30 mb-3" style={{ fontSize: '10px', letterSpacing: '0.4em' }}>PROGRAMA EXCLUSIVO</p>
-              <h2 className="font-display font-bold text-white leading-tight mb-6" style={{ fontSize: 'clamp(32px, 5vw, 60px)', letterSpacing: '-0.02em' }}>
+              <p className="font-display text-leven-purple/35 mb-3" style={{ fontSize: '10px', letterSpacing: '0.4em' }}>PROGRAMA EXCLUSIVO</p>
+              <h2 className="font-display font-bold text-leven-purple leading-tight mb-6" style={{ fontSize: 'clamp(32px, 5vw, 60px)', letterSpacing: '-0.02em' }}>
                 Antes de que el mundo<br />descubra Casa Leven,<br />
                 <em style={{ fontWeight: 300, color: 'var(--sage)' }}>algunos ya cruzaron la puerta.</em>
               </h2>
-              <p className="font-sans text-white/45 leading-relaxed mb-10" style={{ fontSize: '15px', maxWidth: '400px' }}>
+              <p className="font-sans text-leven-purple/55 leading-relaxed mb-10" style={{ fontSize: '15px', maxWidth: '400px' }}>
                 Los Founders son quienes eligen Casa Leven
                 en su forma más exclusiva: con acceso irrepetible,
                 precio que no vuelve, y el privilegio de pertenecer desde el origen.
@@ -390,9 +388,9 @@ export default function HomePage() {
                   'Congelamiento gratuito el primer año',
                   'Descuentos permanentes en servicios adicionales',
                 ].map((b, i) => (
-                  <div key={i} className="flex items-start gap-4 py-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                  <div key={i} className="flex items-start gap-4 py-4" style={{ borderBottom: '1px solid rgba(46,39,53,0.08)' }}>
                     <span style={{ color: 'var(--sage)', fontSize: '12px', marginTop: '2px', flexShrink: 0 }}>✓</span>
-                    <p className="font-sans text-white/55" style={{ fontSize: '14px' }}>{b}</p>
+                    <p className="font-sans text-leven-purple/60" style={{ fontSize: '14px' }}>{b}</p>
                   </div>
                 ))}
               </div>
