@@ -12,7 +12,7 @@ const units = [
     line1: 'El cuerpo que se mueve bien',
     line2: 'decide mejor.',
     copy:  'Entrenamiento con criterio para quienes exigen resultados reales. Metodología, progresión y la guía de quien entiende el cuerpo como herramienta de rendimiento.',
-    color: '#af2f3d',
+    color: '#b23a3a',
     href:  '/motion',
     logo:  '/logos/leven-motion.svg',
     img:   'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80',
@@ -24,7 +24,7 @@ const units = [
     line1: 'Los que más rinden',
     line2: 'saben cuándo parar.',
     copy:  'Recuperación profunda. Circuitos termales, masajes con protocolo y tratamientos pensados para devolver el equilibrio con precisión.',
-    color: '#526478',
+    color: '#5d6d7e',
     href:  '/therma',
     logo:  '/logos/leven-therma.svg',
     img:   'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80',
@@ -36,7 +36,7 @@ const units = [
     line1: 'El combustible que elegís',
     line2: 'determina la energía que tenés.',
     copy:  'Nutrición funcional con propósito. Aguas internacionales, jugos naturales y alimentos Esenio. Ingredientes que el cuerpo reconoce.',
-    color: '#6a7a6b',
+    color: '#7b8476',
     href:  '/nourish',
     logo:  '/logos/leven-nourish.svg',
     img:   'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80',
@@ -60,7 +60,7 @@ export default function HomePage() {
       <div className="overflow-hidden py-[14px]" style={{ background: 'var(--dark)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="marquee-inner whitespace-nowrap">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className="font-display font-light inline-block mx-5" style={{ fontSize: '10px', letterSpacing: '0.35em', color: item === '·' ? '#af2f3d' : 'rgba(255,255,255,0.18)' }}>
+            <span key={i} className="font-display font-light inline-block mx-5" style={{ fontSize: '10px', letterSpacing: '0.35em', color: item === '·' ? '#b23a3a' : 'rgba(255,255,255,0.18)' }}>
               {item}
             </span>
           ))}
@@ -93,7 +93,7 @@ export default function HomePage() {
                 </RevealSection>
               ))}
               <RevealSection delay={500} className="mt-10">
-                <div className="w-8 h-px mb-6" style={{ background: '#af2f3d' }} />
+                <div className="w-8 h-px mb-6" style={{ background: '#b23a3a' }} />
                 <p className="font-sans text-leven-purple/55 leading-relaxed max-w-lg" style={{ fontSize: '16px' }}>
                   Casa Leven fue diseñada para ese momento. El lugar donde la energía se gestiona, la recuperación es la meta.<br /><br />
                   Un refugio que conoce tu ritmo.<br />
@@ -189,16 +189,16 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ border: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.06)' }}>
             {[
-              { label: 'Gym con metodología',                                   sub: 'Entrenamiento con criterio y progresión real',                                icon: '◈', color: '#af2f3d' },
-              { label: 'Sauna finlandés',                                       sub: 'Calor seco de alto rendimiento para la recuperación',                         icon: '◈', color: '#af2f3d' },
-              { label: 'Circuito hídrico frío-calor',                          sub: 'Contraste térmico, reducción de inflamación y stress',                        icon: '◈', color: '#526478' },
-              { label: 'Masajes con protocolo',                                 sub: 'Deportivo, relajación profunda y descontracturante',                          icon: '◈', color: '#526478' },
+              { label: 'Gym con metodología',                                   sub: 'Entrenamiento con criterio y progresión real',                                icon: '◈', color: '#b23a3a' },
+              { label: 'Sauna finlandés',                                       sub: 'Calor seco de alto rendimiento para la recuperación',                         icon: '◈', color: '#b23a3a' },
+              { label: 'Circuito hídrico frío-calor',                          sub: 'Contraste térmico, reducción de inflamación y stress',                        icon: '◈', color: '#5d6d7e' },
+              { label: 'Masajes con protocolo',                                 sub: 'Deportivo, relajación profunda y descontracturante',                          icon: '◈', color: '#5d6d7e' },
 
-              { label: 'Tratamientos faciales',                                 sub: 'Skincare de resultado en entorno de wellness premium',                        icon: '◈', color: '#6a7a6b' },
-              { label: 'Tratamientos cognitivos de técnica en el deporte',      sub: 'Psicología deportiva y entrenamiento mental para el rendimiento',             icon: '◈', color: '#af2f3d' },
-              { label: 'Acompañamiento nutricional y médico',                   sub: 'Seguimiento integral de salud con equipo profesional',                        icon: '◈', color: '#6a7a6b' },
-              { label: 'Tratamientos hídricos termales y camino Kneipp',        sub: 'Hidroterapia y contraste térmico para la recuperación profunda',              icon: '◈', color: '#526478' },
-              { label: 'Reprogramación de hábitos alimentarios por hipnosis',   sub: 'Técnica mente-cuerpo para transformar la relación con la alimentación',      icon: '◈', color: '#6a7a6b' },
+              { label: 'Tratamientos faciales',                                 sub: 'Skincare de resultado en entorno de wellness premium',                        icon: '◈', color: '#7b8476' },
+              { label: 'Tratamientos cognitivos de técnica en el deporte',      sub: 'Psicología deportiva y entrenamiento mental para el rendimiento',             icon: '◈', color: '#b23a3a' },
+              { label: 'Acompañamiento nutricional y médico',                   sub: 'Seguimiento integral de salud con equipo profesional',                        icon: '◈', color: '#7b8476' },
+              { label: 'Tratamientos hídricos termales y camino Kneipp',        sub: 'Hidroterapia y contraste térmico para la recuperación profunda',              icon: '◈', color: '#5d6d7e' },
+              { label: 'Reprogramación de hábitos alimentarios por hipnosis',   sub: 'Técnica mente-cuerpo para transformar la relación con la alimentación',      icon: '◈', color: '#7b8476' },
             ].map((item, i) => (
               <RevealSection key={item.label} delay={i * 70}>
                 <div className="flex flex-col gap-3 p-7 md:p-8 h-full" style={{ background: 'var(--dark)' }}>
@@ -226,12 +226,12 @@ export default function HomePage() {
       <section className="grain py-28 md:py-48" style={{ background: '#09080a' }}>
         <div className="max-w-4xl mx-auto px-6 md:px-14 text-center">
           <RevealSection>
-            <p className="font-display font-light text-white/15 mb-12" style={{ fontSize: '10px', letterSpacing: '0.5em' }}>CASA LEVEN</p>
+            <p className="font-display text-white/15 mb-12" style={{ fontSize: '10px', letterSpacing: '0.5em' }}>CASA LEVEN</p>
             <blockquote className="font-display font-light text-white leading-[1.05]" style={{ fontSize: 'clamp(26px, 4.5vw, 58px)', letterSpacing: '-0.01em' }}>
               "Porque incluso quienes<br />
               sostienen el mundo<br />
               necesitan un lugar<br />
-              <em style={{ color: 'var(--sage)', fontStyle: 'italic' }}>donde sostenerse."</em>
+              <em style={{ color: 'var(--sage)' }}>donde sostenerse."</em>
             </blockquote>
           </RevealSection>
           <RevealSection delay={300}>
@@ -331,8 +331,8 @@ export default function HomePage() {
                   <line x1="65%" y1="0" x2="65%" y2="100%" stroke="rgba(255,255,255,0.04)" strokeWidth="0.8"/>
                   <line x1="0" y1="30%" x2="100%" y2="30%" stroke="rgba(255,255,255,0.04)" strokeWidth="0.8"/>
                   {/* Pin marker */}
-                  <circle cx="50%" cy="50%" r="22" fill="rgba(175,47,61,0.15)" stroke="rgba(175,47,61,0.3)" strokeWidth="1"/>
-                  <circle cx="50%" cy="50%" r="8" fill="#af2f3d" opacity="0.9"/>
+                  <circle cx="50%" cy="50%" r="22" fill="rgba(178,58,58,0.15)" stroke="rgba(178,58,58,0.3)" strokeWidth="1"/>
+                  <circle cx="50%" cy="50%" r="8" fill="#b23a3a" opacity="0.9"/>
                   <circle cx="50%" cy="50%" r="3" fill="white" opacity="0.9"/>
                 </svg>
                 {/* Hover overlay */}
@@ -366,10 +366,10 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
             <RevealSection>
               <div className="divider mb-8" />
-              <p className="font-display font-light text-white/30 mb-3" style={{ fontSize: '10px', letterSpacing: '0.4em' }}>PROGRAMA EXCLUSIVO</p>
+              <p className="font-display text-white/30 mb-3" style={{ fontSize: '10px', letterSpacing: '0.4em' }}>PROGRAMA EXCLUSIVO</p>
               <h2 className="font-display font-bold text-white leading-tight mb-6" style={{ fontSize: 'clamp(32px, 5vw, 60px)', letterSpacing: '-0.02em' }}>
                 Antes de que el mundo<br />descubra Casa Leven,<br />
-                <em style={{ fontWeight: 300, fontStyle: 'italic', color: 'var(--sage)' }}>algunos ya cruzaron la puerta.</em>
+                <em style={{ fontWeight: 300, color: 'var(--sage)' }}>algunos ya cruzaron la puerta.</em>
               </h2>
               <p className="font-sans text-white/45 leading-relaxed mb-10" style={{ fontSize: '15px', maxWidth: '400px' }}>
                 Los Founders son quienes eligen Casa Leven

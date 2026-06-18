@@ -45,28 +45,6 @@ body {
   mix-blend-mode: difference;
 }
 
-.cursor-ring {
-  position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s var(--ease-leven),
-              height 0.3s var(--ease-leven),
-              border-color 0.3s ease,
-              top 0.12s var(--ease-leven),
-              left 0.12s var(--ease-leven);
-}
-
-body:has(a:hover) .cursor-ring,
-body:has(button:hover) .cursor-ring {
-  width: 56px;
-  height: 56px;
-  border-color: rgba(255, 255, 255, 0.8);
-}
 
 /* ─── GRAIN TEXTURE ──────────────────────────────────── */
 .grain {
@@ -225,6 +203,12 @@ body:has(button:hover) .cursor-ring {
   background: #fff;
   border-color: #fff;
   color: var(--dark);
+}
+
+.btn-leven-therma:hover {
+  background: #5d6d7e;
+  border-color: #5d6d7e;
+  color: #fff;
 }
 
 /* ─── NAV ────────────────────────────────────────────── */
@@ -406,5 +390,5 @@ select.input-leven option {
   .nav-root { padding: 20px 24px; }
   .nav-root.scrolled { padding: 16px 24px; }
   body { cursor: auto; }
-  .cursor-dot, .cursor-ring { display: none; }
+  .cursor-dot { display: none; }
 }

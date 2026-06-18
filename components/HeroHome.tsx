@@ -128,7 +128,7 @@ export default function HeroHome() {
               style={{ fontSize: 'clamp(40px, 6.5vw, 88px)', letterSpacing: '-0.03em' }}>
               Hay quienes<br />
               sostienen el mundo.<br />
-              <span style={{ fontWeight: 300, fontStyle: 'italic', color: 'var(--sage)', fontSize: '0.78em', letterSpacing: '-0.01em' }}>
+              <span style={{ fontWeight: 300, color: 'var(--sage)', fontSize: '0.78em', letterSpacing: '-0.01em' }}>
                 Esta es su casa.
               </span>
             </h1>
@@ -140,7 +140,7 @@ export default function HeroHome() {
                 EXPLORAR ↓
               </Link>
             </div>
-            <p className="font-display font-light" style={{ fontSize: '10px', letterSpacing: '0.28em', color: 'rgba(255,255,255,0.22)' }}>
+            <p className="font-display" style={{ fontSize: '10px', letterSpacing: '0.28em', color: 'rgba(255,255,255,0.22)' }}>
               CENTRO DE BIENESTAR Y RECUPERACIÓN INTEGRAL · FUNES, ARGENTINA
             </p>
           </div>
