@@ -35,7 +35,7 @@ export default function NourishPage() {
             <RevealSection className="md:col-span-4">
               <div className="w-8 h-px mb-6" style={{ background: COLOR }} />
               <h2 className="font-display font-bold leading-tight" style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', letterSpacing: '-0.01em', color: COLOR }}>
-                No es una juguería.
+                No es sólo un bar más.
               </h2>
             </RevealSection>
             <RevealSection className="md:col-span-8" delay={150}>
@@ -62,7 +62,7 @@ export default function NourishPage() {
             </div>
           </RevealSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
             {[
               {
                 title: 'Aguas internacionales',
@@ -80,8 +80,8 @@ export default function NourishPage() {
                 icon: '◇',
               },
             ].map((item, i) => (
-              <RevealSection key={i} delay={i * 100}>
-                <div className="p-8 flex flex-col gap-4" style={{ border: `1px solid ${COLOR}25`, background: `${COLOR}08` }}>
+              <RevealSection key={i} delay={i * 100} className="h-full">
+                <div className="p-8 flex flex-col gap-4 h-full" style={{ border: `1px solid ${COLOR}25`, background: `${COLOR}08` }}>
                   <span style={{ color: COLOR, fontSize: '20px' }}>{item.icon}</span>
                   <h3 className="font-display font-bold text-white" style={{ fontSize: '16px', letterSpacing: '0.03em' }}>{item.title}</h3>
                   <p className="font-sans text-white/50 leading-relaxed" style={{ fontSize: '13px' }}>{item.body}</p>

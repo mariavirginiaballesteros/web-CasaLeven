@@ -112,15 +112,15 @@ export default function MotionPage() {
               </div>
             </RevealSection>
 
-            <div className="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-px">
+            <div className="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-px items-stretch">
               {[
                 { title: 'Fuerza y vitalidad', body: 'Entrenamiento que sostiene la energía a lo largo del tiempo. Para rendir hoy y los próximos 20 años.' },
                 { title: 'Rendimiento medible', body: 'Metodología con progresión real. Sin rutinas genéricas, sin tiempo perdido.' },
                 { title: 'Evaluación postural', body: 'Diagnóstico inicial y seguimiento trimestral para que el progreso sea concreto.' },
                 { title: 'Sesiones técnicas', body: 'Guía especializada para quienes quieren entender cómo y por qué se mueven.' },
               ].map((item, i) => (
-                <RevealSection key={i} delay={i * 80}>
-                  <div className="p-8 md:p-10" style={{ background: 'var(--offwhite)', border: '1px solid rgba(46,39,53,0.08)' }}>
+                <RevealSection key={i} delay={i * 80} className="h-full">
+                  <div className="p-8 md:p-10 h-full" style={{ background: 'var(--offwhite)', border: '1px solid rgba(46,39,53,0.08)' }}>
                     <h3 className="font-display font-bold text-leven-purple mb-3" style={{ fontSize: '15px', letterSpacing: '0.02em' }}>
                       {item.title}
                     </h3>

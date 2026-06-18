@@ -153,13 +153,8 @@ export default function HomePage() {
               <RevealSection key={unit.id} delay={i * 120} className="group">
                 <Link href={unit.href} className="block">
                   <div className="img-hover relative mb-6 overflow-hidden" style={{ aspectRatio: '3/4' }}>
-                    <Image src={unit.img} alt={unit.name} fill className="object-cover opacity-45 group-hover:opacity-70 transition-opacity duration-700" />
-                    <div className="absolute top-5 left-5">
-                      <span className="font-display font-semibold" style={{ fontSize: '9px', letterSpacing: '0.3em', color: unit.color, padding: '4px 9px', background: `${unit.color}15` }}>
-                        {unit.label.toUpperCase()}
-                      </span>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 px-5 py-4" style={{ background: unit.color }}>
+                    <Image src={unit.img} alt={unit.name} fill className="object-cover transition-opacity duration-700" />
+                    <div className="absolute inset-0 flex flex-col justify-center px-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: unit.color }}>
                       <p className="font-display font-bold text-white leading-tight" style={{ fontSize: 'clamp(19px, 2.5vw, 26px)' }}>
                         {unit.line1}<br />{unit.line2}
                       </p>

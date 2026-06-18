@@ -166,7 +166,7 @@ export default function ThermaPage() {
           </div>
 
           <RevealSection className="mt-14 text-center">
-            <Link href="/fundadores" className="btn-leven btn-leven-therma" style={{ borderColor: `${COLOR}80` }}>
+            <Link href="/fundadores" className="btn-leven btn-leven-therma" style={{ borderColor: `${COLOR}80`, color: COLOR }}>
               Reservar tratamiento →
             </Link>
           </RevealSection>
