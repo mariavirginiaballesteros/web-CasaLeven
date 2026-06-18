@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Circuitos termales, masajes con protocolo y tratamientos de recuperación. La habilidad más sofisticada de los que más rinden. Funes, Argentina.',
 }
 
-const COLOR = '#526478'
+const COLOR = '#5d6d7e'
 
 const circuits = [
   {
@@ -112,7 +112,7 @@ export default function ThermaPage() {
                       </div>
                     ))}
                   </div>
-                  <Link href="/fundadores" className="btn-leven w-full justify-center" style={{ borderColor: `${COLOR}50`, fontSize: '10px' }}>
+                  <Link href="/fundadores" className="btn-leven btn-leven-therma w-full justify-center" style={{ borderColor: `${COLOR}50`, fontSize: '10px' }}>
                     Reservar →
                   </Link>
                 </div>

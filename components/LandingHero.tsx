@@ -57,11 +57,6 @@ export default function LandingHero({ name, unit, line1, line2, line3, sub, colo
           stroke={color} strokeWidth="0.55" fill="none" opacity="0.20" />
       </svg>
 
-      {/* Inner frame */}
-      <div className="absolute pointer-events-none z-[3]" style={{ top: '28px', left: '220px', right: '28px', height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-      <div className="absolute pointer-events-none z-[3]" style={{ bottom: '28px', left: '28px', right: '28px', height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-      <div className="absolute pointer-events-none z-[3]" style={{ left: '28px', top: '96px', bottom: '28px', width: '1px', background: 'rgba(255,255,255,0.06)' }} />
-      <div className="absolute pointer-events-none z-[3]" style={{ right: '28px', top: '28px', bottom: '28px', width: '1px', background: 'rgba(255,255,255,0.06)' }} />
 
       {/* LOGO — right side, integrated, no border/box */}
       <div
@@ -97,7 +92,7 @@ export default function LandingHero({ name, unit, line1, line2, line3, sub, colo
         <h1 className="font-display font-bold text-white leading-[1.0] mb-6" style={{ fontSize: 'clamp(40px, 6vw, 86px)', letterSpacing: '-0.025em' }}>
           {line1}<br />
           {line2}<br />
-          <span style={{ fontWeight: 300, fontStyle: 'italic', color, fontSize: '0.88em' }}>{line3}</span>
+          <span style={{ fontWeight: 300, color, fontSize: '0.88em' }}>{line3}</span>
         </h1>
 
         <p className="font-sans text-white/40 max-w-md leading-relaxed" style={{ fontSize: '14px' }}>{sub}</p>

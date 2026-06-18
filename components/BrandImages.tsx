@@ -78,10 +78,9 @@ export default function BrandImages({ images, color, quote }: Props) {
             borderBottom: '1px solid rgba(10,8,9,0.8)',
           }}
         >
-          <div className="w-5 h-px mb-4" style={{ background: 'rgba(255,255,255,0.35)' }} />
           {quote && (
-            <p className="font-display font-light text-white leading-snug"
-              style={{ fontSize: 'clamp(13px, 1.2vw, 16px)', opacity: 0.9 }}>
+            <p className="font-display font-bold text-white leading-snug"
+              style={{ fontSize: 'clamp(16px, 1.5vw, 20px)', opacity: 0.95 }}>
               "{quote}"
             </p>
           )}

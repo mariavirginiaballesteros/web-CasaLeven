@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Entrenamiento diseñado para quienes no tienen tiempo que perder. Metodología, fuerza y longevidad. Parte de Casa Leven, Funes.',
 }
 
-const COLOR = '#af2f3d'
+const COLOR = '#b23a3a'
 
 const plans = [
   {
@@ -103,7 +103,7 @@ export default function MotionPage() {
             <RevealSection className="md:col-span-4">
               <div className="sticky top-32">
                 <div className="w-8 h-px mb-6" style={{ background: COLOR }} />
-                <h2 className="font-display font-bold text-leven-purple leading-tight mb-6" style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', letterSpacing: '-0.01em' }}>
+                <h2 className="font-display font-bold leading-tight mb-6" style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', letterSpacing: '-0.01em', color: COLOR }}>
                   Diseñado para el mundo real.
                 </h2>
                 <p className="font-sans text-leven-purple/60 leading-relaxed" style={{ fontSize: '15px' }}>
@@ -112,7 +112,7 @@ export default function MotionPage() {
               </div>
             </RevealSection>
 
-            <div className="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-px" style={{ background: 'rgba(46,39,53,0.08)' }}>
+            <div className="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-px">
               {[
                 { title: 'Fuerza y vitalidad', body: 'Entrenamiento que sostiene la energía a lo largo del tiempo. Para rendir hoy y los próximos 20 años.' },
                 { title: 'Rendimiento medible', body: 'Metodología con progresión real. Sin rutinas genéricas, sin tiempo perdido.' },
@@ -120,8 +120,7 @@ export default function MotionPage() {
                 { title: 'Sesiones técnicas', body: 'Guía especializada para quienes quieren entender cómo y por qué se mueven.' },
               ].map((item, i) => (
                 <RevealSection key={i} delay={i * 80}>
-                  <div className="p-8 md:p-10" style={{ background: 'var(--offwhite)' }}>
-                    <div className="w-5 h-px mb-5" style={{ background: COLOR }} />
+                  <div className="p-8 md:p-10" style={{ background: 'var(--offwhite)', border: '1px solid rgba(46,39,53,0.08)' }}>
                     <h3 className="font-display font-bold text-leven-purple mb-3" style={{ fontSize: '15px', letterSpacing: '0.02em' }}>
                       {item.title}
                     </h3>
@@ -164,7 +163,7 @@ export default function MotionPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
             {plans.map((plan, i) => (
               <RevealSection key={plan.name} delay={i * 80}>
-                <div className={`membership-card flex flex-col h-full ${plan.featured ? 'featured' : ''}`} style={{ background: plan.featured ? `${COLOR}10` : 'rgba(255,255,255,0.03)' }}>
+                <div className="membership-card flex flex-col h-full" style={{ background: plan.featured ? `${COLOR}10` : 'rgba(255,255,255,0.03)', borderColor: plan.featured ? COLOR : 'rgba(255,255,255,0.08)' }}>
                   {plan.featured && (
                     <div className="absolute top-0 right-0 font-display font-bold text-white" style={{ fontSize: '8px', letterSpacing: '0.2em', padding: '5px 10px', background: COLOR }}>
                       MÁS ELEGIDO
@@ -220,7 +219,7 @@ export default function MotionPage() {
             </h2>
           </RevealSection>
           <RevealSection delay={150}>
-            <Link href="/fundadores" className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.5)', color: '#fff', whiteSpace: 'nowrap' }}>
+            <Link href="/fundadores" className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.5)', whiteSpace: 'nowrap' }}>
               Registrarme →
             </Link>
           </RevealSection>

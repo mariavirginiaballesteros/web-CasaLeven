@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Nutrición funcional. Aguas internacionales, jugos naturales y alimentos Esenio. El tercer pilar del sistema Casa Leven. Funes, Argentina.',
 }
 
-const COLOR = '#6a7a6b'
+const COLOR = '#7b8476'
 
 export default function NourishPage() {
   return (
