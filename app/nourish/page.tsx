@@ -34,7 +34,7 @@ export default function NourishPage() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <RevealSection className="md:col-span-4">
               <div className="w-8 h-px mb-6" style={{ background: COLOR }} />
-              <h2 className="font-display font-bold text-leven-purple leading-tight" style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', letterSpacing: '-0.01em' }}>
+              <h2 className="font-display font-bold leading-tight" style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', letterSpacing: '-0.01em', color: COLOR }}>
                 No es una juguería.
               </h2>
             </RevealSection>
@@ -109,16 +109,16 @@ export default function NourishPage() {
         <div className="max-w-5xl mx-auto px-6 md:px-12 text-center">
           <RevealSection>
             <p className="font-display font-light text-white/50 mb-4" style={{ fontSize: '10px', letterSpacing: '0.4em' }}>PRÓXIMAMENTE</p>
-            <h2 className="font-display font-bold text-white mb-6" style={{ fontSize: 'clamp(26px, 4vw, 48px)', letterSpacing: '-0.01em' }}>
+            <h2 className="font-display font-bold text-white mb-6" style={{ fontSize: 'clamp(26px, 4vw, 48px)', letterSpacing: '-0.01em', lineHeight: '1.05' }}>
               La carta completa se revela con la apertura.
             </h2>
-            <p className="font-sans text-white/60 leading-relaxed mx-auto mb-10" style={{ fontSize: '15px', maxWidth: '400px' }}>
+            <p className="font-sans text-white/60 mx-auto mb-10" style={{ fontSize: '15px', maxWidth: '400px', lineHeight: '1.4' }}>
               Dejá tu email y te avisamos cuando Leven Nourish abra sus puertas.
             </p>
             <a
               href="https://wa.me/5493415000000?text=Hola, me interesa Leven Nourish"
               className="btn-leven inline-flex"
-              style={{ borderColor: 'rgba(255,255,255,0.4)', color: '#fff' }}
+              style={{ borderColor: 'rgba(255,255,255,0.4)' }}
             >
               Quiero que me avisen →
             </a>
