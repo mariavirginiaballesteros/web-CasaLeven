@@ -292,7 +292,7 @@ export default function MembresiasPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="https://wa.me/5493415000000?text=Hola, quiero saber qué membresía de Casa Leven es mejor para mí"
-                className="btn-leven btn-leven-filled"
+                className="btn-leven"
               >
                 Consultar por WhatsApp →
               </a>
