@@ -133,7 +133,7 @@ export default function HeroHome() {
               </span>
             </h1>
             <div className="flex items-center gap-5 mb-5">
-              <Link href="/fundadores" className="btn-leven btn-leven-filled" style={{ fontSize: '10px', padding: '13px 28px' }}>
+              <Link href="/fundadores" className="btn-leven btn-leven-filled" style={{ fontSize: '10px', padding: '13px 28px', background: '#ffffff', borderColor: '#ffffff', color: '#1c1519' }}>
                 Founders
               </Link>
               <Link href="#sistema" className="font-display text-white/30 hover:text-white/60 transition-colors" style={{ fontSize: '10px', letterSpacing: '0.25em' }}>
