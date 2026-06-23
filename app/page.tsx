@@ -229,12 +229,12 @@ export default function HomePage() {
               "Porque incluso quienes<br />
               sostienen el mundo<br />
               necesitan un lugar<br />
-              <em style={{ color: 'var(--sage)' }}>donde sostenerse."</em>
+              <em style={{ color: '#ffffff', fontWeight: 700 }}>donde sostenerse."</em>
             </blockquote>
           </RevealSection>
           <RevealSection delay={300}>
             <div className="mt-14">
-              <Link href="/fundadores" className="btn-leven btn-leven-filled" style={{ fontSize: '11px', padding: '16px 40px' }}>
+              <Link href="/fundadores" className="btn-leven btn-leven-filled" style={{ fontSize: '11px', padding: '16px 40px', background: '#ffffff', borderColor: '#ffffff', color: '#1c1519' }}>
                 Quiero pertenecer →
               </Link>
             </div>
@@ -286,7 +286,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-leven btn-leven-filled self-start flex items-center gap-3"
-                style={{ fontSize: '11px', padding: '16px 32px' }}
+                style={{ fontSize: '11px', padding: '16px 32px', background: '#ffffff', borderColor: '#ffffff', color: '#1c1519' }}
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
@@ -362,14 +362,14 @@ export default function HomePage() {
               <p className="font-display text-leven-purple/35 mb-3" style={{ fontSize: '10px', letterSpacing: '0.4em' }}>PROGRAMA EXCLUSIVO</p>
               <h2 className="font-display font-bold text-leven-purple leading-tight mb-6" style={{ fontSize: 'clamp(32px, 5vw, 60px)', letterSpacing: '-0.02em' }}>
                 Antes de que el mundo<br />descubra Casa Leven,<br />
-                <em style={{ fontWeight: 300, color: 'var(--sage)' }}>algunos ya cruzaron la puerta.</em>
+                <em style={{ fontWeight: 700, color: '#3b2f3d' }}>algunos ya cruzaron la puerta.</em>
               </h2>
               <p className="font-sans text-leven-purple/55 leading-relaxed mb-10" style={{ fontSize: '15px', maxWidth: '400px' }}>
                 Los Founders son quienes eligen Casa Leven
                 en su forma más exclusiva: con acceso irrepetible,
                 precio que no vuelve, y el privilegio de pertenecer desde el origen.
               </p>
-              <Link href="/fundadores" className="btn-leven btn-leven-filled" style={{ fontSize: '11px', padding: '18px 44px' }}>
+              <Link href="/fundadores" className="btn-leven btn-leven-filled" style={{ fontSize: '11px', padding: '18px 44px', background: '#3b2f3d', borderColor: '#3b2f3d', color: '#ffffff' }}>
                 Quiero pertenecer →
               </Link>
             </RevealSection>
