@@ -72,7 +72,7 @@ export default function Nav() {
             {(label as string).toUpperCase()}
           </Link>
         ))}
-        <Link href="/fundadores" className="btn-leven btn-leven-filled" style={{ padding: '10px 24px', fontSize: '10px' }}>
+        <Link href="/fundadores" className="btn-leven btn-leven-filled" style={{ padding: '10px 24px', fontSize: '10px', background: '#ffffff', borderColor: '#ffffff', color: '#1c1519' }}>
           Founders
         </Link>
       </div>
