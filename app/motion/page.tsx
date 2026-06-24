@@ -138,7 +138,7 @@ export default function MotionPage() {
       {/* ─── IMAGE BLOCK ───────────────────────────────── */}
       <BrandImages
         color={COLOR}
-        quote="El cuerpo que se entrena con criterio rinde sin límite."
+        quote="El cuerpo que se entrena con criterio rinde sin límite"
         images={[
           { src: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80', alt: 'Leven Motion' },
           { src: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80', alt: 'Entrenamiento' },
