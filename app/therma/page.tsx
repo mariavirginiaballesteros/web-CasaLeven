@@ -176,7 +176,7 @@ export default function ThermaPage() {
       {/* ─── IMAGE BLOCK ───────────────────────────────── */}
       <BrandImages
         color={COLOR}
-        quote="Recuperarse bien es parte del rendimiento, no una pausa de él."
+        quote="Recuperarse bien es parte del rendimiento, no una pausa de él"
         images={[
           { src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80', alt: 'Leven Therma' },
           { src: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80', alt: 'Spa' },

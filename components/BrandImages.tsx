@@ -81,7 +81,7 @@ export default function BrandImages({ images, color, quote }: Props) {
           {quote && (
             <p className="font-display font-bold text-white leading-snug"
               style={{ fontSize: 'clamp(16px, 1.5vw, 20px)', opacity: 0.95 }}>
-              "{quote}"
+              "{quote}".
             </p>
           )}
         </div>
