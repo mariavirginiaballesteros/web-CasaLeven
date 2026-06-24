@@ -229,7 +229,7 @@ export default function HomePage() {
               "Porque incluso quienes<br />
               sostienen el mundo<br />
               necesitan un lugar<br />
-              <em style={{ color: '#ffffff', fontWeight: 700 }}>donde sostenerse."</em>
+              <em style={{ color: '#ffffff', fontWeight: 700 }}>donde sostenerse".</em>
             </blockquote>
           </RevealSection>
           <RevealSection delay={300}>
