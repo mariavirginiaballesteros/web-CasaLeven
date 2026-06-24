@@ -32,17 +32,14 @@ body {
 }
 
 /* ─── CUSTOM CURSOR ──────────────────────────────────── */
-.cursor-dot {
+.cursor-key {
   position: fixed;
-  width: 8px;
-  height: 8px;
-  background: #fff;
-  border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: opacity 0.3s ease, transform 0.1s ease;
+  transition: opacity 0.3s ease, transform 0.15s ease;
   mix-blend-mode: difference;
+  opacity: 0.85;
 }
 
 
@@ -390,5 +387,5 @@ select.input-leven option {
   .nav-root { padding: 20px 24px; }
   .nav-root.scrolled { padding: 16px 24px; }
   body { cursor: auto; }
-  .cursor-dot { display: none; }
+  .cursor-key { display: none; }
 }
