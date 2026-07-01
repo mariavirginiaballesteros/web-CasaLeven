@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import { getReservasByDate } from '@/actions/reservas/getReservasAdmin'
 import AgendaDay from '@/components/admin/AgendaDay'
 import AdminDateNav from '@/components/admin/AdminDateNav'
+import { isReservasClosed } from '@/lib/reservasClosed'
 
 function todayArg(): string {
   // Argentina time (UTC-3)
@@ -24,6 +25,7 @@ export default async function AdminPage({ searchParams }: Props) {
 
   const date     = searchParams.date ?? todayArg()
   const bookings = await getReservasByDate(date)
+  const closed   = isReservasClosed()
 
   return (
     <main style={{ maxWidth: 1100, margin: '0 auto', padding: '60px 24px' }}>
@@ -54,6 +56,37 @@ export default async function AdminPage({ searchParams }: Props) {
             </button>
           </form>
         </div>
+      </div>
+
+      {/* Reservas toggle */}
+      <div style={{ marginBottom: 32, padding: '16px 20px', border: `1px solid ${closed ? 'rgba(178,58,58,0.4)' : 'rgba(255,255,255,0.06)'}`, background: closed ? 'rgba(178,58,58,0.06)' : 'rgba(255,255,255,0.02)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div>
+          <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase', color: closed ? 'rgba(178,58,58,0.8)' : 'rgba(255,255,255,0.3)', marginBottom: 4 }}>
+            RESERVAS
+          </p>
+          <p style={{ fontSize: '13px', color: closed ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.5)' }}>
+            {closed ? 'Temporalmente cerradas — los usuarios ven un mensaje de espera' : 'Abiertas — los usuarios pueden reservar normalmente'}
+          </p>
+        </div>
+        <form action="/api/admin/toggle-reservas" method="POST">
+          <button
+            type="submit"
+            style={{
+              fontFamily: 'Montserrat, sans-serif',
+              fontSize: '9px',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              padding: '10px 20px',
+              border: `1px solid ${closed ? 'rgba(255,255,255,0.2)' : 'rgba(178,58,58,0.5)'}`,
+              background: 'none',
+              color: closed ? 'rgba(255,255,255,0.5)' : 'rgba(178,58,58,0.8)',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {closed ? 'Abrir reservas' : 'Cerrar reservas'}
+          </button>
+        </form>
       </div>
 
       <AdminDateNav date={date} />
