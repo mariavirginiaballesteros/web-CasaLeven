@@ -7,9 +7,9 @@ import Link from 'next/link'
 // Premium architectural / wellness images matching Radisson RED Funes aesthetic
 // Using w=1200 for an adequate full-bleed quality without the 1920 overhead
 const slides = [
-  'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1400&q=75', // massage premium warm red tones close-up
-  'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1400&q=75', // spa warm dark
-  'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=75', // luxury gym dark moody
+  '/images/gimnasio/leven-gimnasio-person-18.jpg', // gimnasio
+  '/images/spa/leven-spa-close-10.jpg', // spa
+  '/images/bar/leven-bar-person-12.jpg', // bar
 ]
 
 export default function HeroHome() {
