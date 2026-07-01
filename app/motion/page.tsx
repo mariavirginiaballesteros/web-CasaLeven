@@ -170,13 +170,8 @@ export default function MotionPage() {
                   <div className="font-display font-bold text-white mb-2" style={{ fontSize: '10px', letterSpacing: '0.25em' }}>{plan.name}</div>
                   <p className="font-sans text-white/35 mb-5" style={{ fontSize: '11px' }}>{plan.tagline}</p>
 
-                  <div className="mb-2">
-                    <span className="font-display font-bold text-white" style={{ fontSize: '34px' }}>{plan.price}</span>
-                    <span className="text-white/30 font-sans" style={{ fontSize: '12px' }}>/mes</span>
-                  </div>
-                  <div className="flex items-center gap-2 mb-6">
-                    <span className="text-white/20 font-sans line-through" style={{ fontSize: '11px' }}>{plan.after}</span>
-                    <span className="font-display font-semibold" style={{ fontSize: '8px', letterSpacing: '0.15em', color: COLOR }}>FUNDADOR</span>
+                  <div className="mb-8">
+                    <span className="font-display font-semibold text-white/40" style={{ fontSize: '13px', letterSpacing: '0.2em' }}>PRÓXIMAMENTE</span>
                   </div>
 
                   <div className="flex flex-col flex-1 mb-6 gap-0">
@@ -192,8 +187,8 @@ export default function MotionPage() {
                     ))}
                   </div>
 
-                  <Link href="/fundadores" className="btn-leven w-full justify-center" style={{ borderColor: `${COLOR}50`, fontSize: '10px' }}>
-                    Elegir →
+                  <Link href="/contacto" className="btn-leven w-full justify-center" style={{ borderColor: `${COLOR}50`, fontSize: '10px' }}>
+                    Consultá →
                   </Link>
                 </div>
               </RevealSection>
@@ -208,21 +203,6 @@ export default function MotionPage() {
         </div>
       </section>
 
-      {/* ─── CTA ───────────────────────────────────────── */}
-      <section className="py-20" style={{ background: COLOR }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8">
-          <RevealSection>
-            <h2 className="font-display font-bold text-white" style={{ fontSize: 'clamp(22px, 3vw, 36px)', letterSpacing: '-0.01em' }}>
-              ¿Querés ser Founder de Motion?
-            </h2>
-          </RevealSection>
-          <RevealSection delay={150}>
-            <Link href="/fundadores" className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.5)', whiteSpace: 'nowrap' }}>
-              Registrarme →
-            </Link>
-          </RevealSection>
-        </div>
-      </section>
     </>
   )
 }

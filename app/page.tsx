@@ -238,7 +238,7 @@ export default function HomePage() {
           </RevealSection>
           <RevealSection delay={300}>
             <div className="mt-14">
-              <Link href="/fundadores" className="btn-leven btn-leven-filled" style={{ fontSize: '11px', padding: '16px 40px', background: '#ffffff', borderColor: '#ffffff', color: '#1c1519' }}>
+              <Link href="/contacto" className="btn-leven btn-leven-filled" style={{ fontSize: '11px', padding: '16px 40px', background: '#ffffff', borderColor: '#ffffff', color: '#1c1519' }}>
                 Quiero pertenecer →
               </Link>
             </div>
