@@ -133,8 +133,8 @@ export default function HeroHome() {
               </span>
             </h1>
             <div className="flex items-center gap-5 mb-5">
-              <a href="https://maps.app.goo.gl/jye7PA8gcgD8PJZRA" target="_blank" rel="noopener noreferrer" className="font-display text-white/30 hover:text-white/60 transition-colors" style={{ fontSize: '10px', letterSpacing: '0.25em' }}>
-                COMO LLEGAR ↗
+              <a href="#como-llegar" className="font-display text-white/30 hover:text-white/60 transition-colors" style={{ fontSize: '10px', letterSpacing: '0.25em' }}>
+                COMO LLEGAR ↓
               </a>
             </div>
             <p className="font-display" style={{ fontSize: '10px', letterSpacing: '0.28em', color: 'rgba(255,255,255,0.60)' }}>
