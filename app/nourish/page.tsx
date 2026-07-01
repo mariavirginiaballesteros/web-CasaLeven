@@ -25,7 +25,7 @@ export default function NourishPage() {
         sub="Nutrición funcional con propósito. Lo que ponés en el cuerpo importa tanto como lo que hacés con él."
         color={COLOR}
         logo="/logos/leven-nourish.svg"
-        img="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1920&q=80"
+        img="/images/bar/leven-bar-person-12.jpg"
       />
 
       {/* ─── QUÉ ES ─────────────────────────────────────── */}
@@ -95,10 +95,10 @@ export default function NourishPage() {
         color={COLOR}
         quote="Lo que ponés en el cuerpo importa tanto como lo que hacés con él"
         images={[
-          { src: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80', alt: 'Leven Nourish' },
-          { src: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80', alt: 'Nutrición' },
-          { src: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80', alt: 'Ingredientes' },
-          { src: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=800&q=80', alt: 'Bebidas' },
+          { src: '/images/bar/leven-bar-person-12.jpg', alt: 'Leven Nourish' },
+          { src: '/images/bar/leven-bar-food-02.jpg', alt: 'Nutrición' },
+          { src: '/images/bar/leven-bar-food-08.jpg', alt: 'Ingredientes' },
+          { src: '/images/bar/leven-bar-person-05.jpg', alt: 'Bebidas' },
         ]}
       />
 

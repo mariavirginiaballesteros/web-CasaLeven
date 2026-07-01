@@ -15,7 +15,7 @@ const units = [
     color: '#b23a3a',
     href:  '/motion',
     logo:  '/logos/leven-motion.svg',
-    img:   'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80',
+    img:   '/images/gimnasio/leven-gimnasio-person-18.jpg',
   },
   {
     id:    'therma',
@@ -27,7 +27,7 @@ const units = [
     color: '#5d6d7e',
     href:  '/therma',
     logo:  '/logos/leven-therma.svg',
-    img:   'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80',
+    img:   '/images/spa/leven-spa-close-10.jpg',
   },
   {
     id:    'nourish',
@@ -39,7 +39,7 @@ const units = [
     color: '#7b8476',
     href:  '/nourish',
     logo:  '/logos/leven-nourish.svg',
-    img:   'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80',
+    img:   '/images/bar/leven-bar-person-12.jpg',
   },
 ]
 

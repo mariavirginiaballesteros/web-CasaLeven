@@ -93,7 +93,7 @@ export default function MotionPage() {
         sub="Metodología de alto rendimiento para quienes lideran en el mundo real. Resultados medibles, sin tiempo perdido."
         color={COLOR}
         logo="/logos/leven-motion.svg"
-        img="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80"
+        img="/images/gimnasio/leven-gimnasio-person-18.jpg"
       />
 
       {/* ─── PROPUESTA ─────────────────────────────────── */}
@@ -139,10 +139,10 @@ export default function MotionPage() {
         color={COLOR}
         quote="El cuerpo que se entrena con criterio rinde sin límite"
         images={[
-          { src: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80', alt: 'Leven Motion' },
-          { src: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80', alt: 'Entrenamiento' },
-          { src: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80', alt: 'Fuerza' },
-          { src: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=800&q=80', alt: 'Rendimiento' },
+          { src: '/images/gimnasio/leven-gimnasio-person-18.jpg', alt: 'Leven Motion' },
+          { src: '/images/gimnasio/leven-gimnasio-person-06.jpg', alt: 'Entrenamiento' },
+          { src: '/images/gimnasio/leven-gimnasio-close-02.jpg', alt: 'Fuerza' },
+          { src: '/images/gimnasio/leven-gimnasio-close-04.jpg', alt: 'Rendimiento' },
         ]}
       />
 

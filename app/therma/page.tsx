@@ -75,7 +75,7 @@ export default function ThermaPage() {
         sub="Circuitos termales, masajes con protocolo y tratamientos diseñados para quienes entienden que recuperarse bien es rendir mejor."
         color={COLOR}
         logo="/logos/leven-therma.svg"
-        img="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1920&q=80"
+        img="/images/spa/leven-spa-close-10.jpg"
       />
 
       {/* ─── CIRCUITOS ─────────────────────────────────── */}
@@ -175,10 +175,10 @@ export default function ThermaPage() {
         color={COLOR}
         quote="Recuperarse bien es parte del rendimiento, no una pausa de él"
         images={[
-          { src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80', alt: 'Leven Therma' },
-          { src: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80', alt: 'Spa' },
-          { src: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80', alt: 'Circuito termal' },
-          { src: 'https://images.unsplash.com/photo-1571019613576-2b22c76fd955?auto=format&fit=crop&w=800&q=80', alt: 'Recuperación' },
+          { src: '/images/spa/leven-spa-close-10.jpg', alt: 'Leven Therma' },
+          { src: '/images/spa/leven-spa-person-06.jpg', alt: 'Spa' },
+          { src: '/images/spa/leven-spa-person-01.jpg', alt: 'Circuito termal' },
+          { src: '/images/spa/leven-spa-person-13.jpg', alt: 'Recuperación' },
         ]}
       />
 
