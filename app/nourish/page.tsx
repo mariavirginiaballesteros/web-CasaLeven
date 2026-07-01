@@ -33,7 +33,6 @@ export default function NourishPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <RevealSection className="md:col-span-4">
-              <div className="w-8 h-px mb-6" style={{ background: COLOR }} />
               <h2 className="font-display font-bold leading-tight" style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', letterSpacing: '-0.01em', color: COLOR }}>
                 No es sólo un bar más.
               </h2>
@@ -57,7 +56,6 @@ export default function NourishPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <RevealSection className="mb-14">
             <div className="flex items-center gap-5 mb-4">
-              <div className="w-8 h-px" style={{ background: COLOR }} />
               <span className="font-display font-medium text-white/30" style={{ fontSize: '9px', letterSpacing: '0.35em' }}>QUÉ ENCONTRÁS</span>
             </div>
           </RevealSection>

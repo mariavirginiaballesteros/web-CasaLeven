@@ -72,7 +72,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-14">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
             <RevealSection className="md:col-span-4 md:pt-2 flex flex-col items-center md:items-start text-center md:text-left">
-              <div className="divider mb-5 mx-auto md:mx-0" style={{ background: '#2e2735' }} />
+
               <span className="font-display font-medium text-leven-purple/35" style={{ fontSize: '9px', letterSpacing: '0.35em' }}>
                 POR QUÉ EXISTIMOS
               </span>
@@ -93,7 +93,6 @@ export default function HomePage() {
                 </RevealSection>
               ))}
               <RevealSection delay={500} className="mt-10">
-                <div className="w-8 h-px mb-6" style={{ background: '#b23a3a' }} />
                 <p className="font-sans text-leven-purple/55 leading-relaxed max-w-lg" style={{ fontSize: '16px' }}>
                   Casa Leven fue diseñada para ese momento. El lugar donde la energía se gestiona, la recuperación es la meta.<br /><br />
                   Un refugio que conoce tu ritmo.<br />
@@ -140,7 +139,6 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-14">
           <RevealSection className="mb-16">
             <div className="flex items-center gap-5 mb-4">
-              <div className="divider" />
               <span className="font-display font-medium text-white/25" style={{ fontSize: '9px', letterSpacing: '0.35em' }}>EL SISTEMA</span>
             </div>
             <h2 className="font-display font-bold text-white" style={{ fontSize: 'clamp(32px, 5vw, 64px)', letterSpacing: '-0.02em' }}>
@@ -187,7 +185,6 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-14">
           <RevealSection className="mb-12">
             <div className="flex items-center gap-5">
-              <div className="divider" />
               <span className="font-display font-medium text-leven-purple/30" style={{ fontSize: '9px', letterSpacing: '0.35em' }}>LO QUE ENCONTRÁS</span>
             </div>
           </RevealSection>
@@ -254,7 +251,6 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-14">
           <RevealSection className="mb-12">
             <div className="flex items-center gap-6 mb-4">
-              <div className="divider" />
               <span className="font-display font-medium text-white/30" style={{ fontSize: '9px', letterSpacing: '0.38em' }}>UBICACIÓN</span>
             </div>
             <h2 className="font-display font-bold text-white leading-tight" style={{ fontSize: 'clamp(28px, 4vw, 52px)', letterSpacing: '-0.02em' }}>
