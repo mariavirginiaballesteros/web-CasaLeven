@@ -58,7 +58,6 @@ export default function Nav() {
       {/* DESKTOP LINKS */}
       <div className="hidden md:flex items-center gap-10">
         {[
-          ['Membresías', '/membresias'],
           ['Motion',     '/motion'],
           ['Therma',     '/therma'],
           ['Nourish',    '/nourish'],
@@ -110,7 +109,6 @@ export default function Nav() {
             style={{ filter: 'brightness(0) invert(1)', opacity: 0.4, height: 'auto', marginBottom: '20px' }}
           />
           {[
-            ['Membresías',        '/membresias'],
             ['Leven Motion',      '/motion'],
             ['Leven Therma',      '/therma'],
             ['Leven Nourish',     '/nourish'],

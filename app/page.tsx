@@ -154,10 +154,12 @@ export default function HomePage() {
                 <Link href={unit.href} className="block">
                   <div className="img-hover relative mb-6 overflow-hidden" style={{ aspectRatio: '3/4' }}>
                     <Image src={unit.img} alt={unit.name} fill className="object-cover transition-opacity duration-700" />
-                    <div className="absolute inset-0 flex items-end justify-start px-6 pb-6 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%)' }}>
-                      <span className="font-display font-bold text-white/70" style={{ fontSize: '11px', letterSpacing: '0.35em' }}>
-                        {unit.id === 'motion' ? 'GYM' : unit.id === 'therma' ? 'SPA' : 'BAR'}
-                      </span>
+                    <div className="absolute inset-0 flex items-end pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 45%, transparent 70%)' }}>
+                      <div className="px-7 pb-8 w-full">
+                        <p className="font-display font-bold text-white leading-none" style={{ fontSize: 'clamp(52px, 7vw, 80px)', letterSpacing: '-0.03em', opacity: 0.18 }}>
+                          {unit.id === 'motion' ? 'GYM' : unit.id === 'therma' ? 'SPA' : 'BAR'}
+                        </p>
+                      </div>
                     </div>
                     <div className="absolute inset-0 flex flex-col justify-center px-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: unit.color }}>
                       <p className="font-display font-bold text-white leading-tight" style={{ fontSize: 'clamp(19px, 2.5vw, 26px)' }}>
