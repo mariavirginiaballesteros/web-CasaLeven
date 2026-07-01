@@ -154,6 +154,11 @@ export default function HomePage() {
                 <Link href={unit.href} className="block">
                   <div className="img-hover relative mb-6 overflow-hidden" style={{ aspectRatio: '3/4' }}>
                     <Image src={unit.img} alt={unit.name} fill className="object-cover transition-opacity duration-700" />
+                    <div className="absolute inset-0 flex items-end justify-start px-6 pb-6 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%)' }}>
+                      <span className="font-display font-bold text-white/70" style={{ fontSize: '11px', letterSpacing: '0.35em' }}>
+                        {unit.id === 'motion' ? 'GYM' : unit.id === 'therma' ? 'SPA' : 'BAR'}
+                      </span>
+                    </div>
                     <div className="absolute inset-0 flex flex-col justify-center px-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: unit.color }}>
                       <p className="font-display font-bold text-white leading-tight" style={{ fontSize: 'clamp(19px, 2.5vw, 26px)' }}>
                         {unit.line1}<br />{unit.line2}
@@ -243,7 +248,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── CÓMO LLEGAR ──────────────────────── */}
-      <section className="py-24 md:py-32" style={{ background: 'var(--dark)' }}>
+      <section id="como-llegar" className="py-24 md:py-32" style={{ background: 'var(--dark)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-14">
           <RevealSection className="mb-12">
             <div className="flex items-center gap-6 mb-4">
