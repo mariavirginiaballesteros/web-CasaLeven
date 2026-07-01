@@ -100,7 +100,7 @@ export default function ThermaPage() {
                   <div className="font-display font-bold text-white mb-1" style={{ fontSize: '11px', letterSpacing: '0.2em' }}>{c.name}</div>
                   <p className="font-sans text-white/30 mb-3" style={{ fontSize: '11px' }}>{c.tagline}</p>
                   <div className="flex items-baseline gap-3 mb-5">
-                    <span className="font-display font-bold text-white" style={{ fontSize: '22px' }}>{c.price}</span>
+                    <span className="font-sans text-white/40" style={{ fontSize: '11px', letterSpacing: '0.18em' }}>PRÓXIMAMENTE</span>
                     <span className="text-white/30 font-sans" style={{ fontSize: '11px' }}>{c.duration}</span>
                   </div>
                   <div className="flex flex-col gap-2 flex-1 mb-6">
@@ -111,7 +111,7 @@ export default function ThermaPage() {
                       </div>
                     ))}
                   </div>
-                  <Link href="/fundadores" className="btn-leven btn-leven-therma w-full justify-center" style={{ borderColor: `${COLOR}50`, fontSize: '10px' }}>
+                  <Link href="/contacto" className="btn-leven btn-leven-therma w-full justify-center" style={{ borderColor: `${COLOR}50`, fontSize: '10px' }}>
                     Reservar →
                   </Link>
                 </div>
@@ -163,7 +163,7 @@ export default function ThermaPage() {
           </div>
 
           <RevealSection className="mt-14 text-center">
-            <Link href="/fundadores" className="btn-leven btn-leven-therma" style={{ borderColor: `${COLOR}80`, color: COLOR }}>
+            <Link href="/contacto" className="btn-leven btn-leven-therma" style={{ borderColor: `${COLOR}80`, color: COLOR }}>
               Reservar tratamiento →
             </Link>
           </RevealSection>
