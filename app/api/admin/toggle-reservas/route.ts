@@ -9,6 +9,6 @@ export async function POST() {
     redirect('/admin/login')
   }
 
-  toggleReservasClosed()
+  await toggleReservasClosed()
   redirect('/admin')
 }

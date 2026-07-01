@@ -1,20 +1,29 @@
-import fs from 'fs'
-import path from 'path'
+import { createServerClient } from '@/lib/supabase-server'
 
-const FILE = path.join(process.cwd(), 'data', 'reservas-closed.json')
-
-export function isReservasClosed(): boolean {
+export async function isReservasClosed(): Promise<boolean> {
   try {
-    const raw = fs.readFileSync(FILE, 'utf-8')
-    return JSON.parse(raw).closed === true
+    const supabase = createServerClient()
+    const { data } = await supabase
+      .from('settings')
+      .select('value')
+      .eq('tenant_id', 'casa-leven')
+      .eq('key', 'reservas_closed')
+      .single()
+    return data?.value === 'true'
   } catch {
     return false
   }
 }
 
-export function toggleReservasClosed(): boolean {
-  const current = isReservasClosed()
+export async function toggleReservasClosed(): Promise<boolean> {
+  const supabase = createServerClient()
+  const current = await isReservasClosed()
   const next = !current
-  fs.writeFileSync(FILE, JSON.stringify({ closed: next }), 'utf-8')
+  await supabase
+    .from('settings')
+    .upsert(
+      { tenant_id: 'casa-leven', key: 'reservas_closed', value: String(next), updated_at: new Date().toISOString() },
+      { onConflict: 'tenant_id,key' }
+    )
   return next
 }

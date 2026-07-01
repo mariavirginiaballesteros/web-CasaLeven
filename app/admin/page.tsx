@@ -25,7 +25,7 @@ export default async function AdminPage({ searchParams }: Props) {
 
   const date     = searchParams.date ?? todayArg()
   const bookings = await getReservasByDate(date)
-  const closed   = isReservasClosed()
+  const closed   = await isReservasClosed()
 
   return (
     <main style={{ maxWidth: 1100, margin: '0 auto', padding: '60px 24px' }}>
@@ -56,6 +56,21 @@ export default async function AdminPage({ searchParams }: Props) {
             </button>
           </form>
         </div>
+      </div>
+
+      {/* CRM redirect notice */}
+      <div style={{ marginBottom: 24, padding: '14px 20px', background: 'rgba(212,175,55,0.06)', border: '1px solid rgba(212,175,55,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16 }}>
+        <p style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '11px', color: 'rgba(212,175,55,0.8)', letterSpacing: '0.05em' }}>
+          La gestión centralizada de reservas se realiza desde <strong>Signa CRM</strong>.
+        </p>
+        <a
+          href="https://signacrm.com.ar/casa-leven/turnos"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '9px', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#d4af37', textDecoration: 'none', whiteSpace: 'nowrap', border: '1px solid rgba(212,175,55,0.4)', padding: '8px 14px' }}
+        >
+          Ir al CRM →
+        </a>
       </div>
 
       {/* Reservas toggle */}
