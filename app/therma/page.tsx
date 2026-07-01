@@ -83,7 +83,6 @@ export default function ThermaPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <RevealSection className="mb-14">
             <div className="flex items-center gap-5 mb-4">
-              <div className="w-8 h-px" style={{ background: COLOR }} />
               <span className="font-display font-medium text-white/30" style={{ fontSize: '9px', letterSpacing: '0.35em' }}>CIRCUITOS TERMALES</span>
             </div>
             <h2 className="font-display font-bold text-white" style={{ fontSize: 'clamp(28px, 4vw, 52px)', letterSpacing: '-0.01em' }}>
@@ -129,7 +128,6 @@ export default function ThermaPage() {
 
             {/* Individual massages */}
             <RevealSection>
-              <div className="w-8 h-px mb-6" style={{ background: COLOR }} />
               <h3 className="font-display font-bold mb-8" style={{ fontSize: 'clamp(22px, 3vw, 36px)', letterSpacing: '-0.01em', color: COLOR }}>
                 Masajes individuales.
               </h3>
@@ -148,7 +146,6 @@ export default function ThermaPage() {
 
             {/* Facial treatments */}
             <RevealSection delay={150}>
-              <div className="w-8 h-px mb-6" style={{ background: COLOR }} />
               <h3 className="font-display font-bold mb-8" style={{ fontSize: 'clamp(22px, 3vw, 36px)', letterSpacing: '-0.01em', color: COLOR }}>
                 Tratamientos faciales.
               </h3>

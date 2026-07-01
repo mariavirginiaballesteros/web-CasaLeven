@@ -102,7 +102,6 @@ export default function MotionPage() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
             <RevealSection className="md:col-span-4">
               <div className="sticky top-32">
-                <div className="w-8 h-px mb-6" style={{ background: COLOR }} />
                 <h2 className="font-display font-bold leading-tight mb-6" style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', letterSpacing: '-0.01em', color: COLOR }}>
                   Diseñado para el mundo real.
                 </h2>
@@ -152,7 +151,6 @@ export default function MotionPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <RevealSection className="mb-14">
             <div className="flex items-center gap-5 mb-4">
-              <div className="w-8 h-px" style={{ background: COLOR }} />
               <span className="font-display font-medium text-white/30" style={{ fontSize: '9px', letterSpacing: '0.35em' }}>MEMBRESÍAS</span>
             </div>
             <h2 className="font-display font-bold text-white" style={{ fontSize: 'clamp(28px, 4vw, 52px)', letterSpacing: '-0.01em' }}>
