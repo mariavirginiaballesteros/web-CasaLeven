@@ -86,7 +86,7 @@ export default function MotionPage() {
       {/* ─── HERO ──────────────────────────────────────── */}
       <LandingHero
         name="LEVEN MOTION"
-        unit="Movimiento"
+        unit="Gym"
         line1="El cuerpo"
         line2="como herramienta"
         line3="de rendimiento."
@@ -103,7 +103,7 @@ export default function MotionPage() {
             <RevealSection className="md:col-span-4">
               <div className="sticky top-32">
                 <h2 className="font-display font-bold leading-tight mb-6" style={{ fontSize: 'clamp(26px, 3.5vw, 44px)', letterSpacing: '-0.01em', color: COLOR }}>
-                  Diseñado para el mundo real.
+                  El gimnasio diseñado para el mundo real.
                 </h2>
                 <p className="font-sans text-leven-purple/60 leading-relaxed" style={{ fontSize: '15px' }}>
                   No para atletas de tiempo completo. Para quienes lideran, deciden y necesitan que el cuerpo esté a la altura.
