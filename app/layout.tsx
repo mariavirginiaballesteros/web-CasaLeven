@@ -4,7 +4,6 @@ import Script from 'next/script'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import Cursor from '@/components/Cursor'
 import LogoIntro from '@/components/LogoIntro'
 
 const inter = Inter({
@@ -50,8 +49,7 @@ export default function RootLayout({
         <Script id="clarity" strategy="afterInteractive">
           {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "vy8nhxcvmo");`}
         </Script>
-        <Cursor />
-        <LogoIntro />
+<LogoIntro />
         <Nav />
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-246795991" height="0" width="0" style={{ display:'none', visibility:'hidden' }} /></noscript>
         <main>{children}</main>

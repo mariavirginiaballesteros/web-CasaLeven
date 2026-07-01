@@ -72,8 +72,8 @@ export default function Nav() {
             {(label as string).toUpperCase()}
           </Link>
         ))}
-        <Link href="/fundadores" className="btn-leven btn-leven-filled" style={{ padding: '10px 24px', fontSize: '10px', background: '#ffffff', borderColor: '#ffffff', color: '#1c1519' }}>
-          Founders
+        <Link href="/reservas" className="btn-leven btn-leven-outline" style={{ padding: '10px 24px', fontSize: '10px' }}>
+          Reservar
         </Link>
       </div>
 
@@ -114,7 +114,7 @@ export default function Nav() {
             ['Leven Motion',      '/motion'],
             ['Leven Therma',      '/therma'],
             ['Leven Nourish',     '/nourish'],
-            ['Founders', '/fundadores'],
+            ['Reservar turno',    '/reservas'],
           ].map(([label, href]) => (
             <Link
               key={href}

@@ -41,7 +41,7 @@ export default function Footer() {
                 ['Leven Motion',  '/motion'],
                 ['Leven Therma',  '/therma'],
                 ['Leven Nourish', '/nourish'],
-                ['Membresías',    '/membresias'],
+                // ['Membresías', '/membresias'], // oculto por ahora
               ].map(([label, href]) => (
                 <Link
                   key={href}
@@ -94,13 +94,6 @@ export default function Footer() {
           <p className="text-white/20" style={{ fontSize: '11px' }}>
             © {new Date().getFullYear()} Casa Leven — Proyecto Vida S.A. · Funes, Santa Fe
           </p>
-          <Link
-            href="/fundadores"
-            className="text-white/40 hover:text-white transition-colors font-display"
-            style={{ fontSize: '10px', letterSpacing: '0.2em' }}
-          >
-            FOUNDERS →
-          </Link>
         </div>
       </div>
     </footer>

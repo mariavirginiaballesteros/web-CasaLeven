@@ -282,7 +282,7 @@ export default function HomePage() {
               </div>
 
               <a
-                href="https://www.google.com/maps/dir/-32.9082395,-60.8095537/Radisson+RED+Funes,+2+de+abril+3501,+S2132+Funes,+Santa+Fe/@-32.9253949,-60.8388681,6505m/data=!3m2!1e3!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x95b64db892bd072b:0x279332880741753b!2m2!1d-60.8307717!2d-32.9365745?entry=ttu&g_ep=EgoyMDI2MDUzMS4wIKXMDSoASAFQAw%3D%3D"
+                href="https://maps.app.goo.gl/jye7PA8gcgD8PJZRA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-leven btn-leven-filled self-start flex items-center gap-3"
@@ -299,7 +299,7 @@ export default function HomePage() {
             {/* Map card */}
             <RevealSection delay={150}>
               <a
-                href="https://www.google.com/maps/dir/-32.9082395,-60.8095537/Radisson+RED+Funes,+2+de+abril+3501,+S2132+Funes,+Santa+Fe/@-32.9253949,-60.8388681,6505m/data=!3m2!1e3!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x95b64db892bd072b:0x279332880741753b!2m2!1d-60.8307717!2d-32.9365745?entry=ttu&g_ep=EgoyMDI2MDUzMS4wIKXMDSoASAFQAw%3D%3D"
+                href="https://maps.app.goo.gl/jye7PA8gcgD8PJZRA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block relative overflow-hidden"
@@ -353,46 +353,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── FOUNDERS ─────────────────────────── */}
-      <section className="grain py-28 md:py-44" style={{ background: 'var(--offwhite)' }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-14">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
-            <RevealSection>
-              <div className="divider mb-8" />
-              <p className="font-display text-leven-purple/35 mb-3" style={{ fontSize: '10px', letterSpacing: '0.4em' }}>PROGRAMA EXCLUSIVO</p>
-              <h2 className="font-display font-bold text-leven-purple leading-tight mb-6" style={{ fontSize: 'clamp(32px, 5vw, 60px)', letterSpacing: '-0.02em' }}>
-                Antes de que el mundo<br />descubra Casa Leven,<br />
-                <em style={{ fontWeight: 700, color: '#3b2f3d' }}>algunos ya cruzaron la puerta.</em>
-              </h2>
-              <p className="font-sans text-leven-purple/55 leading-relaxed mb-10" style={{ fontSize: '15px', maxWidth: '400px' }}>
-                Los Founders son quienes eligen Casa Leven
-                en su forma más exclusiva: con acceso irrepetible,
-                precio que no vuelve, y el privilegio de pertenecer desde el origen.
-              </p>
-              <Link href="/fundadores" className="btn-leven btn-leven-filled" style={{ fontSize: '11px', padding: '18px 44px', background: '#3b2f3d', borderColor: '#3b2f3d', color: '#ffffff' }}>
-                Quiero pertenecer →
-              </Link>
-            </RevealSection>
-
-            <RevealSection delay={200}>
-              <div className="flex flex-col">
-                {[
-                  'El precio más bajo que existirá en Casa Leven',
-                  'Prioridad absoluta en agenda y horarios',
-                  'Evento privado de pre-apertura — solo por invitación',
-                  'Congelamiento gratuito el primer año',
-                  'Descuentos permanentes en servicios adicionales',
-                ].map((b, i) => (
-                  <div key={i} className="flex items-start gap-4 py-4" style={{ borderBottom: '1px solid rgba(46,39,53,0.08)' }}>
-                    <span style={{ color: 'var(--sage)', fontSize: '12px', marginTop: '2px', flexShrink: 0 }}>✓</span>
-                    <p className="font-sans text-leven-purple/60" style={{ fontSize: '14px' }}>{b}</p>
-                  </div>
-                ))}
-              </div>
-            </RevealSection>
-          </div>
-        </div>
-      </section>
     </>
   )
 }
