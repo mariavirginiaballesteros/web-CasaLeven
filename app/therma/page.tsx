@@ -195,8 +195,8 @@ export default function ThermaPage() {
           </RevealSection>
           <RevealSection delay={150}>
             <div className="flex gap-4">
-              <Link href="/fundadores" className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.5)', whiteSpace: 'nowrap' }}>
-                Founders →
+              <Link href="/reservas" className="btn-leven btn-leven-filled" style={{ background: '#ffffff', borderColor: '#ffffff', color: COLOR, whiteSpace: 'nowrap' }}>
+                Reservar turno
               </Link>
               <a href="https://wa.me/5493415000000?text=Hola, quiero reservar en Leven Therma" className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.3)', whiteSpace: 'nowrap' }}>
                 WhatsApp
