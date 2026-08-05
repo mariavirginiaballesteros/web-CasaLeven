@@ -7,7 +7,7 @@ import BrandImages from '@/components/BrandImages'
 
 export const metadata: Metadata = {
   title: 'Leven Nourish · Nutrición Funcional · Casa Leven Funes',
-  description: 'Nutrición funcional. Aguas internacionales, jugos naturales y alimentos Esenio. El tercer pilar del sistema Casa Leven. Funes, Argentina.',
+  description: 'Nutrición funcional. Aguas internacionales, jugos naturales y comida saludable elaborada por chefs especializados. El tercer pilar del sistema Casa Leven. Funes, Argentina.',
 }
 
 const COLOR = '#7b8476'
@@ -73,8 +73,8 @@ export default function NourishPage() {
                 icon: '◇',
               },
               {
-                title: 'Alimentos Esenio',
-                body: 'Línea de alimentos empaquetados de la marca Esenio — funcionales, limpios, diseñados para el cuerpo que rinde.',
+                title: 'Comida saludable de autor',
+                body: 'Elaborada por chefs especializados — funcional, limpia, pensada para el cuerpo que rinde.',
                 icon: '◇',
               },
             ].map((item, i) => (

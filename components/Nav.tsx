@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { CAMPANA_FUNDADORES } from '@/data/leven'
 
 export default function Nav() {
   const [scrolled,    setScrolled]    = useState(false)
@@ -61,6 +62,8 @@ export default function Nav() {
           ['Motion',     '/motion'],
           ['Therma',     '/therma'],
           ['Nourish',    '/nourish'],
+          // Campaña temporal — se cae sola con CAMPANA_FUNDADORES.activa = false
+          ...(CAMPANA_FUNDADORES.activa ? [['Fundadores', '/fundadores']] : []),
         ].map(([label, href]) => (
           <Link
             key={href}
@@ -112,6 +115,7 @@ export default function Nav() {
             ['Leven Motion',      '/motion'],
             ['Leven Therma',      '/therma'],
             ['Leven Nourish',     '/nourish'],
+            ...(CAMPANA_FUNDADORES.activa ? [['Socios Fundadores', '/fundadores']] : []),
             ['Reservar turno',    '/reservas'],
           ].map(([label, href]) => (
             <Link

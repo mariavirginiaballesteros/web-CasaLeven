@@ -4,43 +4,53 @@ import Link from 'next/link'
 import RevealSection from '@/components/RevealSection'
 import LandingHero from '@/components/LandingHero'
 import BrandImages from '@/components/BrandImages'
+import JsonLd from '@/components/JsonLd'
+import FaqBlock from '@/components/FaqBlock'
+import {
+  CIRCUITOS,
+  LETRA_CHICA_THERMA,
+  THERMA_PRECIOS_PUBLICADOS,
+  THERMA_MONEDA,
+  precioCircuito,
+  SITE,
+} from '@/data/leven'
 
 export const metadata: Metadata = {
-  title: 'Leven Therma · Spa y Recuperación Profunda · Casa Leven Funes',
-  description: 'Circuitos termales, masajes con protocolo y tratamientos de recuperación. La habilidad más sofisticada de los que más rinden. Funes, Argentina.',
+  title: 'Leven Therma · Spa y circuito hídrico en Funes',
+  description:
+    'Spa con circuito hídrico —sauna seco, ducha escocesa, baño de vapor y jacuzzi—, masajes con protocolo y tratamientos faciales en Funes, Santa Fe. Day pass RESET, RESTORE y DEEP con turno previo.',
+  alternates: { canonical: '/therma' },
+  openGraph: {
+    title: 'Leven Therma · Spa y circuito hídrico en Funes',
+    description:
+      'Circuitos termales RESET, RESTORE y DEEP. Recuperación profunda con turno previo. Funes, Santa Fe.',
+    url: `${SITE.url}/therma`,
+    type: 'website',
+  },
 }
 
 const COLOR = '#5d6d7e'
 
-const circuits = [
+const FAQ_THERMA = [
   {
-    name: 'RESET',
-    tagline: 'Entrada al equilibrio',
-    duration: '60 min',
-    price: 'USD 100',
-    includes: ['Sauna', 'Sala de relax + colación', 'Ducha escocesa', 'Baño de vapor'],
+    q: '¿Qué incluye el circuito hídrico de Casa Leven?',
+    a: 'El circuito hídrico de Leven Therma incluye sauna seco, ducha escocesa, baño de vapor y jacuzzi, más sala de relax y pileta climatizada. Se puede acceder con day pass o incluido en las membresías Performance, Flow, Sport y Power Sport, con 4 accesos por mes.',
   },
   {
-    name: 'RESTORE',
-    tagline: 'Cuerpo y profundidad',
-    duration: '90 min',
-    price: 'USD 180',
-    includes: ['Sauna', 'Sala de relax + colación', 'Exfoliación corporal', 'Nutrición corporal', 'Ducha escocesa', 'Baño de vapor'],
+    q: '¿Qué day pass de spa ofrece Casa Leven?',
+    a: 'Leven Therma tiene tres packs de day pass: RESET de 60 minutos, RESTORE de 90 minutos y DEEP de 150 minutos. Desde septiembre se suma LEVEN RITUAL, la experiencia de día completo de 290 minutos. Los valores se confirman al reservar el turno.',
   },
   {
-    name: 'DEEP',
-    tagline: 'La experiencia completa',
-    duration: '150 min',
-    price: 'USD 280',
-    includes: ['Sauna', 'Sala de relax + colación', 'Exfoliación corporal', 'Hidromasaje', 'Pediluvios', 'Ducha escocesa', 'Baño de vapor'],
+    q: '¿Hace falta reservar turno para el spa?',
+    a: 'Sí. Los circuitos y los tratamientos de Leven Therma se reservan con turno previo desde la sección de reservas del sitio o por WhatsApp, porque el aforo es limitado para sostener el silencio y la calidad de la experiencia.',
   },
   {
-    name: 'LEVEN RITUAL',
-    tagline: 'El día completo',
-    duration: '290 min',
-    price: 'USD 300',
-    highlight: true,
-    includes: ['Gym (60 min)', 'Sauna + ducha escocesa', 'Almuerzo saludable', 'Piscina Kneipp', 'Masajes completos', 'Limpieza facial'],
+    q: '¿Se puede ir al spa sin ser socio de Casa Leven?',
+    a: 'Sí. Leven Therma atiende tanto a socios como a personas externas y a huéspedes del hotel, a través de los packs de day pass o de tratamientos individuales.',
+  },
+  {
+    q: '¿Qué masajes y tratamientos ofrece Leven Therma?',
+    a: 'Masaje relajante, descontracturante, cérvico craneal, circulatorio, drenaje linfático, piedras calientes, esferas sonoras, reflexología y reiki. En faciales: Premium, Renovador y Revitalizante.',
   },
 ]
 
@@ -91,18 +101,31 @@ export default function ThermaPage() {
           </RevealSection>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {circuits.map((c, i) => (
+            {CIRCUITOS.map((c, i) => (
               <RevealSection key={c.name} delay={i * 80}>
                 <div
                   className="membership-card flex flex-col h-full"
-                  style={{ background: c.highlight ? `${COLOR}12` : 'rgba(255,255,255,0.03)', border: c.highlight ? `1px solid ${COLOR}50` : '1px solid rgba(255,255,255,0.07)' }}
+                  id={c.id}
+                  style={{ background: c.proximamente ? `${COLOR}12` : 'rgba(255,255,255,0.03)', border: c.proximamente ? `1px solid ${COLOR}50` : '1px solid rgba(255,255,255,0.07)' }}
                 >
                   <div className="font-display font-bold text-white mb-1" style={{ fontSize: '11px', letterSpacing: '0.2em' }}>{c.name}</div>
                   <p className="font-sans text-white/30 mb-3" style={{ fontSize: '11px' }}>{c.tagline}</p>
-                  <div className="flex items-baseline gap-3 mb-5">
-                    <span className="font-sans text-white/40" style={{ fontSize: '11px', letterSpacing: '0.18em' }}>PRÓXIMAMENTE</span>
-                    <span className="text-white/30 font-sans" style={{ fontSize: '11px' }}>{c.duration}</span>
+                  <div className="flex items-baseline gap-3 mb-1">
+                    <span
+                      className="font-display font-bold text-white"
+                      style={{
+                        fontSize: THERMA_PRECIOS_PUBLICADOS ? '22px' : '13px',
+                        letterSpacing: THERMA_PRECIOS_PUBLICADOS ? '-0.02em' : '0.15em',
+                        opacity: THERMA_PRECIOS_PUBLICADOS ? 1 : 0.45,
+                      }}
+                    >
+                      {precioCircuito(c)}
+                    </span>
+                    <span className="text-white/30 font-sans" style={{ fontSize: '11px' }}>{c.duracion}</span>
                   </div>
+                  <p className="font-sans mb-5" style={{ fontSize: '10px', letterSpacing: '0.15em', color: c.nota ? COLOR : 'transparent', minHeight: '14px' }}>
+                    {c.nota ? c.nota.toUpperCase() : '·'}
+                  </p>
                   <div className="flex flex-col gap-2 flex-1 mb-6">
                     {c.includes.map((s, j) => (
                       <div key={j} className="flex items-start gap-2">
@@ -111,13 +134,17 @@ export default function ThermaPage() {
                       </div>
                     ))}
                   </div>
-                  <Link href="/contacto" className="btn-leven btn-leven-therma w-full justify-center" style={{ borderColor: `${COLOR}50`, fontSize: '10px' }}>
+                  <Link href="/reservas" className="btn-leven btn-leven-therma w-full justify-center" style={{ borderColor: `${COLOR}50`, fontSize: '10px' }}>
                     Reservar →
                   </Link>
                 </div>
               </RevealSection>
             ))}
           </div>
+
+          <p className="font-sans text-white/25 text-center mx-auto mt-10" style={{ fontSize: '11px', maxWidth: '620px', lineHeight: 1.6 }}>
+            {LETRA_CHICA_THERMA}
+          </p>
         </div>
       </section>
 
@@ -195,13 +222,66 @@ export default function ThermaPage() {
               <Link href="/reservas" className="btn-leven btn-leven-filled" style={{ background: '#ffffff', borderColor: '#ffffff', color: COLOR, whiteSpace: 'nowrap' }}>
                 Reservar turno
               </Link>
-              <a href="https://wa.me/5493415000000?text=Hola, quiero reservar en Leven Therma" className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.3)', whiteSpace: 'nowrap' }}>
+              <a href={`https://wa.me/${SITE.whatsapp}?text=Hola, quiero reservar en Leven Therma`} className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.3)', whiteSpace: 'nowrap' }}>
                 WhatsApp
               </a>
             </div>
           </RevealSection>
         </div>
       </section>
+
+      {/* ─── FAQ (SEO + respuestas para motores de IA) ──── */}
+      <FaqBlock items={FAQ_THERMA} color={COLOR} />
+
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'DaySpa',
+          '@id': `${SITE.url}/therma#spa`,
+          name: 'Leven Therma',
+          description:
+            'Spa con circuito hídrico, masajes con protocolo y tratamientos faciales dentro de Casa Leven, Funes, Santa Fe, Argentina.',
+          url: `${SITE.url}/therma`,
+          parentOrganization: { '@id': `${SITE.url}#casaleven` },
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: SITE.direccion.calle,
+            addressLocality: SITE.direccion.ciudad,
+            addressRegion: SITE.direccion.provincia,
+            postalCode: SITE.direccion.cp,
+            addressCountry: SITE.direccion.pais,
+          },
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Circuitos y day pass Leven Therma',
+            itemListElement: CIRCUITOS.map((c) => ({
+              '@type': 'Offer',
+              name: c.name,
+              description: `${c.tagline} · ${c.duracion} · ${c.includes.join(', ')}`,
+              // Los precios se publican cuando THERMA_PRECIOS_PUBLICADOS = true.
+              // Declarar un precio incorrecto en schema.org es peor que no declararlo.
+              ...(THERMA_PRECIOS_PUBLICADOS
+                ? { price: c.precioUSD, priceCurrency: THERMA_MONEDA }
+                : {}),
+              availability: c.proximamente
+                ? 'https://schema.org/PreOrder'
+                : 'https://schema.org/InStock',
+              url: `${SITE.url}/therma#${c.id}`,
+            })),
+          },
+        }}
+      />
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: FAQ_THERMA.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
+      />
     </>
   )
 }

@@ -3,6 +3,32 @@ import Link from 'next/link'
 import HeroHome from '@/components/HeroHome'
 import RevealSection from '@/components/RevealSection'
 import DoorAnimation from '@/components/DoorAnimation'
+import FaqBlock from '@/components/FaqBlock'
+import JsonLd from '@/components/JsonLd'
+import { PLANES, CIRCUITOS, ars, porMes } from '@/data/leven'
+
+const FAQ_HOME = [
+  {
+    q: '¿Qué es Casa Leven?',
+    a: 'Casa Leven es un espacio integral de bienestar en Funes, Santa Fe, que reúne tres unidades bajo un mismo método: Leven Motion (gimnasio de alto rendimiento con aforo limitado), Leven Therma (spa con circuito hídrico, masajes y faciales) y Leven Nourish (nutrición funcional). No es un spa, ni un gimnasio, ni un bar saludable por separado: los tres pilares están conectados.',
+  },
+  {
+    q: '¿Dónde queda Casa Leven?',
+    a: 'Casa Leven funciona dentro del Radisson RED Funes, en Funes, provincia de Santa Fe, Argentina, a pocos minutos de Rosario. Atiende a socios, visitantes externos y huéspedes del hotel.',
+  },
+  {
+    q: '¿Cuánto cuesta ser socio de Casa Leven?',
+    a: `Las membresías mensuales van de ${ars(PLANES[0].precios.mensual)} a ${ars(PLANES[PLANES.length - 1].precios.mensual)} según el plan. Contratando 12 meses el valor mensual baja: el plan más accesible queda en ${ars(porMes(PLANES[0].precios.anual, 12))} por mes. Todas incluyen gimnasio ilimitado.`,
+  },
+  {
+    q: '¿Puedo ir sin ser socio?',
+    a: `Sí. Leven Therma tiene day pass de spa: ${CIRCUITOS[0].name}, un circuito de ${CIRCUITOS[0].duracion}, y opciones más largas. También se pueden reservar masajes y tratamientos faciales individuales.`,
+  },
+  {
+    q: '¿Cómo reservo un turno?',
+    a: 'Los turnos de spa, masajes y tratamientos se reservan desde la sección de reservas del sitio o por WhatsApp. El aforo es limitado, así que conviene reservar con anticipación.',
+  },
+]
 
 const units = [
   {
@@ -35,7 +61,7 @@ const units = [
     label: 'Nutrición',
     line1: 'El combustible que elegís',
     line2: 'determina la energía que tenés.',
-    copy:  'Nutrición funcional con propósito. Aguas internacionales, jugos naturales y alimentos Esenio. Ingredientes que el cuerpo reconoce.',
+    copy:  'Nutrición funcional con propósito. Aguas internacionales, jugos naturales y comida saludable elaborada por chefs especializados. Ingredientes que el cuerpo reconoce.',
     color: '#7b8476',
     href:  '/nourish',
     logo:  '/logos/leven-nourish.svg',
@@ -356,6 +382,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── FAQ (SEO local + respuestas para motores de IA) ─── */}
+      <FaqBlock items={FAQ_HOME} color="#b23a3a" title="Lo que más nos preguntan." />
+
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: FAQ_HOME.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
+      />
     </>
   )
 }

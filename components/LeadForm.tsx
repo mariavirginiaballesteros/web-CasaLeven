@@ -3,6 +3,7 @@
 import { useState, useTransition, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { submitLead } from '@/actions/submitLead'
+import { PLANES, ars } from '@/data/leven'
 
 interface Props {
   fuente?: string
@@ -139,10 +140,11 @@ export default function LeadForm({
             className="input-leven"
           >
             <option value="" disabled>Seleccioná un plan</option>
-            <option value="STARTER">STARTER — USD 89/mes</option>
-            <option value="FLOW">FLOW — USD 149/mes</option>
-            <option value="SPORT">SPORT — USD 179/mes</option>
-            <option value="POWER SPORT">POWER SPORT — USD 229/mes</option>
+            {PLANES.map((p) => (
+              <option key={p.id} value={p.name}>
+                {p.name} — {ars(p.precios.mensual)}/mes
+              </option>
+            ))}
             <option value="No sé todavía">No sé todavía</option>
           </select>
         </div>

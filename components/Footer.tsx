@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { CAMPANA_FUNDADORES } from '@/data/leven'
 
 export default function Footer() {
   return (
@@ -41,7 +42,10 @@ export default function Footer() {
                 ['Leven Motion',  '/motion'],
                 ['Leven Therma',  '/therma'],
                 ['Leven Nourish', '/nourish'],
-                // ['Membresías', '/membresias'], // oculto por ahora
+                ['Membresías',    '/membresias'],
+                ['Reservar turno','/reservas'],
+                // Campaña temporal — se cae sola con CAMPANA_FUNDADORES.activa = false
+                ...(CAMPANA_FUNDADORES.activa ? [['Socios Fundadores', '/fundadores']] : []),
               ].map(([label, href]) => (
                 <Link
                   key={href}

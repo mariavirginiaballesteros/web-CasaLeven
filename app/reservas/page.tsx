@@ -1,8 +1,15 @@
 import { isReservasClosed } from '@/lib/reservasClosed'
 import ReservasVenueSelector from '@/components/reservas/ReservasVenueSelector'
 
-export default function ReservasPage() {
-  const closed = isReservasClosed()
+/**
+ * El interruptor de "reservas cerradas" vive en Supabase y se cambia desde el
+ * admin. Si la página se prerenderiza en build, el valor queda congelado y el
+ * botón del admin no tiene efecto: por eso se fuerza render dinámico.
+ */
+export const dynamic = 'force-dynamic'
+
+export default async function ReservasPage() {
+  const closed = await isReservasClosed()
 
   if (closed) {
     return (
