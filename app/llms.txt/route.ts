@@ -97,7 +97,9 @@ ${
 
 Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven entran como Fundadores. Aplica a las membresías de la casa en general, que incluyen Leven Motion, Leven Therma y Leven Nourish según el plan:
 ${CAMPANA_FUNDADORES.beneficios.map((b) => `- ${b.titulo}: ${b.body}`).join('\n')}
-IMPORTANTE: la condición de Socio Fundador aplica únicamente al plan anual (12 meses). No existe Socio Fundador mensual ni trimestral. El descuento es del ${CAMPANA_FUNDADORES.descuento} sobre el precio de lista anual.
+CÓMO SE ACCEDE: se es Socio Fundador contratando el plan anual (12 meses) de cualquiera de las membresías de Casa Leven. Es la única forma: no existe Socio Fundador mensual ni trimestral. El ahorro es de ${CAMPANA_FUNDADORES.descuento} sobre el precio de lista anual.
+Precios Fundador (plan anual, mostrados como equivalente mensual; se abonan por los 12 meses):
+${PLANES.map((p) => `- ${p.name}: ${ars(porMes(p.fundadorAnual, 12))} por mes en lugar de ${ars(porMes(p.precios.anual, 12))} — total anual ${ars(p.fundadorAnual)}`).join('\n')}
 El cupo se agota por venta, no por fecha. Permanencia mínima: ${CAMPANA_FUNDADORES.permanenciaMinimaMeses} meses.
 URL: ${SITE.url}/fundadores
 `

@@ -55,13 +55,17 @@ const FAQ_FUNDADORES = [
     a: 'Todas las membresías incluyen acceso ilimitado a Leven Motion, vestuarios y duchas, apto médico y comunidad Leven. Según el plan se suman el circuito hídrico de Leven Therma (sauna seco, ducha escocesa, baño de vapor y jacuzzi, 4 accesos por mes), la consulta nutricional mensual y el plan de alimentación de Leven Nourish, y la posta deportiva personalizada de una hora, 4 veces por mes.',
   },
   {
+    q: '¿Cómo se hace para ser Socio Fundador?',
+    a: `Contratando el plan anual de cualquiera de las membresías de Casa Leven. Es la única forma: no existe Socio Fundador mes a mes ni trimestral. Al hacerlo accedés al precio Fundador, que queda congelado mientras tu membresía siga activa, y a los beneficios del programa. Son ${CAMPANA_FUNDADORES.cupo} lugares y el cupo se agota por venta.`,
+  },
+  {
     q: '¿Cuánto cuesta la membresía siendo Fundador?',
     a:
       PLANES.map(
         (p) =>
-          `${p.name}: ${ars(porMes(p.fundadorAnual, 12))} por mes en lugar de ${ars(porMes(p.precios.anual, 12))} (total ${ars(p.fundadorAnual)})`,
+          `${p.name}: ${ars(porMes(p.fundadorAnual, 12))} por mes en lugar de ${ars(porMes(p.precios.anual, 12))} (plan anual de ${ars(p.fundadorAnual)})`,
       ).join('; ') +
-      `. La condición de Fundador aplica únicamente al plan anual: no hay Fundador mes a mes ni trimestral. Los precios son en pesos argentinos y el plan se abona por adelantado.`,
+      `. Todos son valores de plan anual, mostrados como equivalente mensual. El plan se contrata por 12 meses y se abona por adelantado. Los precios son en pesos argentinos.`,
   },
   {
     q: '¿Hasta cuándo dura el beneficio de Fundador?',
@@ -79,66 +83,165 @@ export default function FundadoresPage() {
 
   return (
     <>
-      {/* ─── HERO ──────────────────────────────────────── */}
+      {/* ─── HERO ──────────────────────────────────────────
+        * Dos columnas en desktop: a la izquierda el mensaje, a la derecha
+        * la ficha con las 3 condiciones concretas de ser Fundador.
+        * En mobile se apila. Alto por contenido (py) y no por vh, para que
+        * nunca se solapen los bloques.
+        * ──────────────────────────────────────────────── */}
       <section
-        className="grain relative flex items-end"
+        className="grain relative"
         style={{
-          minHeight: '92vh',
-          background: `linear-gradient(180deg, rgba(28,21,25,0.55) 0%, rgba(28,21,25,0.92) 100%), url('/images/gimnasio/leven-gimnasio-person-18.jpg') center/cover no-repeat`,
+          background: `linear-gradient(180deg, rgba(28,21,25,0.72) 0%, rgba(28,21,25,0.94) 100%), url('/images/gimnasio/leven-gimnasio-person-18.jpg') center/cover no-repeat`,
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 pb-20 md:pb-28 w-full">
-          <RevealSection>
-            <p className="font-display font-medium text-white/40 mb-6" style={{ fontSize: '9px', letterSpacing: '0.4em' }}>
-              CASA LEVEN · SOCIOS FUNDADORES
-            </p>
-            <h1
-              className="font-display font-bold text-white mb-8"
-              style={{ fontSize: 'clamp(34px, 6vw, 78px)', letterSpacing: '-0.03em', lineHeight: 1.02, maxWidth: '14ch' }}
-            >
-              Sé parte de esta casa antes de que abra sus puertas.
-            </h1>
-            <p className="font-sans text-white/65 leading-relaxed mb-4" style={{ fontSize: '17px', maxWidth: '620px' }}>
-              Casa Leven todavía no abrió. Pero el movimiento con criterio, la recuperación real y
-              la nutrición que sostiene ya están tomando forma en Funes. Los primeros{' '}
-              {CAMPANA_FUNDADORES.cupo} socios entran ahora, como Fundadores.
-            </p>
-            <p className="font-sans text-white/35 italic leading-relaxed mb-10" style={{ fontSize: '14px', maxWidth: '560px' }}>
-              Cuidarte no debería ser una tarea más de tu semana. Casa Leven reúne movimiento,
-              recuperación y nutrición en un mismo lugar, pensados con el mismo criterio con el que
-              gestionás todo lo demás.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#planes" className="btn-leven btn-leven-filled" style={{ background: COLOR, borderColor: COLOR }}>
-                Conocé los planes ↓
-              </a>
-              <a
-                href={`https://wa.me/${SITE.whatsapp}?text=Hola, quiero ser Socio Fundador de Casa Leven`}
-                className="btn-leven"
-                style={{ borderColor: 'rgba(255,255,255,0.28)' }}
-              >
-                Hablar por WhatsApp
-              </a>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-20 md:pt-44 md:pb-28">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Columna mensaje */}
+            <div className="lg:col-span-7">
+              <RevealSection>
+                <p
+                  className="font-display font-medium mb-7"
+                  style={{ fontSize: '9px', letterSpacing: '0.4em', color: '#d98080' }}
+                >
+                  CASA LEVEN · SOCIOS FUNDADORES
+                </p>
+                <h1
+                  className="font-display font-bold text-white"
+                  style={{
+                    fontSize: 'clamp(36px, 5.4vw, 68px)',
+                    letterSpacing: '-0.03em',
+                    lineHeight: 1.05,
+                  }}
+                >
+                  Sé parte de esta casa antes de que abra sus puertas.
+                </h1>
+                <p
+                  className="font-sans text-white/60 leading-relaxed mt-7"
+                  style={{ fontSize: '17px', maxWidth: '52ch' }}
+                >
+                  Casa Leven abre en Funes con un método integral: movimiento, recuperación y
+                  nutrición pensados juntos.
+                </p>
+                <p
+                  className="font-sans text-white/60 leading-relaxed mt-4"
+                  style={{ fontSize: '17px', maxWidth: '52ch' }}
+                >
+                  Los primeros {CAMPANA_FUNDADORES.cupo} socios entran como Fundadores, con un
+                  precio que queda congelado mientras la membresía siga activa.
+                </p>
+
+                <div className="flex flex-wrap gap-4 mt-10">
+                  <a
+                    href="#planes"
+                    className="btn-leven btn-leven-filled"
+                    style={{ background: COLOR, borderColor: COLOR }}
+                  >
+                    Ver los planes Fundador
+                  </a>
+                  <a href="#sumarme" className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.28)' }}>
+                    Quiero mi lugar
+                  </a>
+                </div>
+              </RevealSection>
             </div>
-          </RevealSection>
+
+            {/* Columna ficha: las 3 condiciones, sin vueltas */}
+            <div className="lg:col-span-5">
+              <RevealSection delay={140}>
+                <div
+                  className="p-8 md:p-9"
+                  style={{
+                    border: '1px solid rgba(255,255,255,0.14)',
+                    background: 'rgba(28,21,25,0.55)',
+                    backdropFilter: 'blur(6px)',
+                  }}
+                >
+                  <p
+                    className="font-display font-medium text-white/35 mb-7"
+                    style={{ fontSize: '9px', letterSpacing: '0.3em' }}
+                  >
+                    CÓMO SE FUNDA
+                  </p>
+
+                  {[
+                    { n: '01', t: 'Comprás el plan anual', d: 'Es la única forma de ser Fundador. No hay Fundador mes a mes ni trimestral.' },
+                    { n: '02', t: 'Tu precio queda congelado', d: 'Se mantiene mientras tu membresía siga activa sin interrupción.' },
+                    { n: '03', t: `Son ${CAMPANA_FUNDADORES.cupo} lugares`, d: 'El cupo se agota por venta, no por fecha. No hay segunda tanda.' },
+                  ].map((item) => (
+                    <div
+                      key={item.n}
+                      className="flex gap-4 py-4"
+                      style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
+                    >
+                      <span
+                        className="font-display font-bold flex-shrink-0"
+                        style={{ fontSize: '11px', letterSpacing: '0.1em', color: COLOR, marginTop: '2px' }}
+                      >
+                        {item.n}
+                      </span>
+                      <div>
+                        <p className="font-display font-bold text-white mb-1" style={{ fontSize: '14px' }}>
+                          {item.t}
+                        </p>
+                        <p className="font-sans text-white/45 leading-relaxed" style={{ fontSize: '13px' }}>
+                          {item.d}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </RevealSection>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ─── POR QUÉ EXISTE ────────────────────────────── */}
       <section className="py-24 md:py-32" style={{ background: 'var(--offwhite)' }}>
-        <div className="max-w-4xl mx-auto px-6 md:px-12">
+        <div className="max-w-3xl mx-auto px-6 md:px-12">
           <RevealSection>
-            <p className="font-sans text-leven-purple/70 leading-relaxed mb-6" style={{ fontSize: '19px' }}>
-              Hay personas que viven con intensidad. Deciden mucho. Sostienen equipos. Lideran.
-              Y cuidarse termina siendo una responsabilidad más: el gimnasio por un lado, la
-              recuperación cuando hay tiempo, la alimentación cuando se puede.
+            <span
+              className="font-display font-medium block mb-6"
+              style={{ fontSize: '9px', letterSpacing: '0.35em', color: COLOR }}
+            >
+              POR QUÉ EXISTE CASA LEVEN
+            </span>
+
+            <p className="font-sans text-leven-purple/75 leading-relaxed" style={{ fontSize: '20px' }}>
+              Hay personas que viven con intensidad. Deciden mucho, sostienen equipos, lideran.
             </p>
-            <p className="font-sans text-leven-purple/55 leading-relaxed" style={{ fontSize: '17px' }}>
-              Casa Leven se pensó al revés: un método integral donde el movimiento, la recuperación
-              y la nutrición conversan entre sí. Leven Motion para entrenar con criterio, Leven
-              Therma para que el cuerpo se recupere de verdad y Leven Nourish para que la
-              alimentación acompañe. Todo en un mismo lugar, sin que cuidarte te reste energía.
+
+            <p className="font-sans text-leven-purple/60 leading-relaxed mt-6" style={{ fontSize: '17px' }}>
+              Para ellas, cuidarse termina siendo una responsabilidad más: el gimnasio por un lado,
+              la recuperación cuando hay tiempo, la alimentación cuando se puede.
             </p>
+
+            <p className="font-sans text-leven-purple/60 leading-relaxed mt-6" style={{ fontSize: '17px' }}>
+              Casa Leven se pensó al revés. Un método integral donde el movimiento, la recuperación
+              y la nutrición conversan entre sí, en un mismo lugar.
+            </p>
+
+            {/* Las tres unidades, separadas para que se lean */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
+              {[
+                { n: 'LEVEN MOTION', d: 'Entrenar con criterio y progresión real.' },
+                { n: 'LEVEN THERMA', d: 'Que el cuerpo se recupere de verdad.' },
+                { n: 'LEVEN NOURISH', d: 'Que la alimentación acompañe.' },
+              ].map((u) => (
+                <div key={u.n} className="pt-5" style={{ borderTop: `1.5px solid ${COLOR}` }}>
+                  <p
+                    className="font-display font-bold text-leven-purple mb-2"
+                    style={{ fontSize: '10px', letterSpacing: '0.2em' }}
+                  >
+                    {u.n}
+                  </p>
+                  <p className="font-sans text-leven-purple/55 leading-relaxed" style={{ fontSize: '14px' }}>
+                    {u.d}
+                  </p>
+                </div>
+              ))}
+            </div>
           </RevealSection>
         </div>
       </section>
@@ -147,12 +250,32 @@ export default function FundadoresPage() {
       <section className="grain py-24 md:py-32" style={{ background: 'var(--dark)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <RevealSection className="mb-14">
-            <span className="font-display font-medium text-white/30 block mb-4" style={{ fontSize: '9px', letterSpacing: '0.35em' }}>
-              SER FUNDADOR
-            </span>
-            <h2 className="font-display font-bold text-white" style={{ fontSize: 'clamp(26px, 4vw, 50px)', letterSpacing: '-0.02em', maxWidth: '18ch' }}>
-              No es una promoción. Es ser parte desde antes de que exista.
-            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end">
+              <div className="lg:col-span-7">
+                <span
+                  className="font-display font-medium text-white/30 block mb-4"
+                  style={{ fontSize: '9px', letterSpacing: '0.35em' }}
+                >
+                  SER FUNDADOR
+                </span>
+                <h2
+                  className="font-display font-bold text-white"
+                  style={{ fontSize: 'clamp(28px, 4vw, 50px)', letterSpacing: '-0.02em', lineHeight: 1.08 }}
+                >
+                  No es una promoción. Es ser parte desde antes de que exista.
+                </h2>
+              </div>
+              <div className="lg:col-span-5">
+                <p className="font-sans text-white/55 leading-relaxed" style={{ fontSize: '16px' }}>
+                  Se funda de una sola manera: contratando el plan anual de cualquiera de las
+                  membresías de Casa Leven.
+                </p>
+                <p className="font-sans text-white/40 leading-relaxed mt-4" style={{ fontSize: '15px' }}>
+                  Ese plan te da el precio Fundador y estos tres beneficios, que no vuelven a
+                  ofrecerse una vez completado el cupo.
+                </p>
+              </div>
+            </div>
           </RevealSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
@@ -168,9 +291,8 @@ export default function FundadoresPage() {
           </div>
 
           <RevealSection>
-            <p className="font-sans text-white/40 italic text-center mx-auto" style={{ fontSize: '15px', maxWidth: '560px' }}>
+            <p className="font-sans text-white/40 italic text-center mx-auto" style={{ fontSize: '16px', maxWidth: '520px', lineHeight: 1.7 }}>
               Incluso quienes sostienen el mundo necesitan un lugar donde sostenerse.
-              Los primeros {CAMPANA_FUNDADORES.cupo} lo construyen con nosotros.
             </p>
           </RevealSection>
         </div>
@@ -179,20 +301,33 @@ export default function FundadoresPage() {
       {/* ─── PLANES ────────────────────────────────────── */}
       <section id="planes" className="py-24 md:py-32" style={{ background: 'var(--offwhite)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <RevealSection className="mb-4">
-            <span className="font-display font-medium block mb-4" style={{ fontSize: '9px', letterSpacing: '0.35em', color: COLOR }}>
-              PLANES FUNDADOR
-            </span>
-            <h2 className="font-display font-bold text-leven-purple" style={{ fontSize: 'clamp(26px, 4vw, 50px)', letterSpacing: '-0.02em' }}>
-              Elegí cómo entrás.
-            </h2>
-          </RevealSection>
           <RevealSection className="mb-12">
-            <p className="font-sans text-leven-purple/50" style={{ fontSize: '14px', maxWidth: '560px' }}>
-              La condición de Fundador aplica sobre el plan anual: es la única forma de fundar.
-              Los valores de abajo son el equivalente mensual de ese plan, con {CAMPANA_FUNDADORES.descuento}{' '}
-              sobre el precio de lista, congelado mientras tu membresía siga activa.
-            </p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end">
+              <div className="lg:col-span-6">
+                <span
+                  className="font-display font-medium block mb-4"
+                  style={{ fontSize: '9px', letterSpacing: '0.35em', color: COLOR }}
+                >
+                  PLANES FUNDADOR
+                </span>
+                <h2
+                  className="font-display font-bold text-leven-purple"
+                  style={{ fontSize: 'clamp(28px, 4vw, 50px)', letterSpacing: '-0.02em', lineHeight: 1.08 }}
+                >
+                  Elegí con qué membresía fundás.
+                </h2>
+              </div>
+              <div className="lg:col-span-6">
+                <p className="font-sans text-leven-purple/65 leading-relaxed" style={{ fontSize: '16px' }}>
+                  Todos los precios de abajo son de plan anual. Es la única forma de ser Fundador.
+                </p>
+                <p className="font-sans text-leven-purple/45 leading-relaxed mt-3" style={{ fontSize: '14px' }}>
+                  Se muestran como equivalente mensual para que puedas compararlos, pero el plan se
+                  contrata y se abona por los 12 meses. Ese valor queda congelado mientras tu
+                  membresía siga activa.
+                </p>
+              </div>
+            </div>
           </RevealSection>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -219,21 +354,41 @@ export default function FundadoresPage() {
                   <p className="font-sans text-leven-purple/40 mb-5" style={{ fontSize: '11px' }}>{plan.tagline}</p>
 
                   <div className="mb-6">
-                    <p className="font-sans text-leven-purple/30 line-through" style={{ fontSize: '12px' }}>
-                      {ars(porMes(plan.precios.anual, 12))}/mes
+                    <p
+                      className="font-display font-medium mb-2"
+                      style={{ fontSize: '8px', letterSpacing: '0.2em', color: COLOR }}
+                    >
+                      PRECIO FUNDADOR
                     </p>
                     <div className="flex items-baseline gap-1">
-                      <span className="font-display font-bold" style={{ fontSize: '24px', letterSpacing: '-0.02em', color: COLOR }}>
+                      <span
+                        className="font-display font-bold"
+                        style={{ fontSize: '26px', letterSpacing: '-0.02em', color: COLOR, lineHeight: 1 }}
+                      >
                         {ars(porMes(plan.fundadorAnual, 12))}
                       </span>
-                      <span className="font-sans text-leven-purple/40" style={{ fontSize: '11px' }}>/mes</span>
+                      <span className="font-sans text-leven-purple/40" style={{ fontSize: '11px' }}>
+                        /mes
+                      </span>
                     </div>
-                    <p className="font-display font-medium mt-1" style={{ fontSize: '9px', letterSpacing: '0.2em', color: COLOR }}>
-                      FUNDADOR · PLAN ANUAL
+                    <p className="font-sans text-leven-purple/30 line-through mt-1" style={{ fontSize: '12px' }}>
+                      {ars(porMes(plan.precios.anual, 12))}/mes
                     </p>
-                    <div className="mt-3 pt-3 flex items-baseline justify-between gap-2" style={{ borderTop: '1px solid rgba(46,39,53,0.08)' }}>
-                      <span className="font-sans text-leven-purple/40" style={{ fontSize: '11px' }}>Total 12 meses</span>
-                      <span className="font-sans text-leven-purple/55" style={{ fontSize: '11px' }}>{ars(plan.fundadorAnual)}</span>
+                    <div
+                      className="mt-4 pt-3"
+                      style={{ borderTop: '1px solid rgba(46,39,53,0.08)' }}
+                    >
+                      <div className="flex items-baseline justify-between gap-2">
+                        <span className="font-sans text-leven-purple/40" style={{ fontSize: '11px' }}>
+                          Plan anual
+                        </span>
+                        <span className="font-sans text-leven-purple/65" style={{ fontSize: '11px' }}>
+                          {ars(plan.fundadorAnual)}
+                        </span>
+                      </div>
+                      <p className="font-sans text-leven-purple/30 mt-1" style={{ fontSize: '10px' }}>
+                        Se abona por los 12 meses.
+                      </p>
                     </div>
                   </div>
 

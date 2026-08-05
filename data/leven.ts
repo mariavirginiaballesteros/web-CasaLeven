@@ -48,12 +48,18 @@ export const porMes = (total: number, meses: number) => total / meses
 
 export const CAMPANA_FUNDADORES = {
   activa: true,
-  cupo: 50,
+  cupo: 100,
   permanenciaMinimaMeses: 3,
   /** La condición de Fundador aplica SOLO al plan anual. No hay mensual ni trimestral. */
   soloAnual: true,
-  /** Descuento comunicado sobre el precio de lista anual. */
-  descuento: '15%',
+  /**
+   * Descuento comunicado sobre el precio de lista anual.
+   * Los valores Fundador se fijaron con el MENSUAL redondo (145.000, 190.000,
+   * 260.000, 275.000, 325.000) y el anual se deriva multiplicando por 12.
+   * Eso da entre 12% y 16% según el plan, por eso se comunica "hasta 15%"
+   * y no un porcentaje exacto por plan.
+   */
+  descuento: 'hasta 15%',
   beneficios: [
     {
       titulo: 'Precio Fundador de por vida',
@@ -96,7 +102,8 @@ export type Plan = {
   /**
    * Precio Fundador. Es SOLO anual: la condición de Socio Fundador aplica
    * únicamente al plan de 12 meses, no hay Fundador mensual ni trimestral.
-   * Es el precio de lista anual menos 15%, redondeado.
+   * Se carga como TOTAL de los 12 meses, pero el número que manda es el
+   * equivalente mensual redondo: este total es siempre ese mensual × 12.
    */
   fundadorAnual: number
   services: Servicio[]
@@ -135,7 +142,7 @@ export const PLANES: Plan[] = [
     resumen:
       'Acceso ilimitado al gimnasio Leven Motion, vestuarios, apto médico y comunidad Leven.',
     precios: { mensual: 200_000, trimestral: 555_556, anual: 2_000_000 },
-    fundadorAnual: 1_700_000,
+    fundadorAnual: 1_740_000, // 145.000/mes × 12
     services: [...BASE, ...extras(false, false, false)],
   },
   {
@@ -145,7 +152,7 @@ export const PLANES: Plan[] = [
     resumen:
       'Gimnasio ilimitado más el circuito hídrico de Leven Therma: sauna seco, ducha escocesa, baño de vapor y jacuzzi, 4 accesos por mes.',
     precios: { mensual: 260_000, trimestral: 722_222, anual: 2_600_000 },
-    fundadorAnual: 2_210_000,
+    fundadorAnual: 2_280_000, // 190.000/mes × 12
     services: [...BASE, ...extras(true, false, false)],
   },
   {
@@ -156,7 +163,7 @@ export const PLANES: Plan[] = [
     resumen:
       'El sistema completo de bienestar: gimnasio ilimitado, circuito hídrico 4 veces por mes, consulta nutricional mensual y plan de alimentación personalizado.',
     precios: { mensual: 370_000, trimestral: 1_027_778, anual: 3_700_000 },
-    fundadorAnual: 3_150_000,
+    fundadorAnual: 3_120_000, // 260.000/mes × 12
     services: [...BASE, ...extras(true, true, false)],
   },
   {
@@ -166,7 +173,7 @@ export const PLANES: Plan[] = [
     resumen:
       'Para quien entrena con objetivo deportivo: gimnasio ilimitado, circuito hídrico 4 veces por mes y posta deportiva personalizada 4 veces por mes.',
     precios: { mensual: 380_000, trimestral: 1_055_556, anual: 3_800_000 },
-    fundadorAnual: 3_230_000,
+    fundadorAnual: 3_300_000, // 275.000/mes × 12
     services: [...BASE, ...extras(true, false, true)],
   },
   {
@@ -176,7 +183,7 @@ export const PLANES: Plan[] = [
     resumen:
       'El plan completo: gimnasio ilimitado, circuito hídrico completo, consulta nutricional, plan de alimentación personalizado y posta deportiva personalizada.',
     precios: { mensual: 450_000, trimestral: 1_250_000, anual: 4_500_000 },
-    fundadorAnual: 3_830_000,
+    fundadorAnual: 3_900_000, // 325.000/mes × 12
     services: [...BASE, ...extras(true, true, true)],
   },
 ]
