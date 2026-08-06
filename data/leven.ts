@@ -50,7 +50,7 @@ export const CAMPANA_FUNDADORES = {
   activa: true,
   cupo: 100,
   permanenciaMinimaMeses: 3,
-  /** La condición de Fundador aplica SOLO al plan anual. No hay mensual ni trimestral. */
+  /** La condición de Fundador se accede a través del plan anual. */
   soloAnual: true,
   /**
    * Descuento comunicado sobre el precio de lista anual.
@@ -58,20 +58,24 @@ export const CAMPANA_FUNDADORES = {
    * 260.000, 275.000, 325.000) y el anual se deriva multiplicando por 12.
    * Eso da entre 12% y 16% según el plan, por eso se comunica "hasta 15%"
    * y no un porcentaje exacto por plan.
+   *
+   * ⚠️ Lo vitalicio es EL DESCUENTO, no el precio. El valor de lista puede
+   * actualizarse; el Fundador conserva siempre su porcentaje de beneficio
+   * sobre el precio vigente. No decir "precio congelado".
    */
   descuento: 'hasta 15%',
   beneficios: [
     {
-      titulo: 'Precio Fundador de por vida',
-      body: 'El valor de tu membresía queda congelado como Fundador y se mantiene mientras esté activa sin interrupción. No es una promoción de lanzamiento.',
+      titulo: 'Tu descuento Fundador, de por vida',
+      body: 'El beneficio de Fundador te acompaña año tras año, mientras tu membresía siga activa. Entrás una vez y lo conservás siempre.',
     },
     {
       titulo: 'Eventos VIP',
-      body: 'Acceso prioritario a activaciones y encuentros exclusivos de Casa Leven.',
+      body: 'Acceso prioritario a las activaciones y encuentros que hacemos para la comunidad de la casa.',
     },
     {
-      titulo: 'Beneficios en los circuitos de la casa',
-      body: 'Condiciones preferenciales en Leven Therma y Leven Nourish.',
+      titulo: 'Beneficios en toda la casa',
+      body: 'Condiciones preferenciales en Leven Therma y Leven Nourish, además de tu membresía.',
     },
   ],
 } as const
@@ -100,8 +104,8 @@ export type Plan = {
   resumen: string // para JSON-LD y para motores de IA
   precios: Precios
   /**
-   * Precio Fundador. Es SOLO anual: la condición de Socio Fundador aplica
-   * únicamente al plan de 12 meses, no hay Fundador mensual ni trimestral.
+   * Precio Fundador. Es SOLO anual: la condición de Socio Fundador se accede
+   * a través del plan de 12 meses.
    * Se carga como TOTAL de los 12 meses, pero el número que manda es el
    * equivalente mensual redondo: este total es siempre ese mensual × 12.
    */

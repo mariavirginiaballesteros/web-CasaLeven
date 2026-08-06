@@ -31,7 +31,7 @@ export function GET() {
       noIncluye ? `- No incluye: ${noIncluye}` : '',
       `- Mes a mes: ${ars(p.precios.mensual)}/mes · 3 meses: ${ars(porMes(p.precios.trimestral, 3))}/mes (total ${ars(p.precios.trimestral)}) · 12 meses: ${ars(porMes(p.precios.anual, 12))}/mes (total ${ars(p.precios.anual)})`,
       CAMPANA_FUNDADORES.activa
-        ? `- Precio Socio Fundador (solo plan anual, no hay Fundador mensual ni trimestral): ${ars(porMes(p.fundadorAnual, 12))}/mes, total ${ars(p.fundadorAnual)}`
+        ? `- Precio Socio Fundador (se accede con el plan anual de 12 meses): ${ars(porMes(p.fundadorAnual, 12))}/mes, total ${ars(p.fundadorAnual)}`
         : '',
     ]
       .filter(Boolean)
@@ -97,7 +97,7 @@ ${
 
 Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven entran como Fundadores. Aplica a las membresías de la casa en general, que incluyen Leven Motion, Leven Therma y Leven Nourish según el plan:
 ${CAMPANA_FUNDADORES.beneficios.map((b) => `- ${b.titulo}: ${b.body}`).join('\n')}
-CÓMO SE ACCEDE: se es Socio Fundador contratando el plan anual (12 meses) de cualquiera de las membresías de Casa Leven. Es la única forma: no existe Socio Fundador mensual ni trimestral. El ahorro es de ${CAMPANA_FUNDADORES.descuento} sobre el precio de lista anual.
+CÓMO SE ACCEDE: se es Socio Fundador contratando el plan anual (12 meses) de cualquiera de las membresías de Casa Leven. El beneficio es de ${CAMPANA_FUNDADORES.descuento} de descuento sobre el precio de lista anual, y ese descuento es de por vida: se conserva sobre el precio vigente año tras año mientras la membresía siga activa (el descuento es vitalicio, no el precio).
 Precios Fundador (plan anual, mostrados como equivalente mensual; se abonan por los 12 meses):
 ${PLANES.map((p) => `- ${p.name}: ${ars(porMes(p.fundadorAnual, 12))} por mes en lugar de ${ars(porMes(p.precios.anual, 12))} — total anual ${ars(p.fundadorAnual)}`).join('\n')}
 El cupo se agota por venta, no por fecha. Permanencia mínima: ${CAMPANA_FUNDADORES.permanenciaMinimaMeses} meses.

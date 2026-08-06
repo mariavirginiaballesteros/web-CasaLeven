@@ -202,11 +202,11 @@ export default function MotionPage() {
                     SOCIOS FUNDADORES
                   </p>
                   <p className="font-display font-bold text-white" style={{ fontSize: 'clamp(18px, 2.4vw, 26px)', letterSpacing: '-0.01em' }}>
-                    Los primeros {CAMPANA_FUNDADORES.cupo} socios entran con precio congelado de por vida.
+                    Los primeros {CAMPANA_FUNDADORES.cupo} socios se llevan {CAMPANA_FUNDADORES.descuento} de descuento de por vida.
                   </p>
                 </div>
                 <Link href="/fundadores" className="btn-leven" style={{ borderColor: COLOR, color: '#fff', whiteSpace: 'nowrap' }}>
-                  Ser Fundador →
+                  Quiero mi lugar →
                 </Link>
               </div>
             </RevealSection>

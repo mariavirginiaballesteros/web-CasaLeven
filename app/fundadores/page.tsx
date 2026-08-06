@@ -35,7 +35,7 @@ const COLOR = '#b23a3a'
 
 export const metadata: Metadata = {
   title: 'Socios Fundadores · Casa Leven Funes',
-  description: `Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven entran como Fundadores: precio de membresía congelado de por vida, eventos VIP y beneficios en Motion, Therma y Nourish. Funes, Santa Fe.`,
+  description: `Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven entran como Fundadores: ${CAMPANA_FUNDADORES.descuento} de descuento de por vida en el plan anual, eventos VIP y beneficios en Motion, Therma y Nourish. Funes, Santa Fe.`,
   alternates: { canonical: '/fundadores' },
   openGraph: {
     title: 'Sé parte de esta casa antes de que abra sus puertas.',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 const FAQ_FUNDADORES = [
   {
     q: '¿Qué es ser Socio Fundador de Casa Leven?',
-    a: `Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven, en Funes, Santa Fe, entran antes de la apertura con condiciones que no se repiten: precio de membresía congelado de por vida, acceso prioritario a eventos VIP y condiciones preferenciales en las tres unidades de la casa —Leven Motion (movimiento), Leven Therma (recuperación) y Leven Nourish (nutrición)—.`,
+    a: `Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven, en Funes, Santa Fe, entran antes de la apertura y se quedan con las mejores condiciones de la casa: ${CAMPANA_FUNDADORES.descuento} de descuento de por vida sobre el plan anual, acceso prioritario a eventos VIP y condiciones preferenciales en las tres unidades de la casa —Leven Motion (movimiento), Leven Therma (recuperación) y Leven Nourish (nutrición)—.`,
   },
   {
     q: '¿Qué incluye la membresía de Casa Leven?',
@@ -56,7 +56,7 @@ const FAQ_FUNDADORES = [
   },
   {
     q: '¿Cómo se hace para ser Socio Fundador?',
-    a: `Contratando el plan anual de cualquiera de las membresías de Casa Leven. Es la única forma: no existe Socio Fundador mes a mes ni trimestral. Al hacerlo accedés al precio Fundador, que queda congelado mientras tu membresía siga activa, y a los beneficios del programa. Son ${CAMPANA_FUNDADORES.cupo} lugares y el cupo se agota por venta.`,
+    a: `Contratando el plan anual de cualquiera de las membresías de Casa Leven. Con eso entrás al círculo de Fundadores: ${CAMPANA_FUNDADORES.descuento} de descuento que conservás de por vida mientras tu membresía siga activa, más los beneficios del programa. Son ${CAMPANA_FUNDADORES.cupo} lugares y se toman por orden de llegada.`,
   },
   {
     q: '¿Cuánto cuesta la membresía siendo Fundador?',
@@ -69,11 +69,11 @@ const FAQ_FUNDADORES = [
   },
   {
     q: '¿Hasta cuándo dura el beneficio de Fundador?',
-    a: 'El precio Fundador se mantiene mientras la membresía esté activa sin interrupción. No es una promoción de lanzamiento con fecha de vencimiento: es la condición de fundador.',
+    a: 'De por vida. El descuento Fundador se aplica siempre sobre el precio vigente de tu membresía, año tras año, mientras esté activa sin interrupción. Es una condición, y te acompaña mientras seas parte de la casa.',
   },
   {
     q: '¿Cuándo cierra el cupo de Fundadores?',
-    a: `No hay fecha de cierre. El cupo se agota cuando se completan los ${CAMPANA_FUNDADORES.cupo} lugares.`,
+    a: `Cuando se completan los ${CAMPANA_FUNDADORES.cupo} lugares. Se toman por orden de llegada, así que conviene reservar el tuyo cuanto antes.`,
   },
 ]
 
@@ -120,27 +120,27 @@ export default function FundadoresPage() {
                   className="font-sans text-white/60 leading-relaxed mt-7"
                   style={{ fontSize: '17px', maxWidth: '52ch' }}
                 >
-                  Casa Leven abre en Funes con un método integral: movimiento, recuperación y
-                  nutrición pensados juntos.
+                  Casa Leven abre en Funes: movimiento, recuperación y nutrición pensados juntos,
+                  bajo un mismo techo.
                 </p>
                 <p
                   className="font-sans text-white/60 leading-relaxed mt-4"
                   style={{ fontSize: '17px', maxWidth: '52ch' }}
                 >
-                  Los primeros {CAMPANA_FUNDADORES.cupo} socios entran como Fundadores, con un
-                  precio que queda congelado mientras la membresía siga activa.
+                  Los primeros {CAMPANA_FUNDADORES.cupo} son los Fundadores. Tienen la llave antes
+                  que nadie, y un descuento que los acompaña de por vida.
                 </p>
 
                 <div className="flex flex-wrap gap-4 mt-10">
                   <a
-                    href="#planes"
+                    href="#sumarme"
                     className="btn-leven btn-leven-filled"
                     style={{ background: COLOR, borderColor: COLOR }}
                   >
-                    Ver los planes Fundador
-                  </a>
-                  <a href="#sumarme" className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.28)' }}>
                     Quiero mi lugar
+                  </a>
+                  <a href="#planes" className="btn-leven" style={{ borderColor: 'rgba(255,255,255,0.28)' }}>
+                    Ver los planes
                   </a>
                 </div>
               </RevealSection>
@@ -161,13 +161,13 @@ export default function FundadoresPage() {
                     className="font-display font-medium text-white/35 mb-7"
                     style={{ fontSize: '9px', letterSpacing: '0.3em' }}
                   >
-                    CÓMO SE FUNDA
+                    TU LLAVE, EN TRES PASOS
                   </p>
 
                   {[
-                    { n: '01', t: 'Comprás el plan anual', d: 'Es la única forma de ser Fundador. No hay Fundador mes a mes ni trimestral.' },
-                    { n: '02', t: 'Tu precio queda congelado', d: 'Se mantiene mientras tu membresía siga activa sin interrupción.' },
-                    { n: '03', t: `Son ${CAMPANA_FUNDADORES.cupo} lugares`, d: 'El cupo se agota por venta, no por fecha. No hay segunda tanda.' },
+                    { n: '01', t: 'Elegís tu membresía anual', d: 'El plan de 12 meses es el que te abre la puerta al círculo de Fundadores.' },
+                    { n: '02', t: 'Tu descuento te acompaña siempre', d: 'Año tras año conservás tu beneficio de Fundador, mientras tu membresía siga activa.' },
+                    { n: '03', t: `Sos uno de ${CAMPANA_FUNDADORES.cupo}`, d: 'Un círculo que se cierra cuando se completa. Los lugares se toman por orden de llegada.' },
                   ].map((item) => (
                     <div
                       key={item.n}
@@ -262,17 +262,16 @@ export default function FundadoresPage() {
                   className="font-display font-bold text-white"
                   style={{ fontSize: 'clamp(28px, 4vw, 50px)', letterSpacing: '-0.02em', lineHeight: 1.08 }}
                 >
-                  No es una promoción. Es ser parte desde antes de que exista.
+                  Tener la llave de una casa que todavía no abrió.
                 </h2>
               </div>
               <div className="lg:col-span-5">
                 <p className="font-sans text-white/55 leading-relaxed" style={{ fontSize: '16px' }}>
-                  Se funda de una sola manera: contratando el plan anual de cualquiera de las
-                  membresías de Casa Leven.
+                  Fundador es quien llega primero: elegís tu membresía anual y entrás al círculo que
+                  le da forma a Casa Leven desde el día uno.
                 </p>
                 <p className="font-sans text-white/40 leading-relaxed mt-4" style={{ fontSize: '15px' }}>
-                  Ese plan te da el precio Fundador y estos tres beneficios, que no vuelven a
-                  ofrecerse una vez completado el cupo.
+                  Se entra una vez. Después, estas tres cosas te acompañan siempre.
                 </p>
               </div>
             </div>
@@ -291,9 +290,17 @@ export default function FundadoresPage() {
           </div>
 
           <RevealSection>
-            <p className="font-sans text-white/40 italic text-center mx-auto" style={{ fontSize: '16px', maxWidth: '520px', lineHeight: 1.7 }}>
-              Incluso quienes sostienen el mundo necesitan un lugar donde sostenerse.
-            </p>
+            <div className="text-center mx-auto pt-10" style={{ maxWidth: '560px', borderTop: `1px solid ${COLOR}25` }}>
+              <span
+                className="font-display font-medium block mb-4"
+                style={{ fontSize: '9px', letterSpacing: '0.35em', color: COLOR }}
+              >
+                POR QUÉ EXISTE CASA LEVEN
+              </span>
+              <p className="font-display text-white/70 mx-auto" style={{ fontSize: 'clamp(19px, 2.4vw, 26px)', lineHeight: 1.45, letterSpacing: '-0.01em' }}>
+                Incluso quienes sostienen el mundo necesitan un lugar donde sostenerse.
+              </p>
+            </div>
           </RevealSection>
         </div>
       </section>
@@ -314,17 +321,17 @@ export default function FundadoresPage() {
                   className="font-display font-bold text-leven-purple"
                   style={{ fontSize: 'clamp(28px, 4vw, 50px)', letterSpacing: '-0.02em', lineHeight: 1.08 }}
                 >
-                  Elegí con qué membresía fundás.
+                  Elegí tu llave. Es el mejor precio que Casa Leven va a tener.
                 </h2>
               </div>
               <div className="lg:col-span-6">
                 <p className="font-sans text-leven-purple/65 leading-relaxed" style={{ fontSize: '16px' }}>
-                  Todos los precios de abajo son de plan anual. Es la única forma de ser Fundador.
+                  Cinco membresías, un mismo beneficio: {CAMPANA_FUNDADORES.descuento} de descuento
+                  sobre el plan anual, y ese descuento te acompaña de por vida.
                 </p>
                 <p className="font-sans text-leven-purple/45 leading-relaxed mt-3" style={{ fontSize: '14px' }}>
-                  Se muestran como equivalente mensual para que puedas compararlos, pero el plan se
-                  contrata y se abona por los 12 meses. Ese valor queda congelado mientras tu
-                  membresía siga activa.
+                  Los valores se muestran como equivalente mensual para que compares fácil; el plan
+                  se contrata por 12 meses. Quedan {CAMPANA_FUNDADORES.cupo} lugares.
                 </p>
               </div>
             </div>
@@ -406,7 +413,7 @@ export default function FundadoresPage() {
                   </div>
 
                   <a href="#sumarme" className="btn-leven w-full justify-center" style={{ borderColor: COLOR, color: COLOR, fontSize: '10px' }}>
-                    Ser Fundador →
+                    Quiero esta llave →
                   </a>
                 </div>
               </RevealSection>
@@ -415,8 +422,8 @@ export default function FundadoresPage() {
 
           <RevealSection>
             <p className="font-sans text-leven-purple/35 text-center mx-auto mt-10" style={{ fontSize: '11px', maxWidth: '700px', lineHeight: 1.6 }}>
-              {LETRA_CHICA_MOTION} El precio Fundador se mantiene mientras la membresía esté activa
-              sin interrupción.
+              {LETRA_CHICA_MOTION} El descuento Fundador se conserva sobre el precio vigente
+              mientras la membresía esté activa sin interrupción.
             </p>
           </RevealSection>
         </div>
@@ -430,10 +437,10 @@ export default function FundadoresPage() {
               {CAMPANA_FUNDADORES.cupo} LUGARES
             </span>
             <h2 className="font-display font-bold text-white mb-4" style={{ fontSize: 'clamp(26px, 4vw, 48px)', letterSpacing: '-0.02em' }}>
-              Dejanos tus datos y te contamos cómo entrar.
+              Reservá tu lugar de Fundador.
             </h2>
             <p className="font-sans text-white/45 mx-auto" style={{ fontSize: '15px', maxWidth: '460px' }}>
-              Te escribimos para coordinar la visita, resolver dudas y reservar tu lugar de Fundador.
+              Dejanos tus datos y te escribimos para coordinar la visita y guardarte la llave.
             </p>
           </RevealSection>
 
