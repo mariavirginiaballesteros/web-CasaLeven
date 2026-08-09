@@ -3,7 +3,7 @@
 import { useState, useTransition, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { submitLead } from '@/actions/submitLead'
-import { PLANES, ars } from '@/data/leven'
+import { PLANES } from '@/data/leven'
 
 interface Props {
   fuente?: string
@@ -142,7 +142,7 @@ export default function LeadForm({
             <option value="" disabled>Seleccioná un plan</option>
             {PLANES.map((p) => (
               <option key={p.id} value={p.name}>
-                {p.name} — {ars(p.precios.mensual)}/mes
+                {p.name}
               </option>
             ))}
             <option value="No sé todavía">No sé todavía</option>
