@@ -43,7 +43,7 @@ export async function submitLead(data: LeadData) {
   if (telefono.length < 6)   return { success: false, error: 'Teléfono inválido.' }
 
   const { error } = await supabase.from('leads').insert({
-    tenant_id:         'casa-leven',
+    tenant_id:         'casa_leven',
     nombre,
     email,
     telefono,

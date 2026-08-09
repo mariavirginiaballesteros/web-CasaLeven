@@ -22,7 +22,7 @@ export async function syncSignaCRM(payload: SignaLeadPayload): Promise<string | 
   const { data: existing } = await admin
     .from('leads')
     .select('id')
-    .eq('tenant_id', 'casa-leven')
+    .eq('tenant_id', 'casa_leven')
     .eq('email', payload.email)
     .maybeSingle()
 
@@ -31,7 +31,7 @@ export async function syncSignaCRM(payload: SignaLeadPayload): Promise<string | 
   const { data, error } = await admin
     .from('leads')
     .insert({
-      tenant_id:         'casa-leven',
+      tenant_id:         'casa_leven',
       nombre:            payload.nombre,
       email:             payload.email,
       telefono:          payload.telefono,
