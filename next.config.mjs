@@ -59,6 +59,17 @@ const nextConfig = {
       },
     ]
   },
+
+  async redirects() {
+    return [
+      // Turnero unificado: las reservas viven en SignaCRM
+      {
+        source: '/reservas',
+        destination: 'https://www.signacrm.com.ar/casa-leven/turnos',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig
