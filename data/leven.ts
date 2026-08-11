@@ -53,18 +53,19 @@ export const CAMPANA_FUNDADORES = {
   /** La condición de Fundador se accede a través del plan anual. */
   soloAnual: true,
   /**
-   * ⚠️ El beneficio Fundador se comunica SIN porcentaje: la web habla de
-   * "un precio exclusivo para fundadores", nunca de "X% de descuento".
+   * ⚠️ El descuento Fundador se comunica SIN porcentaje ni cifra: la web
+   * habla de "un descuento de por vida", nunca de "X% de descuento".
+   * Los precios tachados ya muestran el beneficio.
    * Los valores Fundador se fijan con el MENSUAL redondo (125.000, 150.000,
    * 230.000, 235.000, 265.000) y el anual se deriva multiplicando por 12.
    *
-   * ⚠️ Lo vitalicio es EL BENEFICIO, no el precio. El valor de lista puede
+   * ⚠️ Lo vitalicio es EL DESCUENTO, no el precio. El valor de lista puede
    * actualizarse; el Fundador conserva siempre su condición preferencial
    * sobre el precio vigente. No decir "precio congelado".
    */
   beneficios: [
     {
-      titulo: 'Tu precio Fundador, de por vida',
+      titulo: 'Tu descuento Fundador, de por vida',
       body: 'El beneficio de Fundador te acompaña año tras año, mientras tu membresía siga activa. Entrás una vez y lo conservás siempre.',
     },
     {
