@@ -4,7 +4,7 @@
  * Todo lo que sea precio, plan, circuito o campaña se edita ACÁ.
  * Las páginas leen de este archivo: no hay precios hardcodeados en JSX.
  *
- * Precios de Motion actualizados: 04/08/2026 (Sheet Leven_Motion_Membresías).
+ * Precios de Motion actualizados: 10/08/2026 (Opción 2).
  * Precios de Therma: PENDIENTES de definición.
  */
 
@@ -53,20 +53,18 @@ export const CAMPANA_FUNDADORES = {
   /** La condición de Fundador se accede a través del plan anual. */
   soloAnual: true,
   /**
-   * Descuento comunicado sobre el precio de lista anual.
-   * Los valores Fundador se fijaron con el MENSUAL redondo (145.000, 190.000,
-   * 260.000, 275.000, 325.000) y el anual se deriva multiplicando por 12.
-   * Eso da entre 12% y 16% según el plan, por eso se comunica "hasta 15%"
-   * y no un porcentaje exacto por plan.
+   * ⚠️ El beneficio Fundador se comunica SIN porcentaje: la web habla de
+   * "un precio exclusivo para fundadores", nunca de "X% de descuento".
+   * Los valores Fundador se fijan con el MENSUAL redondo (125.000, 150.000,
+   * 230.000, 235.000, 265.000) y el anual se deriva multiplicando por 12.
    *
-   * ⚠️ Lo vitalicio es EL DESCUENTO, no el precio. El valor de lista puede
-   * actualizarse; el Fundador conserva siempre su porcentaje de beneficio
+   * ⚠️ Lo vitalicio es EL BENEFICIO, no el precio. El valor de lista puede
+   * actualizarse; el Fundador conserva siempre su condición preferencial
    * sobre el precio vigente. No decir "precio congelado".
    */
-  descuento: 'hasta 15%',
   beneficios: [
     {
-      titulo: 'Tu descuento Fundador, de por vida',
+      titulo: 'Tu precio Fundador, de por vida',
       body: 'El beneficio de Fundador te acompaña año tras año, mientras tu membresía siga activa. Entrás una vez y lo conservás siempre.',
     },
     {
@@ -145,8 +143,8 @@ export const PLANES: Plan[] = [
     tagline: 'El primer paso.',
     resumen:
       'Acceso ilimitado al gimnasio Leven Motion, vestuarios, apto médico y comunidad Leven.',
-    precios: { mensual: 200_000, trimestral: 555_556, anual: 2_000_000 },
-    fundadorAnual: 1_740_000, // 145.000/mes × 12
+    precios: { mensual: 170_000, trimestral: 473_333, anual: 1_704_000 },
+    fundadorAnual: 1_500_000, // 125.000/mes × 12
     services: [...BASE, ...extras(false, false, false)],
   },
   {
@@ -155,8 +153,8 @@ export const PLANES: Plan[] = [
     tagline: 'Movimiento + recuperación.',
     resumen:
       'Gimnasio ilimitado más el circuito hídrico de Leven Therma: sauna seco, ducha escocesa, baño de vapor y jacuzzi, 4 accesos por mes.',
-    precios: { mensual: 260_000, trimestral: 722_222, anual: 2_600_000 },
-    fundadorAnual: 2_280_000, // 190.000/mes × 12
+    precios: { mensual: 205_000, trimestral: 570_000, anual: 2_052_000 },
+    fundadorAnual: 1_800_000, // 150.000/mes × 12
     services: [...BASE, ...extras(true, false, false)],
   },
   {
@@ -166,8 +164,8 @@ export const PLANES: Plan[] = [
     featured: true,
     resumen:
       'El sistema completo de bienestar: gimnasio ilimitado, circuito hídrico 4 veces por mes, consulta nutricional mensual y plan de alimentación personalizado.',
-    precios: { mensual: 370_000, trimestral: 1_027_778, anual: 3_700_000 },
-    fundadorAnual: 3_120_000, // 260.000/mes × 12
+    precios: { mensual: 310_000, trimestral: 860_000, anual: 3_096_000 },
+    fundadorAnual: 2_760_000, // 230.000/mes × 12
     services: [...BASE, ...extras(true, true, false)],
   },
   {
@@ -176,8 +174,8 @@ export const PLANES: Plan[] = [
     tagline: 'Rendimiento deportivo.',
     resumen:
       'Para quien entrena con objetivo deportivo: gimnasio ilimitado, circuito hídrico 4 veces por mes y posta deportiva personalizada 4 veces por mes.',
-    precios: { mensual: 380_000, trimestral: 1_055_556, anual: 3_800_000 },
-    fundadorAnual: 3_300_000, // 275.000/mes × 12
+    precios: { mensual: 320_000, trimestral: 890_000, anual: 3_204_000 },
+    fundadorAnual: 2_820_000, // 235.000/mes × 12
     services: [...BASE, ...extras(true, false, true)],
   },
   {
@@ -186,14 +184,14 @@ export const PLANES: Plan[] = [
     tagline: 'Todo, sin recortes.',
     resumen:
       'El plan completo: gimnasio ilimitado, circuito hídrico completo, consulta nutricional, plan de alimentación personalizado y posta deportiva personalizada.',
-    precios: { mensual: 450_000, trimestral: 1_250_000, anual: 4_500_000 },
-    fundadorAnual: 3_900_000, // 325.000/mes × 12
+    precios: { mensual: 360_000, trimestral: 1_000_000, anual: 3_600_000 },
+    fundadorAnual: 3_180_000, // 265.000/mes × 12
     services: [...BASE, ...extras(true, true, true)],
   },
 ]
 
 export const LETRA_CHICA_MOTION =
-  'Precios en pesos argentinos, vigentes al 04/08/2026. Los valores trimestral y anual se muestran como equivalente mensual; se abonan por adelantado. Los 4 accesos mensuales al circuito hídrico no son acumulables ni transferibles. Permanencia mínima: 3 meses.'
+  'Precios en pesos argentinos, vigentes al 10/08/2026. Los valores trimestral y anual se muestran como equivalente mensual; se abonan por adelantado. Los 4 accesos mensuales al circuito hídrico no son acumulables ni transferibles. Permanencia mínima: 3 meses.'
 
 /* ─── CIRCUITOS LEVEN THERMA (day pass) ──────────────────────────
  * ⚠️ PRECIOS PENDIENTES DE DEFINICIÓN (04/08/2026).

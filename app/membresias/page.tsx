@@ -21,7 +21,7 @@ const COLOR = '#b23a3a'
 export const metadata: Metadata = {
   title: 'Membresías y precios · Casa Leven Funes',
   description:
-    'Comparativa completa de las membresías de Casa Leven en Funes: Starter, Performance, Flow, Sport y Power Sport, desde $200.000 por mes. Valores mensual, trimestral y anual. Qué incluye cada plan.',
+    'Comparativa completa de las membresías de Casa Leven en Funes: Starter, Performance, Flow, Sport y Power Sport, desde $170.000 por mes. Valores mensual, trimestral y anual. Qué incluye cada plan.',
   alternates: { canonical: '/membresias' },
   openGraph: {
     title: 'Membresías y precios · Casa Leven Funes',
