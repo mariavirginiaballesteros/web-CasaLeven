@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: '%s',
   },
   description:
-    'Casa Leven es un gimnasio, spa y espacio de nutrición funcional en Funes, Santa Fe. Movimiento, recuperación y nutrición bajo un mismo método, con membresías desde $200.000 por mes y day pass de spa.',
+    'Casa Leven es un gimnasio, spa y espacio de nutrición funcional en Funes, Santa Fe. Movimiento, recuperación y nutrición bajo un mismo método, con membresías desde $170.000 por mes y day pass de spa.',
   applicationName: 'Casa Leven',
   category: 'Health & Wellness',
   keywords: [

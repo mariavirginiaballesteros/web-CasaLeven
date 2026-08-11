@@ -35,7 +35,7 @@ const COLOR = '#b23a3a'
 
 export const metadata: Metadata = {
   title: 'Socios Fundadores · Casa Leven Funes',
-  description: `Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven entran como Fundadores: ${CAMPANA_FUNDADORES.descuento} de descuento de por vida en el plan anual, eventos VIP y beneficios en Motion, Therma y Nourish. Funes, Santa Fe.`,
+  description: `Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven entran como Fundadores: un descuento de por vida en el plan anual, eventos VIP y beneficios en Motion, Therma y Nourish. Funes, Santa Fe.`,
   alternates: { canonical: '/fundadores' },
   openGraph: {
     title: 'Sé parte de esta casa antes de que abra sus puertas.',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 const FAQ_FUNDADORES = [
   {
     q: '¿Qué es ser Socio Fundador de Casa Leven?',
-    a: `Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven, en Funes, Santa Fe, entran antes de la apertura y se quedan con las mejores condiciones de la casa: ${CAMPANA_FUNDADORES.descuento} de descuento de por vida sobre el plan anual, acceso prioritario a eventos VIP y condiciones preferenciales en las tres unidades de la casa —Leven Motion (movimiento), Leven Therma (recuperación) y Leven Nourish (nutrición)—.`,
+    a: `Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven, en Funes, Santa Fe, entran antes de la apertura y se quedan con las mejores condiciones de la casa: un descuento de por vida sobre el plan anual, acceso prioritario a eventos VIP y condiciones preferenciales en las tres unidades de la casa —Leven Motion (movimiento), Leven Therma (recuperación) y Leven Nourish (nutrición)—.`,
   },
   {
     q: '¿Qué incluye la membresía de Casa Leven?',
@@ -56,7 +56,7 @@ const FAQ_FUNDADORES = [
   },
   {
     q: '¿Cómo se hace para ser Socio Fundador?',
-    a: `Contratando el plan anual de cualquiera de las membresías de Casa Leven. Con eso entrás al círculo de Fundadores: ${CAMPANA_FUNDADORES.descuento} de descuento que conservás de por vida mientras tu membresía siga activa, más los beneficios del programa. Son ${CAMPANA_FUNDADORES.cupo} lugares y se toman por orden de llegada.`,
+    a: `Contratando el plan anual de cualquiera de las membresías de Casa Leven. Con eso accedés a un descuento que conservás de por vida mientras tu membresía siga activa, más los beneficios del programa. Son ${CAMPANA_FUNDADORES.cupo} lugares y se toman por orden de llegada.`,
   },
   {
     q: '¿Cuánto cuesta la membresía siendo Fundador?',
@@ -326,8 +326,8 @@ export default function FundadoresPage() {
               </div>
               <div className="lg:col-span-6">
                 <p className="font-sans text-leven-purple/65 leading-relaxed" style={{ fontSize: '16px' }}>
-                  Cinco membresías, un mismo beneficio: {CAMPANA_FUNDADORES.descuento} de descuento
-                  sobre el plan anual, y ese descuento te acompaña de por vida.
+                  Cinco membresías, un mismo beneficio: un descuento sobre el plan anual,
+                  y ese descuento te acompaña de por vida.
                 </p>
                 <p className="font-sans text-leven-purple/45 leading-relaxed mt-3" style={{ fontSize: '14px' }}>
                   Los valores se muestran como equivalente mensual para que compares fácil; el plan

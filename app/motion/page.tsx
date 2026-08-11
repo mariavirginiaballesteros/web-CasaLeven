@@ -18,12 +18,12 @@ import {
 export const metadata: Metadata = {
   title: 'Leven Motion · Gimnasio de alto rendimiento en Funes',
   description:
-    'Gimnasio con aforo limitado y entrenamiento con criterio en Funes, Santa Fe. Membresías Starter, Performance, Flow, Sport y Power Sport desde $200.000 por mes, con acceso al circuito hídrico de Leven Therma.',
+    'Gimnasio con aforo limitado y entrenamiento con criterio en Funes, Santa Fe. Membresías Starter, Performance, Flow, Sport y Power Sport desde $170.000 por mes, con acceso al circuito hídrico de Leven Therma.',
   alternates: { canonical: '/motion' },
   openGraph: {
     title: 'Leven Motion · Gimnasio de alto rendimiento en Funes',
     description:
-      'Entrenamiento con criterio, evaluación postural y recuperación real. Membresías desde $200.000 por mes.',
+      'Entrenamiento con criterio, evaluación postural y recuperación real. Membresías desde $170.000 por mes.',
     url: `${SITE.url}/motion`,
     type: 'website',
   },
@@ -202,7 +202,7 @@ export default function MotionPage() {
                     SOCIOS FUNDADORES
                   </p>
                   <p className="font-display font-bold text-white" style={{ fontSize: 'clamp(18px, 2.4vw, 26px)', letterSpacing: '-0.01em' }}>
-                    Los primeros {CAMPANA_FUNDADORES.cupo} socios se llevan {CAMPANA_FUNDADORES.descuento} de descuento de por vida.
+                    Los primeros {CAMPANA_FUNDADORES.cupo} socios se llevan un descuento de por vida.
                   </p>
                 </div>
                 <Link href="/fundadores" className="btn-leven" style={{ borderColor: COLOR, color: '#fff', whiteSpace: 'nowrap' }}>
