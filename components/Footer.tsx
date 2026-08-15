@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { CAMPANA_FUNDADORES } from '@/data/leven'
+import { CAMPANA_FUNDADORES, SITE } from '@/data/leven'
 
 export default function Footer() {
   return (
@@ -73,7 +73,7 @@ export default function Footer() {
                 Funes, Santa Fe, Argentina
               </p>
               <a
-                href="https://wa.me/5493415000000"
+                href={`https://wa.me/${SITE.whatsapp}`}
                 className="link-hover text-white/50 hover:text-white transition-colors"
                 style={{ fontSize: '13px' }}
               >

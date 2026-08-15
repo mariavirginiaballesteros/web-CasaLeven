@@ -1,6 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
+import { SITE } from '@/data/leven'
 
 export default function MotionPage() {
   const router = useRouter()
@@ -30,7 +31,7 @@ export default function MotionPage() {
       <div className="flex flex-col gap-4" style={{ marginTop: 16 }}>
         {/* membresías — temporalmente oculto */}
         <a
-          href="https://wa.me/5493415000000?text=Hola, quiero reservar mi membresía en Motion"
+          href={`https://wa.me/${SITE.whatsapp}?text=Hola, quiero reservar mi membresía en Motion`}
           target="_blank"
           rel="noopener noreferrer"
           className="btn-leven"

@@ -3,6 +3,7 @@
 import { useEffect, useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useReserva } from '@/context/ReservaContext'
+import { SITE } from '@/data/leven'
 
 const MONTHS = ['enero','febrero','marzo','abril','mayo','junio',
                 'julio','agosto','septiembre','octubre','noviembre','diciembre']
@@ -102,7 +103,7 @@ function ConfirmacionContent() {
           Agregar al calendario
         </a>
         <a
-          href={`https://wa.me/541140000000?text=${whatsappText}`}
+          href={`https://wa.me/${SITE.whatsapp}?text=${whatsappText}`}
           target="_blank"
           rel="noopener noreferrer"
           style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', textDecoration: 'none' }}

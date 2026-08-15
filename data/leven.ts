@@ -15,8 +15,8 @@ export const SITE = {
   name: 'Casa Leven',
   legal: 'Proyecto Vida S.A.',
   tagline: 'Método integral de bienestar',
-  telefono: '+54 9 341 500-0000',
-  whatsapp: '5493415000000',
+  telefono: '+54 341 799-9000',
+  whatsapp: '543417999000',
   instagram: 'https://instagram.com/casaleven',
   direccion: {
     calle: 'Radisson RED Funes',

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import RevealSection from '@/components/RevealSection'
 import LandingHero from '@/components/LandingHero'
 import BrandImages from '@/components/BrandImages'
+import { SITE } from '@/data/leven'
 
 export const metadata: Metadata = {
   title: 'Leven Nourish · Nutrición Funcional · Casa Leven Funes',
@@ -114,7 +115,7 @@ export default function NourishPage() {
               Dejá tu email y te avisamos cuando Leven Nourish abra sus puertas.
             </p>
             <a
-              href="https://wa.me/5493415000000?text=Hola, me interesa Leven Nourish"
+              href={`https://wa.me/${SITE.whatsapp}?text=Hola, me interesa Leven Nourish`}
               className="btn-leven inline-flex"
               style={{ borderColor: 'rgba(255,255,255,0.4)' }}
             >
