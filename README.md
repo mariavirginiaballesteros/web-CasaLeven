@@ -76,4 +76,4 @@ y cambiar por el precio real.
 
 ## ACTUALIZAR WHATSAPP
 
-Buscar `wa.me/5493415000000` en todo el proyecto y reemplazar por el número real.
+El número vive en `data/leven.ts` (`SITE.whatsapp` y `SITE.telefono`). Cambiarlo ahí actualiza todos los enlaces del sitio.

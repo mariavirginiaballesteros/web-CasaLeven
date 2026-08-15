@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import RevealSection from '@/components/RevealSection'
 import LeadForm from '@/components/LeadForm'
+import { SITE } from '@/data/leven'
 
 export const metadata: Metadata = {
   title: 'Contacto · Casa Leven · Funes, Argentina',
@@ -38,7 +39,7 @@ export default function ContactoPage() {
                     TAMBIÉN POR WHATSAPP
                   </p>
                   <a
-                    href="https://wa.me/5493415000000?text=Hola, quiero información sobre Casa Leven"
+                    href={`https://wa.me/${SITE.whatsapp}?text=Hola, quiero información sobre Casa Leven`}
                     className="font-sans text-white/60 hover:text-white transition-colors block link-hover"
                     style={{ fontSize: '14px' }}
                   >
