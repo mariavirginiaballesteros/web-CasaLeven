@@ -6,10 +6,12 @@ import BrandImages from '@/components/BrandImages'
 import JsonLd from '@/components/JsonLd'
 import FaqBlock from '@/components/FaqBlock'
 import PrecioPlan from '@/components/PrecioPlan'
+import Image from 'next/image'
 import {
   PLANES,
   LETRA_CHICA_MOTION,
   CAMPANA_FUNDADORES,
+  CAMPANA_VERANO,
   SITE,
   ars,
   porMes,
@@ -50,7 +52,7 @@ const FAQ_MOTION = [
   },
   {
     q: '¿Dónde queda Leven Motion?',
-    a: `Leven Motion funciona dentro de Casa Leven, en el ${SITE.direccion.calle}, ${SITE.direccion.ciudad}, provincia de ${SITE.direccion.provincia}, Argentina. Atiende a socios y a huéspedes del hotel.`,
+    a: `Leven Motion funciona dentro de Casa Leven, en el ${SITE.direccion.edificio} (${SITE.direccion.calle}, ${SITE.direccion.ciudad}, provincia de ${SITE.direccion.provincia}, Argentina), a 20 minutos de Rosario por autopista. Atiende a socios y a huéspedes del hotel.`,
   },
   {
     q: '¿El gimnasio tiene cupo limitado?',
@@ -123,6 +125,46 @@ export default function MotionPage() {
           { src: '/images/gimnasio/leven-gimnasio-close-04.jpg', alt: 'Rendimiento' },
         ]}
       />
+
+      {/* ─── ACTIVÁ EL VERANO (campaña temporal) ─────────
+          Se cae sola con CAMPANA_VERANO.activa = false.
+          Sin precio: la oferta es privada y viaja solo por WhatsApp. */}
+      {CAMPANA_VERANO.activa && (
+        <section id="verano" className="grain" style={{ background: '#0a0809' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
+            <div className="relative" style={{ minHeight: '420px' }}>
+              <Image src={CAMPANA_VERANO.img.motion} alt={CAMPANA_VERANO.nombre} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: '60% 30%' }} />
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, transparent 55%, #0a0809 100%)' }} />
+            </div>
+            <RevealSection className="flex flex-col justify-center px-6 md:px-16 py-16 md:py-24">
+              <div className="flex items-center gap-4 mb-8">
+                <Image src={CAMPANA_VERANO.img.sello} alt="" width={56} height={56} style={{ borderRadius: '50%', width: '52px', height: '52px' }} />
+                <span className="font-display font-medium" style={{ fontSize: '9px', letterSpacing: '0.35em', color: 'rgba(255,255,255,0.45)' }}>
+                  {CAMPANA_VERANO.nombre.toUpperCase()} · {CAMPANA_VERANO.condicion.toUpperCase()}
+                </span>
+              </div>
+              <h2 className="font-display font-bold text-white leading-[1.0] mb-6" style={{ fontSize: 'clamp(30px, 4.2vw, 56px)', letterSpacing: '-0.03em', maxWidth: '12ch' }}>
+                {CAMPANA_VERANO.titularMotion}
+              </h2>
+              <p className="font-sans text-white/55 leading-relaxed mb-3" style={{ fontSize: '16px', maxWidth: '46ch' }}>
+                {CAMPANA_VERANO.bajada}
+              </p>
+              <p className="font-sans text-white/35 leading-relaxed mb-10" style={{ fontSize: '14px', maxWidth: '46ch' }}>
+                Venís, entrenás una clase de cortesía y conocés la casa. Después decidís.
+              </p>
+              <a
+                href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(CAMPANA_VERANO.whatsappTexto)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-leven btn-leven-filled self-start"
+                style={{ fontSize: '11px', padding: '16px 36px', background: '#ffffff', borderColor: '#ffffff', color: '#1c1519' }}
+              >
+                {CAMPANA_VERANO.cta} →
+              </a>
+            </RevealSection>
+          </div>
+        </section>
+      )}
 
       {/* ─── MEMBRESÍAS ────────────────────────────────── */}
       <section className="grain py-24 md:py-36" style={{ background: 'var(--dark)' }}>

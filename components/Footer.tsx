@@ -41,6 +41,7 @@ export default function Footer() {
               {[
                 ['Leven Motion',  '/motion'],
                 ['Leven Therma',  '/therma'],
+                ['Línea Estética','/therma#estetica'],
                 ['Leven Nourish', '/nourish'],
                 ['Membresías',    '/membresias'],
                 ['Reservar turno','/reservas'],
@@ -68,10 +69,18 @@ export default function Footer() {
               CONTACTO
             </div>
             <div className="flex flex-col gap-3">
-              <p className="text-white/50" style={{ fontSize: '13px' }}>
-                Dentro del Radisson RED Funes<br />
-                Funes, Santa Fe, Argentina
-              </p>
+              <a
+                href={SITE.direccion.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/50 hover:text-white transition-colors"
+                style={{ fontSize: '13px', lineHeight: 1.6 }}
+              >
+                {SITE.direccion.calle}<br />
+                Dentro del {SITE.direccion.edificio}<br />
+                {SITE.direccion.ciudad}, {SITE.direccion.provincia}, Argentina<br />
+                <span className="text-white/30">A 20 min de Rosario por autopista</span>
+              </a>
               <a
                 href={`https://wa.me/${SITE.whatsapp}`}
                 className="link-hover text-white/50 hover:text-white transition-colors"

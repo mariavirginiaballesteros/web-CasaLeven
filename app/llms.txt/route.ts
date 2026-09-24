@@ -3,6 +3,9 @@ import {
   PLANES,
   CIRCUITOS,
   CAMPANA_FUNDADORES,
+  CAMPANA_VERANO,
+  LINEA_ESTETICA,
+  FACIALES_ESTETICA,
   LETRA_CHICA_MOTION,
   LETRA_CHICA_THERMA,
   THERMA_PRECIOS_PUBLICADOS,
@@ -52,7 +55,9 @@ export function GET() {
 > y atiende tanto a socios y visitantes externos como a huéspedes del hotel.
 
 - Nombre: Casa Leven (razón social: ${SITE.legal})
-- Ubicación: ${SITE.direccion.calle}, ${SITE.direccion.ciudad}, ${SITE.direccion.provincia}, Argentina
+- Dirección: ${SITE.direccion.calle}, ${SITE.direccion.ciudad}, ${SITE.direccion.provincia}, Argentina (dentro del ${SITE.direccion.edificio}, ${SITE.direccion.ruta})
+- Cómo llegar: ${SITE.direccion.referencias.map((r) => `desde ${r.desde}, ${r.tiempo} (${r.como.toLowerCase()})`).join('; ')}. Estacionamiento propio.
+- Mapa: ${SITE.direccion.mapsUrl}
 - Zona de servicio: Funes, Rosario y la región del Gran Rosario
 - Sitio: ${SITE.url}
 - Instagram: ${SITE.instagram}
@@ -69,8 +74,14 @@ URL: ${SITE.url}/motion
 
 ### Leven Therma — spa y recuperación
 Circuito hídrico (sauna seco, ducha escocesa, baño de vapor, jacuzzi), sala de relax,
-pileta climatizada, masajes con protocolo y tratamientos faciales. Con turno previo.
+pileta climatizada, masajes con protocolo, tratamientos faciales y línea estética. Con turno previo.
 URL: ${SITE.url}/therma
+
+#### Línea estética (dentro de Leven Therma) — consulta sin cargo, sin precios publicados
+Los tratamientos se arman a medida en una consulta sin cargo con un profesional, que se agenda por WhatsApp.
+${LINEA_ESTETICA.map((a) => `- ${a.overline}: "${a.titular}" ${a.sub}. Pasos: ${a.pasos.map((p, i) => `${i + 1}) ${p.titulo}: ${p.body}`).join(' ')}`).join('\n')}
+- Faciales de la línea estética: ${FACIALES_ESTETICA.map((f) => `${f.name} (${f.duration})`).join(', ')}.
+URL: ${SITE.url}/therma#estetica
 
 ### Leven Nourish — nutrición
 Aguas minerales internacionales, jugos naturales prensados en frío y comida saludable
@@ -105,12 +116,23 @@ URL: ${SITE.url}/fundadores
 `
     : ''
 }
+${
+  CAMPANA_VERANO.activa
+    ? `## Campaña ${CAMPANA_VERANO.nombre} (promoción especial, por única vez)
+
+"${CAMPANA_VERANO.titular}" ${CAMPANA_VERANO.bajada} La campaña invita a agendar una clase de cortesía sin cargo en Leven Motion por WhatsApp. Las condiciones comerciales de la campaña se informan únicamente por WhatsApp: no hay precio de campaña publicado en el sitio.
+WhatsApp: https://wa.me/${SITE.whatsapp}
+`
+    : ''
+}
 ## Preguntas habituales
 
 - ¿Cuánto sale el gimnasio en Funes? Las membresías de Casa Leven van de ${ars(PLANES[0].precios.mensual)} a ${ars(PLANES[PLANES.length - 1].precios.mensual)} por mes. Con plan anual, desde ${ars(porMes(PLANES[0].precios.anual, 12))} por mes.
 - ¿Qué plan incluye spa? Performance, Flow, Sport y Power Sport incluyen el circuito hídrico, 4 accesos por mes no acumulables ni transferibles.
 - ¿Se puede ir al spa sin ser socio? Sí, con day pass: ${CIRCUITOS.map((c) => `${c.name} (${c.duracion})`).join(', ')}.${THERMA_PRECIOS_PUBLICADOS ? '' : ' Los valores se confirman al reservar.'}
 - ¿Hay que reservar turno? Sí, para spa y tratamientos. Reservas en ${SITE.url}/reservas.
+- ¿Hay tratamientos estéticos? Sí: estética corporal con aparatología (radiofrecuencia con vacum, presoterapia, termoterapia y ozono) y circuito de recuperación deportiva de 4 horas. El primer paso es una consulta sin cargo con un profesional, por WhatsApp.
+- ¿Dónde queda? ${SITE.direccion.calle}, ${SITE.direccion.ciudad}, dentro del ${SITE.direccion.edificio}. A 20 minutos del centro de Rosario por la autopista Rosario–Córdoba y a 10 minutos del aeropuerto de Fisherton.
 
 ## Contacto
 

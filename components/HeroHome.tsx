@@ -3,16 +3,25 @@
 import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { CAMPANA_VERANO, SITE } from '@/data/leven'
 
 // Premium architectural / wellness images matching Radisson RED Funes aesthetic
 // Using w=1200 for an adequate full-bleed quality without the 1920 overhead
-const slides = [
+const slidesBase = [
   '/images/gimnasio/leven-gimnasio-person-18.jpg', // gimnasio
   '/images/spa/leven-spa-close-10.jpg', // spa
   '/images/bar/leven-bar-person-12.jpg', // bar
 ]
 
-export default function HeroHome() {
+/**
+ * `verano` lo decide el servidor (app/page.tsx) leyendo CAMPANA_VERANO.activa.
+ * Con la campaña activa, la primera slide es la de Activá el Verano y el
+ * titular/CTA cambian solo mientras esa slide está en pantalla. Al apagar la
+ * campaña, el hero vuelve a ser exactamente el de siempre.
+ */
+export default function HeroHome({ verano = false }: { verano?: boolean }) {
+  const slides = verano ? [CAMPANA_VERANO.img.hero, ...slidesBase] : slidesBase
+  const enCampana = verano // la slide 0 es la de campaña
   const [active,      setActive]      = useState(0)
   const [prev,        setPrev]        = useState<number | null>(null)
   const [contentReady, setContentReady] = useState(false) // waits for logo intro
@@ -33,7 +42,7 @@ export default function HeroHome() {
   }, [])
 
   useEffect(() => {
-    timer.current = setTimeout(() => advance((active + 1) % slides.length), 7000)
+    timer.current = setTimeout(() => advance((active + 1) % slides.length), enCampana && active === 0 ? 12000 : 7000)
     return () => { if (timer.current) clearTimeout(timer.current) }
   }, [active]) // eslint-disable-line
 
@@ -55,7 +64,7 @@ export default function HeroHome() {
             transition: active === i ? 'transform 9000ms ease-out' : 'none',
             transformOrigin: '55% 45%',
           }}>
-            <Image src={src} alt="" fill priority={i === 0} loading={i === 0 ? 'eager' : 'lazy'} sizes="100vw" className="object-cover" style={{ opacity: 0.28 }} />
+            <Image src={src} alt="" fill priority={i === 0} loading={i === 0 ? 'eager' : 'lazy'} sizes="100vw" className="object-cover" style={{ opacity: enCampana && i === 0 ? 0.5 : 0.28, objectPosition: enCampana && i === 0 ? '50% 40%' : '50% 50%' }} />
           </div>
         </div>
       ))}
@@ -124,14 +133,47 @@ export default function HeroHome() {
             transform: contentReady ? 'translateY(0)' : 'translateY(22px)',
             transition: 'opacity 1.1s ease 0.2s, transform 1.1s cubic-bezier(0.16,1,0.3,1) 0.2s',
           }}>
-            <h1 className="font-display font-bold text-white mb-7 leading-[0.95]"
-              style={{ fontSize: 'clamp(40px, 6.5vw, 88px)', letterSpacing: '-0.03em' }}>
-              Hay quienes<br />
-              sostienen el mundo.<br />
-              <span style={{ fontWeight: 300, color: 'var(--sage)', fontSize: '0.78em', letterSpacing: '-0.01em' }}>
-                Esta es su casa.
-              </span>
-            </h1>
+            {enCampana && active === 0 ? (
+              <>
+                <div className="flex items-center gap-4 mb-6">
+                  <Image
+                    src={CAMPANA_VERANO.img.sello}
+                    alt={CAMPANA_VERANO.nombre}
+                    width={64}
+                    height={64}
+                    style={{ borderRadius: '50%', width: '56px', height: '56px' }}
+                  />
+                  <span className="font-display font-medium" style={{ fontSize: '10px', letterSpacing: '0.32em', color: 'rgba(255,255,255,0.6)' }}>
+                    {CAMPANA_VERANO.nombre.toUpperCase()} · {CAMPANA_VERANO.condicion.toUpperCase()}
+                  </span>
+                </div>
+                <h1 className="font-display font-bold text-white mb-5 leading-[0.98]"
+                  style={{ fontSize: 'clamp(36px, 5.6vw, 76px)', letterSpacing: '-0.03em', maxWidth: '14ch' }}>
+                  {CAMPANA_VERANO.titular}
+                </h1>
+                <p className="font-sans mb-7" style={{ fontSize: '15px', color: 'rgba(255,255,255,0.6)', maxWidth: '44ch' }}>
+                  {CAMPANA_VERANO.bajada}
+                </p>
+                <a
+                  href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(CAMPANA_VERANO.whatsappTexto)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-leven btn-leven-filled inline-flex"
+                  style={{ fontSize: '11px', padding: '16px 34px', background: '#ffffff', borderColor: '#ffffff', color: '#1c1519', marginBottom: '28px' }}
+                >
+                  {CAMPANA_VERANO.cta} →
+                </a>
+              </>
+            ) : (
+              <h1 className="font-display font-bold text-white mb-7 leading-[0.95]"
+                style={{ fontSize: 'clamp(40px, 6.5vw, 88px)', letterSpacing: '-0.03em' }}>
+                Hay quienes<br />
+                sostienen el mundo.<br />
+                <span style={{ fontWeight: 300, color: 'var(--sage)', fontSize: '0.78em', letterSpacing: '-0.01em' }}>
+                  Esta es su casa.
+                </span>
+              </h1>
+            )}
             <div className="flex items-center gap-5 mb-5">
               <a href="#como-llegar" className="font-display text-white/30 hover:text-white/60 transition-colors" style={{ fontSize: '10px', letterSpacing: '0.25em' }}>
                 COMO LLEGAR ↓
@@ -142,7 +184,7 @@ export default function HeroHome() {
             </p>
           </div>
 
-          {/* Location — Radisson RED Funes (correct name) */}
+          {/* Location — dirección real, link al mapa */}
           <div className="flex flex-col items-start md:items-end gap-1 md:text-right" style={{
             opacity: contentReady ? 1 : 0,
             transition: 'opacity 0.9s ease 0.5s',
@@ -150,13 +192,13 @@ export default function HeroHome() {
             <span className="font-display font-light" style={{ fontSize: '8px', letterSpacing: '0.35em', color: 'rgba(255,255,255,0.2)' }}>
               DENTRO DEL
             </span>
-            <a href="https://www.instagram.com/radissonredfunes/" target="_blank" rel="noopener noreferrer"
+            <a href={SITE.direccion.mapsUrl} target="_blank" rel="noopener noreferrer"
               className="font-display font-medium text-white/40 hover:text-white/70 transition-colors"
               style={{ fontSize: '10px', letterSpacing: '0.12em' }}>
-              RADISSON RED FUNES
+              {SITE.direccion.edificio.toUpperCase()}
             </a>
             <span className="font-sans" style={{ fontSize: '10px', color: 'rgba(255,255,255,0.18)' }}>
-              Funes, Santa Fe, Argentina
+              {SITE.direccion.ciudad}, {SITE.direccion.provincia}, Argentina
             </span>
           </div>
         </div>
