@@ -12,13 +12,17 @@ import {
   THERMA_PRECIOS_PUBLICADOS,
   THERMA_MONEDA,
   precioCircuito,
+  LINEA_ESTETICA,
+  ESTETICA_CTA,
+  ESTETICA_NOTA,
+  FACIALES_ESTETICA,
   SITE,
 } from '@/data/leven'
 
 export const metadata: Metadata = {
   title: 'Leven Therma · Spa y circuito hídrico en Funes',
   description:
-    'Spa con circuito hídrico —sauna seco, ducha escocesa, baño de vapor y jacuzzi—, masajes con protocolo y tratamientos faciales en Funes, Santa Fe. Day pass RESET, RESTORE y DEEP con turno previo.',
+    'Spa con circuito hídrico —sauna seco, ducha escocesa, baño de vapor y jacuzzi—, masajes con protocolo, tratamientos faciales y línea estética con aparatología en Funes, Santa Fe. Day pass RESET, RESTORE y DEEP con turno previo. Consulta estética sin cargo.',
   alternates: { canonical: '/therma' },
   openGraph: {
     title: 'Leven Therma · Spa y circuito hídrico en Funes',
@@ -50,7 +54,15 @@ const FAQ_THERMA = [
   },
   {
     q: '¿Qué masajes y tratamientos ofrece Leven Therma?',
-    a: 'Masaje relajante, descontracturante, cérvico craneal, circulatorio, drenaje linfático, piedras calientes, esferas sonoras, reflexología y reiki. En faciales: Premium, Renovador y Revitalizante.',
+    a: 'Masaje relajante, descontracturante, cérvico craneal, circulatorio, drenaje linfático, piedras calientes, esferas sonoras, reflexología y reiki. En faciales: Premium, Renovador, Revitalizante, Microneedling con Dermapen y Limpieza facial profunda.',
+  },
+  {
+    q: '¿Qué es la línea estética de Casa Leven?',
+    a: 'La línea estética de Leven Therma combina el circuito de aguas del spa (hidroterapia, sauna y calor) con aparatología: radiofrecuencia con vacum, presoterapia, termoterapia y ozono, y cierra con una merienda pensada para acompañar el tratamiento. Los tratamientos se arman a medida, por eso el primer paso es una consulta sin cargo con un profesional, que se agenda por WhatsApp.',
+  },
+  {
+    q: '¿Qué es el circuito de recuperación deportiva?',
+    a: 'Es un circuito de 4 horas diseñado para cuerpos que entrenan: sauna para preparar la musculatura, ducha escocesa con frío y calor alternados, hidroterapia y pulsos magnéticos de alta potencia. Empieza con una consulta sin cargo, en la que un profesional arma el protocolo según la disciplina y la carga de entrenamiento de cada persona.',
   },
 ]
 
@@ -70,6 +82,8 @@ const faciales = [
   { name: 'Facial Premium', desc: 'Máscaras, higiene facial, masaje relajante', duration: '60 min' },
   { name: 'Facial Renovador', desc: 'Peeling mecánico, limpieza profunda, máscara', duration: '75 min' },
   { name: 'Facial Revitalizante', desc: 'Máscara de fango, masaje revitalizante', duration: '60 min' },
+  // Faciales de la línea estética: se editan en data/leven.ts
+  ...FACIALES_ESTETICA,
 ]
 
 export default function ThermaPage() {
@@ -173,9 +187,12 @@ export default function ThermaPage() {
 
             {/* Facial treatments */}
             <RevealSection delay={150}>
-              <h3 className="font-display font-bold mb-8" style={{ fontSize: 'clamp(22px, 3vw, 36px)', letterSpacing: '-0.01em', color: COLOR }}>
+              <h3 className="font-display font-bold mb-2" style={{ fontSize: 'clamp(22px, 3vw, 36px)', letterSpacing: '-0.01em', color: COLOR }}>
                 Tratamientos faciales.
               </h3>
+              <p className="font-sans text-leven-purple/45 mb-8" style={{ fontSize: '13px' }}>
+                Tu piel también cambia de estación.
+              </p>
               <div className="flex flex-col gap-4">
                 {faciales.map((f, i) => (
                   <div key={i} className="p-5" style={{ border: '1px solid rgba(46,39,53,0.1)', background: 'rgba(46,39,53,0.02)' }}>
@@ -193,6 +210,77 @@ export default function ThermaPage() {
             <Link href="/contacto" className="btn-leven btn-leven-therma" style={{ borderColor: `${COLOR}80`, color: COLOR }}>
               Reservar tratamiento →
             </Link>
+          </RevealSection>
+        </div>
+      </section>
+
+      {/* ─── LÍNEA ESTÉTICA ─────────────────────────────
+          Dos ángulos, un solo CTA: consulta sin cargo. Sin precios.
+          Los textos son los del Brief de Diseño Estética: no se reescriben. */}
+      <section id="estetica" className="grain py-24 md:py-36" style={{ background: 'var(--purple)', scrollMarginTop: '80px' }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <RevealSection className="mb-14 md:mb-16">
+            <div className="flex items-center gap-5 mb-4">
+              <span className="font-display font-medium" style={{ fontSize: '9px', letterSpacing: '0.35em', color: '#cbb9a4' }}>LÍNEA ESTÉTICA</span>
+            </div>
+            <h2 className="font-display font-bold text-white mb-5" style={{ fontSize: 'clamp(28px, 4vw, 52px)', letterSpacing: '-0.01em', maxWidth: '18ch' }}>
+              Un tratamiento completo, paso a paso.
+            </h2>
+            <p className="font-sans leading-relaxed" style={{ fontSize: '15px', color: 'rgba(242,236,229,0.6)', maxWidth: '58ch' }}>
+              {ESTETICA_NOTA}
+            </p>
+          </RevealSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {LINEA_ESTETICA.map((a, i) => (
+              <RevealSection key={a.id} delay={i * 120} className="h-full">
+                <article id={a.id} className="flex flex-col h-full" style={{ background: 'rgba(0,0,0,0.22)', border: '1px solid rgba(203,185,164,0.18)' }}>
+                  <div className="relative overflow-hidden" style={{ aspectRatio: '16/10' }}>
+                    <Image src={a.img} alt={a.imgAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+                    <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(59,47,61,0.9) 0%, rgba(59,47,61,0.15) 45%, transparent 70%)' }} />
+                    <div className="absolute left-6 bottom-5 md:left-8 md:bottom-6">
+                      <span className="font-display font-medium" style={{ fontSize: '9px', letterSpacing: '0.32em', color: '#cbb9a4' }}>{a.overline}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col flex-1 p-6 md:p-8">
+                    <h3 className="font-display font-bold text-white leading-tight mb-3" style={{ fontSize: 'clamp(20px, 2.2vw, 28px)', letterSpacing: '-0.02em' }}>
+                      {a.titular}
+                    </h3>
+                    <p className="font-sans mb-7" style={{ fontSize: '13px', color: 'rgba(242,236,229,0.55)' }}>{a.sub}</p>
+
+                    {/* Los pasos son la secuencia real del tratamiento: por eso van numerados. */}
+                    <ol className="flex flex-col mb-8" style={{ borderTop: '1px solid rgba(203,185,164,0.15)' }}>
+                      {a.pasos.map((p, j) => (
+                        <li key={p.titulo} className="flex items-start gap-5 py-4" style={{ borderBottom: '1px solid rgba(203,185,164,0.15)' }}>
+                          <span className="font-display font-bold" style={{ fontSize: '11px', letterSpacing: '0.1em', color: '#cbb9a4', minWidth: '24px', marginTop: '3px' }}>0{j + 1}</span>
+                          <div>
+                            <p className="font-display font-semibold text-white" style={{ fontSize: '14px' }}>{p.titulo}</p>
+                            <p className="font-sans" style={{ fontSize: '13px', color: 'rgba(242,236,229,0.5)' }}>{p.body}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ol>
+
+                    <a
+                      href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(a.whatsappTexto)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-leven btn-leven-filled self-start mt-auto"
+                      style={{ fontSize: '11px', padding: '15px 30px', background: '#f2ece5', borderColor: '#f2ece5', color: '#3b2f3d' }}
+                    >
+                      {ESTETICA_CTA} · WhatsApp →
+                    </a>
+                  </div>
+                </article>
+              </RevealSection>
+            ))}
+          </div>
+
+          <RevealSection delay={200}>
+            <p className="font-sans text-center mx-auto mt-10" style={{ fontSize: '11px', lineHeight: 1.6, maxWidth: '640px', color: 'rgba(242,236,229,0.35)' }}>
+              Los tratamientos se indican en la consulta con un profesional. Casa Leven · {SITE.direccion.edificio} · {SITE.direccion.ciudad}, a 20 minutos de Rosario.
+            </p>
           </RevealSection>
         </div>
       </section>
@@ -240,7 +328,7 @@ export default function ThermaPage() {
           '@id': `${SITE.url}/therma#spa`,
           name: 'Leven Therma',
           description:
-            'Spa con circuito hídrico, masajes con protocolo y tratamientos faciales dentro de Casa Leven, Funes, Santa Fe, Argentina.',
+            'Spa con circuito hídrico, masajes con protocolo, tratamientos faciales y línea estética con aparatología (radiofrecuencia con vacum, presoterapia, termoterapia y ozono) dentro de Casa Leven, Funes, Santa Fe, Argentina.',
           url: `${SITE.url}/therma`,
           parentOrganization: { '@id': `${SITE.url}#casaleven` },
           address: {
@@ -269,6 +357,14 @@ export default function ThermaPage() {
               url: `${SITE.url}/therma#${c.id}`,
             })),
           },
+          // Línea estética: sin precio (se arma a medida en la consulta sin cargo).
+          makesOffer: LINEA_ESTETICA.map((a) => ({
+            '@type': 'Offer',
+            name: a.titular,
+            description: `${a.sub}. ${a.pasos.map((p) => `${p.titulo}: ${p.body}`).join(' ')} Primer paso: consulta sin cargo con un profesional.`,
+            availability: 'https://schema.org/InStock',
+            url: `${SITE.url}/therma#${a.id}`,
+          })),
         }}
       />
       <JsonLd

@@ -34,6 +34,26 @@ export default function ContactoPage() {
                   Sin compromiso.
                 </p>
 
+                <div className="pt-8 mb-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+                  <p className="font-display font-light text-white/30 mb-3" style={{ fontSize: '9px', letterSpacing: '0.3em' }}>
+                    DÓNDE ESTAMOS
+                  </p>
+                  <p className="font-sans text-white/70" style={{ fontSize: '14px', lineHeight: 1.6 }}>
+                    {SITE.direccion.calle}, {SITE.direccion.ciudad}<br />
+                    <span className="text-white/45">Dentro del {SITE.direccion.edificio} · {SITE.direccion.ruta}</span><br />
+                    <span className="text-white/45">A 20 min de Rosario · 10 min del aeropuerto</span>
+                  </p>
+                  <a
+                    href={SITE.direccion.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-white/60 hover:text-white transition-colors block link-hover mt-3"
+                    style={{ fontSize: '14px' }}
+                  >
+                    Ver en Google Maps →
+                  </a>
+                </div>
+
                 <div className="pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                   <p className="font-display font-light text-white/30 mb-3" style={{ fontSize: '9px', letterSpacing: '0.3em' }}>
                     TAMBIÉN POR WHATSAPP

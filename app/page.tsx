@@ -5,7 +5,7 @@ import RevealSection from '@/components/RevealSection'
 import DoorAnimation from '@/components/DoorAnimation'
 import FaqBlock from '@/components/FaqBlock'
 import JsonLd from '@/components/JsonLd'
-import { PLANES, CIRCUITOS, ars, porMes } from '@/data/leven'
+import { PLANES, CIRCUITOS, CAMPANA_VERANO, SITE, ars, porMes } from '@/data/leven'
 
 const FAQ_HOME = [
   {
@@ -14,7 +14,11 @@ const FAQ_HOME = [
   },
   {
     q: '¿Dónde queda Casa Leven?',
-    a: 'Casa Leven funciona dentro del Radisson RED Funes, en Funes, provincia de Santa Fe, Argentina, a pocos minutos de Rosario. Atiende a socios, visitantes externos y huéspedes del hotel.',
+    a: `Casa Leven funciona dentro del ${SITE.direccion.edificio}, en ${SITE.direccion.calle}, ${SITE.direccion.ciudad}, provincia de ${SITE.direccion.provincia}, Argentina (${SITE.direccion.ruta}). Queda a 20 minutos del centro de Rosario por autopista y a 10 minutos del aeropuerto de Fisherton. Atiende a socios, visitantes externos y huéspedes del hotel.`,
+  },
+  {
+    q: '¿Casa Leven tiene tratamientos estéticos?',
+    a: 'Sí. La línea estética de Leven Therma combina el circuito de aguas del spa con aparatología: radiofrecuencia con vacum, presoterapia, termoterapia y ozono. También hay un circuito de recuperación deportiva de 4 horas para personas que entrenan. En ambos casos el primer paso es una consulta sin cargo con un profesional, que arma el tratamiento a medida.',
   },
   {
     q: '¿Cuánto cuesta ser socio de Casa Leven?',
@@ -80,7 +84,7 @@ export default function HomePage() {
   return (
     <>
       {/* ─── HERO (client component) ───────────────────── */}
-      <HeroHome />
+      <HeroHome verano={CAMPANA_VERANO.activa} />
 
       {/* ─── MARQUEE ───────────────────────────────────── */}
       <div className="overflow-hidden py-[14px]" style={{ background: 'var(--dark)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
@@ -92,6 +96,37 @@ export default function HomePage() {
           ))}
         </div>
       </div>
+
+      {/* ─── BANDA ACTIVÁ EL VERANO (campaña temporal) ──
+          Se cae sola con CAMPANA_VERANO.activa = false. */}
+      {CAMPANA_VERANO.activa && (
+        <a
+          href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(CAMPANA_VERANO.whatsappTexto)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block relative overflow-hidden"
+          style={{ background: '#0a0809' }}
+        >
+          <Image src={CAMPANA_VERANO.img.banda} alt="" fill sizes="100vw" className="object-cover" style={{ opacity: 0.22, objectPosition: '50% 35%' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(10,8,9,0.85) 0%, rgba(10,8,9,0.35) 60%, rgba(178,58,58,0.35) 100%)' }} />
+          <div className="relative max-w-7xl mx-auto px-6 md:px-14 py-5 md:py-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <Image src={CAMPANA_VERANO.img.sello} alt="" width={44} height={44} style={{ borderRadius: '50%', width: '40px', height: '40px', flexShrink: 0 }} />
+              <div>
+                <p className="font-display font-bold text-white leading-tight" style={{ fontSize: 'clamp(15px, 1.8vw, 20px)', letterSpacing: '-0.01em' }}>
+                  {CAMPANA_VERANO.hook}
+                </p>
+                <p className="font-display" style={{ fontSize: '9px', letterSpacing: '0.3em', color: 'rgba(255,255,255,0.45)', marginTop: '4px' }}>
+                  {CAMPANA_VERANO.nombre.toUpperCase()} · {CAMPANA_VERANO.vigencia.toUpperCase()} · CLASE DE CORTESÍA SIN CARGO
+                </p>
+              </div>
+            </div>
+            <span className="btn-leven btn-leven-filled self-start md:self-auto" style={{ fontSize: '10px', padding: '12px 24px', background: '#ffffff', borderColor: '#ffffff', color: '#1c1519', whiteSpace: 'nowrap' }}>
+              {CAMPANA_VERANO.cta} →
+            </span>
+          </div>
+        </a>
+      )}
 
       {/* ─── NARRATIVA ─────────────────────────────────── */}
       <section className="py-28 md:py-44" style={{ background: 'var(--offwhite)' }}>
@@ -223,21 +258,29 @@ export default function HomePage() {
               { label: 'Masajes con protocolo',                                 sub: 'Deportivo, relajación profunda y descontracturante',                          icon: '◈', color: '#5d6d7e' },
 
               { label: 'Tratamientos faciales',                                 sub: 'Skincare de resultado en entorno de wellness premium',                        icon: '◈', color: '#7b8476' },
-              { label: 'Tratamientos cognitivos de técnica en el deporte',      sub: 'Psicología deportiva y entrenamiento mental para el rendimiento',             icon: '◈', color: '#b23a3a' },
+              { label: 'Estética corporal con aparatología',                   sub: 'Radiofrecuencia con vacum, presoterapia, termoterapia y ozono. Consulta sin cargo', icon: '◈', color: '#5d6d7e', href: '/therma#estetica' },
               { label: 'Acompañamiento nutricional y médico',                   sub: 'Seguimiento integral de salud con equipo profesional',                        icon: '◈', color: '#7b8476' },
               { label: 'Tratamientos hídricos termales y camino Kneipp',        sub: 'Hidroterapia y contraste térmico para la recuperación profunda',              icon: '◈', color: '#5d6d7e' },
-              { label: 'Reprogramación de hábitos alimentarios por hipnosis',   sub: 'Técnica mente-cuerpo para transformar la relación con la alimentación',      icon: '◈', color: '#7b8476' },
+              { label: 'Recuperación deportiva · circuito de 4 horas',          sub: 'Sauna, ducha escocesa, hidroterapia y pulsos magnéticos para cuerpos que entrenan', icon: '◈', color: '#5d6d7e', href: '/therma#estetica' },
             ].map((item, i) => (
               <RevealSection key={item.label} delay={i * 70}>
-                <div className="flex flex-col gap-3 p-7 md:p-8 h-full" style={{ background: 'var(--offwhite)' }}>
-                  <span style={{ fontSize: '10px', color: item.color, letterSpacing: '0.1em' }}>{item.icon}</span>
-                  <p className="font-display font-semibold text-leven-purple leading-tight" style={{ fontSize: 'clamp(15px, 1.4vw, 18px)' }}>
-                    {item.label}
-                  </p>
-                  <p className="font-sans text-leven-purple/45 leading-relaxed" style={{ fontSize: '13px' }}>
-                    {item.sub}
-                  </p>
-                </div>
+                {(() => {
+                  const inner = (
+                    <div className="flex flex-col gap-3 p-7 md:p-8 h-full" style={{ background: 'var(--offwhite)' }}>
+                      <span style={{ fontSize: '10px', color: item.color, letterSpacing: '0.1em' }}>{item.icon}</span>
+                      <p className="font-display font-semibold text-leven-purple leading-tight" style={{ fontSize: 'clamp(15px, 1.4vw, 18px)' }}>
+                        {item.label}
+                      </p>
+                      <p className="font-sans text-leven-purple/45 leading-relaxed" style={{ fontSize: '13px' }}>
+                        {item.sub}
+                      </p>
+                      {'href' in item && item.href && (
+                        <span className="font-display font-medium mt-auto" style={{ fontSize: '9px', letterSpacing: '0.22em', color: item.color }}>NUEVO · VER →</span>
+                      )}
+                    </div>
+                  )
+                  return 'href' in item && item.href ? <Link href={item.href} className="block h-full">{inner}</Link> : inner
+                })()}
               </RevealSection>
             ))}
           </div>
@@ -289,29 +332,40 @@ export default function HomePage() {
             {/* Info column */}
             <RevealSection className="flex flex-col justify-between gap-8">
               <div>
-                <p className="font-sans text-white/45 leading-relaxed mb-8" style={{ fontSize: '15px', maxWidth: '380px' }}>
-                  Casa Leven está dentro del Radisson RED Funes. A minutos del centro de Rosario, en un entorno diseñado para desconectarse del ruido.
+                <p className="font-sans text-white/45 leading-relaxed mb-8" style={{ fontSize: '15px', maxWidth: '400px' }}>
+                  Casa Leven está dentro del {SITE.direccion.edificio}, sobre la autopista Rosario–Córdoba.
+                  Veinte minutos desde el centro de Rosario, diez desde el aeropuerto.
                 </p>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-5">
                   <div className="flex items-start gap-4">
                     <span style={{ color: 'var(--terracotta)', fontSize: '16px', flexShrink: 0, marginTop: '2px' }}>◈</span>
                     <div>
-                      <p className="font-display font-medium text-white/80 mb-0.5" style={{ fontSize: '13px', letterSpacing: '0.05em' }}>RADISSON RED FUNES</p>
-                      <p className="hidden md:block font-sans text-white/35" style={{ fontSize: '13px' }}>Funes, Santa Fe, Argentina</p>
+                      <p className="font-display font-medium text-white/85 mb-0.5" style={{ fontSize: '13px', letterSpacing: '0.05em' }}>{SITE.direccion.calle.toUpperCase()}</p>
+                      <p className="font-sans text-white/35" style={{ fontSize: '13px' }}>{SITE.direccion.ciudad}, {SITE.direccion.provincia} · {SITE.direccion.edificio}</p>
+                      <p className="font-sans text-white/35" style={{ fontSize: '13px' }}>{SITE.direccion.ruta}</p>
                     </div>
                   </div>
+                  {SITE.direccion.referencias.map((r) => (
+                    <div key={r.desde} className="flex items-start gap-4">
+                      <span style={{ color: 'var(--sage)', fontSize: '16px', flexShrink: 0, marginTop: '2px' }}>◈</span>
+                      <div>
+                        <p className="font-display font-medium text-white/85 mb-0.5" style={{ fontSize: '13px', letterSpacing: '0.05em' }}>DESDE {r.desde.toUpperCase()} · {r.tiempo.toUpperCase()}</p>
+                        <p className="font-sans text-white/35" style={{ fontSize: '13px' }}>{r.como}</p>
+                      </div>
+                    </div>
+                  ))}
                   <div className="flex items-start gap-4">
-                    <span style={{ color: 'var(--sage)', fontSize: '16px', flexShrink: 0, marginTop: '2px' }}>◈</span>
+                    <span style={{ color: 'var(--blue)', fontSize: '16px', flexShrink: 0, marginTop: '2px' }}>◈</span>
                     <div>
-                      <p className="font-display font-medium text-white/80 mb-0.5" style={{ fontSize: '13px', letterSpacing: '0.05em' }}>ACCESO VEHICULAR</p>
-                      <p className="font-sans text-white/35" style={{ fontSize: '13px' }}>Estacionamiento propio disponible</p>
+                      <p className="font-display font-medium text-white/85 mb-0.5" style={{ fontSize: '13px', letterSpacing: '0.05em' }}>ESTACIONAMIENTO</p>
+                      <p className="font-sans text-white/35" style={{ fontSize: '13px' }}>Propio, dentro del hotel</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <a
-                href="https://maps.app.goo.gl/jye7PA8gcgD8PJZRA"
+                href={SITE.direccion.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-leven btn-leven-filled self-start flex items-center gap-3"
@@ -321,61 +375,30 @@ export default function HomePage() {
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
                   <circle cx="12" cy="9" r="2.5"/>
                 </svg>
-                Ver en Google Maps →
+                Cómo llegar en Google Maps →
               </a>
             </RevealSection>
 
-            {/* Map card */}
+            {/* Mapa real (Google Maps embebido; frame-src de google.com ya está permitido en la CSP) */}
             <RevealSection delay={150}>
-              <a
-                href="https://maps.app.goo.gl/jye7PA8gcgD8PJZRA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block relative overflow-hidden"
-                style={{
-                  minHeight: '280px',
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  transition: 'border-color 0.3s ease',
-                }}
+              <div
+                className="relative overflow-hidden"
+                style={{ minHeight: '320px', height: '100%', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}
               >
-                {/* Decorative map-like background */}
-                <div style={{
-                  position: 'absolute', inset: 0,
-                  background: 'linear-gradient(135deg, rgba(46,39,53,0.6) 0%, rgba(13,11,14,0.8) 100%)',
-                }}/>
-                {/* Grid lines suggesting a map */}
-                <svg style={{ position:'absolute', inset:0, width:'100%', height:'100%' }} preserveAspectRatio="none">
-                  <defs>
-                    <pattern id="mapgrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.7"/>
-                    </pattern>
-                  </defs>
-                  <rect width="100%" height="100%" fill="url(#mapgrid)"/>
-                  {/* Stylised road lines */}
-                  <line x1="0" y1="55%" x2="100%" y2="55%" stroke="rgba(255,255,255,0.07)" strokeWidth="1.5"/>
-                  <line x1="38%" y1="0" x2="38%" y2="100%" stroke="rgba(255,255,255,0.05)" strokeWidth="1"/>
-                  <line x1="65%" y1="0" x2="65%" y2="100%" stroke="rgba(255,255,255,0.04)" strokeWidth="0.8"/>
-                  <line x1="0" y1="30%" x2="100%" y2="30%" stroke="rgba(255,255,255,0.04)" strokeWidth="0.8"/>
-                  {/* Pin marker */}
-                  <circle cx="50%" cy="50%" r="22" fill="rgba(178,58,58,0.15)" stroke="rgba(178,58,58,0.3)" strokeWidth="1"/>
-                  <circle cx="50%" cy="50%" r="8" fill="#b23a3a" opacity="0.9"/>
-                  <circle cx="50%" cy="50%" r="3" fill="white" opacity="0.9"/>
-                </svg>
-                {/* Hover overlay */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: 'rgba(10,8,9,0.55)' }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.8 }}>
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-                    <circle cx="12" cy="9" r="2.5"/>
-                  </svg>
-                  <span className="font-display font-medium text-white/80" style={{ fontSize: '11px', letterSpacing: '0.25em' }}>ABRIR MAPA</span>
+                <iframe
+                  title={`Mapa: ${SITE.direccion.edificio}, ${SITE.direccion.calle}, ${SITE.direccion.ciudad}`}
+                  src={SITE.direccion.mapsEmbed}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0, filter: 'grayscale(0.35) contrast(1.05)' }}
+                />
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 px-5 py-3" style={{ background: 'rgba(10,8,9,0.78)', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                  <p className="font-display font-medium text-white/70" style={{ fontSize: '11px', letterSpacing: '0.12em' }}>
+                    {SITE.direccion.edificio.toUpperCase()} · {SITE.direccion.calle.toUpperCase()} · {SITE.direccion.ciudad.toUpperCase()}
+                  </p>
                 </div>
-                {/* Bottom label — hidden on mobile (already shown in info column above) */}
-                <div className="hidden md:block absolute bottom-0 left-0 right-0 px-5 py-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', background: 'rgba(10,8,9,0.7)' }}>
-                  <p className="font-display font-medium text-white/60" style={{ fontSize: '11px', letterSpacing: '0.12em' }}>RADISSON RED FUNES · FUNES, ARGENTINA</p>
-                </div>
-              </a>
+              </div>
             </RevealSection>
 
           </div>

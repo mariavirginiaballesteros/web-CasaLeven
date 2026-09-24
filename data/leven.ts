@@ -18,14 +18,30 @@ export const SITE = {
   telefono: '+54 341 662-0055',
   whatsapp: '543416620055',
   instagram: 'https://instagram.com/casaleven',
+  /**
+   * Dirección real del Radisson RED Funes (fuente: Google Maps + nota de
+   * inauguración del hotel). `calle` es lo que se imprime en la web;
+   * `edificio` es la referencia que todos reconocen; `referencias` son las
+   * distancias que se muestran en "Cómo llegar".
+   * ⚠️ Validar el texto exacto con recepción del hotel antes de publicar.
+   */
   direccion: {
-    calle: 'Radisson RED Funes',
+    calle: 'Colectora 2 de Abril 3501',
+    edificio: 'Radisson RED Funes',
+    ruta: 'Autopista Rosario–Córdoba, km 307,5',
     ciudad: 'Funes',
     provincia: 'Santa Fe',
     cp: 'S2132',
     pais: 'AR',
-    lat: -32.9167,
-    lng: -60.8167,
+    lat: -32.9366,
+    lng: -60.8308,
+    mapsUrl: 'https://maps.app.goo.gl/jye7PA8gcgD8PJZRA',
+    /** Embed de Google Maps por búsqueda de nombre: no necesita API key. */
+    mapsEmbed: 'https://www.google.com/maps?q=Radisson+RED+Funes&output=embed&z=14',
+    referencias: [
+      { desde: 'Centro de Rosario', como: 'Autopista Rosario–Córdoba, salida Funes', tiempo: '20 min' },
+      { desde: 'Aeropuerto de Fisherton', como: 'Por autopista', tiempo: '10 min' },
+    ],
   },
   horarios: 'Lu a Vi 07:00–22:00 · Sá 09:00–19:00 · Do 09:00–15:00',
 } as const
@@ -78,6 +94,106 @@ export const CAMPANA_FUNDADORES = {
     },
   ],
 } as const
+
+/* ─── CAMPAÑA ACTIVÁ EL VERANO ───────────────────────────────────
+ * Campaña de octubre 2026. Es PRIVADA: el precio ($120.000 / $132.000)
+ * viaja solo por WhatsApp a quienes ya consultaron. La web NUNCA lo
+ * publica: muestra la campaña y la clase de cortesía, nada más.
+ *
+ * ⚠️  PARA DAR DE BAJA: poner activa = false. Eso saca la slide del hero
+ *     del home, la banda bajo el marquee y el bloque de /motion. No hay
+ *     que tocar nada más. Las fechas de abajo son solo el texto que se
+ *     muestra: el único interruptor es `activa`, igual que en Fundadores.
+ * ──────────────────────────────────────────────────────────────── */
+
+export const CAMPANA_VERANO = {
+  activa: true,
+  nombre: 'Activá el Verano',
+  /** Textos cerrados: son los de las piezas gráficas, no se reescriben. */
+  hook: '¿Ya empezaste a moverte para el verano?',
+  titular: 'Empezá antes de que arranque el verano.',
+  titularMotion: 'El verano no espera a diciembre.',
+  bajada: 'Empezá a moverte ahora, con un método que se adapta a tu cuerpo.',
+  cta: 'Agendá tu clase de cortesía',
+  whatsappTexto: 'Hola! Vi Activá el Verano y quiero agendar mi clase de cortesía',
+  vigencia: 'Del 1 al 31 de octubre',
+  img: {
+    hero: '/images/campanas/verano/verano-hero-gym-v2.jpg',
+    motion: '/images/campanas/verano/verano-motion.jpg',
+    banda: '/images/campanas/verano/verano-banda.jpg',
+    sello: '/images/campanas/verano/verano-sello.jpg',
+  },
+} as const
+
+/* ─── LÍNEA ESTÉTICA (Leven Therma) ──────────────────────────────
+ * Dos ángulos con públicos distintos y UN solo camino de entrada: la
+ * consulta sin cargo con un profesional. Sin precios: los tratamientos se
+ * arman a medida en la consulta.
+ *
+ * Textos cerrados por el Brief de Diseño Estética (Jengibre Co., 09/2026).
+ * Reglas de Meta que también valen acá: nada de antes/después, nada de
+ * "eliminá" ni promesas de resultado, no hablarle al cuerpo del lector.
+ * ──────────────────────────────────────────────────────────────── */
+
+export type AnguloEstetica = {
+  id: string
+  overline: string
+  titular: string
+  sub: string
+  pasos: { titulo: string; body: string }[]
+  whatsappTexto: string
+  img: string
+  imgAlt: string
+}
+
+export const LINEA_ESTETICA: AnguloEstetica[] = [
+  {
+    id: 'estetica-corporal',
+    overline: 'ESTÉTICA CORPORAL',
+    titular: 'Estética corporal con aparatología, a 20 minutos de Rosario.',
+    sub: 'Radiofrecuencia con vacum · Presoterapia · Termoterapia y ozono',
+    pasos: [
+      { titulo: 'Circuito de aguas', body: 'Hidroterapia, sauna y calor para activar la circulación.' },
+      { titulo: 'Aparatología', body: 'Radiofrecuencia con vacum · Presoterapia · Termoterapia y ozono.' },
+      { titulo: 'Cierre nutritivo', body: 'Una merienda pensada para acompañar el tratamiento.' },
+    ],
+    whatsappTexto: 'Hola! Quiero agendar una consulta sin cargo por los tratamientos estéticos',
+    img: '/images/estetica/estetica-corporal.jpg',
+    imgAlt: 'Línea estética de Casa Leven: mujer en camilla de spa, en calma',
+  },
+  {
+    id: 'recuperacion-deportiva',
+    overline: 'RECUPERACIÓN DEPORTIVA',
+    titular: 'Entrenás fuerte. Recuperate mejor.',
+    sub: 'Circuito de recuperación deportiva · 4 horas',
+    pasos: [
+      { titulo: 'Calor', body: 'Sauna para preparar la musculatura.' },
+      { titulo: 'Contraste', body: 'Ducha escocesa: frío y calor alternados.' },
+      { titulo: 'Agua y tecnología', body: 'Hidroterapia + pulsos magnéticos de alta potencia.' },
+    ],
+    whatsappTexto: 'Hola! Quiero agendar una consulta sin cargo por el circuito de recuperación deportiva',
+    img: '/images/estetica/recuperacion-deportiva.jpg',
+    imgAlt: 'Recuperación deportiva en Casa Leven: persona en sauna, en actitud de recuperación',
+  },
+]
+
+export const ESTETICA_CTA = 'Consulta sin cargo'
+export const ESTETICA_NOTA =
+  'Los tratamientos se arman a medida, por eso el primer paso es la consulta: es sin cargo y no te compromete a nada. Te recibe un profesional, evalúa qué buscás y arma un plan para vos.'
+
+/** Faciales nuevos de la línea estética. Se suman a los tres faciales clásicos de Therma. */
+export const FACIALES_ESTETICA = [
+  {
+    name: 'Microneedling con Dermapen',
+    desc: 'Higiene, punta de diamante o peeling químico, dos pasadas con activo específico y protector solar',
+    duration: 'Con turno previo',
+  },
+  {
+    name: 'Limpieza facial profunda',
+    desc: 'Higiene, punta de diamante o espátula ultrasónica, extracción, máscara descongestiva y correctiva',
+    duration: '80 min',
+  },
+]
 
 /* ─── MEMBRESÍAS LEVEN MOTION ────────────────────────────────────
  * Precios en pesos argentinos.
