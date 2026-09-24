@@ -118,7 +118,7 @@ URL: ${SITE.url}/fundadores
 }
 ${
   CAMPANA_VERANO.activa
-    ? `## Campaña ${CAMPANA_VERANO.nombre} (${CAMPANA_VERANO.vigencia.toLowerCase()} de 2026)
+    ? `## Campaña ${CAMPANA_VERANO.nombre} (promoción especial, por única vez)
 
 "${CAMPANA_VERANO.titular}" ${CAMPANA_VERANO.bajada} La campaña invita a agendar una clase de cortesía sin cargo en Leven Motion por WhatsApp. Las condiciones comerciales de la campaña se informan únicamente por WhatsApp: no hay precio de campaña publicado en el sitio.
 WhatsApp: https://wa.me/${SITE.whatsapp}

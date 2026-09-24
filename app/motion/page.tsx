@@ -140,7 +140,7 @@ export default function MotionPage() {
               <div className="flex items-center gap-4 mb-8">
                 <Image src={CAMPANA_VERANO.img.sello} alt="" width={56} height={56} style={{ borderRadius: '50%', width: '52px', height: '52px' }} />
                 <span className="font-display font-medium" style={{ fontSize: '9px', letterSpacing: '0.35em', color: 'rgba(255,255,255,0.45)' }}>
-                  {CAMPANA_VERANO.nombre.toUpperCase()} · {CAMPANA_VERANO.vigencia.toUpperCase()}
+                  {CAMPANA_VERANO.nombre.toUpperCase()} · {CAMPANA_VERANO.condicion.toUpperCase()}
                 </span>
               </div>
               <h2 className="font-display font-bold text-white leading-[1.0] mb-6" style={{ fontSize: 'clamp(30px, 4.2vw, 56px)', letterSpacing: '-0.03em', maxWidth: '12ch' }}>

@@ -117,7 +117,7 @@ export default function HomePage() {
                   {CAMPANA_VERANO.hook}
                 </p>
                 <p className="font-display" style={{ fontSize: '9px', letterSpacing: '0.3em', color: 'rgba(255,255,255,0.45)', marginTop: '4px' }}>
-                  {CAMPANA_VERANO.nombre.toUpperCase()} · {CAMPANA_VERANO.vigencia.toUpperCase()} · CLASE DE CORTESÍA SIN CARGO
+                  {CAMPANA_VERANO.nombre.toUpperCase()} · {CAMPANA_VERANO.condicion.toUpperCase()}
                 </p>
               </div>
             </div>

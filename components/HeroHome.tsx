@@ -144,7 +144,7 @@ export default function HeroHome({ verano = false }: { verano?: boolean }) {
                     style={{ borderRadius: '50%', width: '56px', height: '56px' }}
                   />
                   <span className="font-display font-medium" style={{ fontSize: '10px', letterSpacing: '0.32em', color: 'rgba(255,255,255,0.6)' }}>
-                    {CAMPANA_VERANO.nombre.toUpperCase()} · {CAMPANA_VERANO.vigencia.toUpperCase()}
+                    {CAMPANA_VERANO.nombre.toUpperCase()} · {CAMPANA_VERANO.condicion.toUpperCase()}
                   </span>
                 </div>
                 <h1 className="font-display font-bold text-white mb-5 leading-[0.98]"
@@ -197,11 +197,8 @@ export default function HeroHome({ verano = false }: { verano?: boolean }) {
               style={{ fontSize: '10px', letterSpacing: '0.12em' }}>
               {SITE.direccion.edificio.toUpperCase()}
             </a>
-            <span className="font-sans" style={{ fontSize: '10px', color: 'rgba(255,255,255,0.22)' }}>
-              {SITE.direccion.calle} · {SITE.direccion.ciudad}, {SITE.direccion.provincia}
-            </span>
             <span className="font-sans" style={{ fontSize: '10px', color: 'rgba(255,255,255,0.18)' }}>
-              A 20 min de Rosario por autopista
+              {SITE.direccion.ciudad}, {SITE.direccion.provincia}, Argentina
             </span>
           </div>
         </div>

@@ -116,7 +116,8 @@ export const CAMPANA_VERANO = {
   bajada: 'Empezá a moverte ahora, con un método que se adapta a tu cuerpo.',
   cta: 'Agendá tu clase de cortesía',
   whatsappTexto: 'Hola! Vi Activá el Verano y quiero agendar mi clase de cortesía',
-  vigencia: 'Del 1 al 31 de octubre',
+  /** Reemplaza a la fecha en todas las piezas de la web. */
+  condicion: 'Consultá por esta promoción especial, por única vez',
   img: {
     hero: '/images/campanas/verano/verano-hero-gym-v2.jpg',
     motion: '/images/campanas/verano/verano-motion.jpg',
