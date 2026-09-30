@@ -126,6 +126,33 @@ export const CAMPANA_VERANO = {
   },
 } as const
 
+/* ─── CLASE DE CORTESÍA ──────────────────────────────────────────
+ * La clase de prueba del gimnasio ahora se reserva sola: el turnero vive en
+ * el CRM (SignaCRM) y la reserva cae directo en el pipeline de prospectos,
+ * con mail automático de confirmación que incluye día, hora y dirección.
+ * Antes el único camino era WhatsApp, donde alguien tenía que contestar a mano.
+ *
+ * Es de 2 horas, con un arranque por hora de 8 a 22, todos los días. Una sola
+ * por documento: el CRM rechaza el segundo intento con el mismo DNI y también
+ * a quien ya es socio.
+ *
+ * ⚠️  NO depende de ninguna campaña: vive por su cuenta con `activa`, para que
+ *     al dar de baja "Activá el Verano" no desaparezca el único camino de
+ *     entrada al gimnasio.
+ * ──────────────────────────────────────────────────────────────── */
+
+export const CLASE_CORTESIA = {
+  activa: true,
+  /** Turnero del CRM con el servicio ya elegido: entra directo a la fecha. */
+  url: 'https://signacrm.com.ar/casa_leven/turnos?servicio=clase-cortesia',
+  cta: 'Reservá tu clase de cortesía',
+  titular: 'Probá el gimnasio antes de decidir.',
+  bajada:
+    'Una clase de cortesía de dos horas, sin cargo y sin compromiso. Elegís el día y el horario, y te llega la confirmación por mail.',
+  /** Lo que se aclara al lado del botón, para que nadie llegue con dudas. */
+  letraChica: 'De 8 a 22, todos los días. Una por persona.',
+} as const
+
 /* ─── LÍNEA ESTÉTICA (Leven Therma) ──────────────────────────────
  * Dos ángulos con públicos distintos y UN solo camino de entrada: la
  * consulta sin cargo con un profesional. Sin precios: los tratamientos se
