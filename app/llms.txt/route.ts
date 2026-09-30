@@ -12,6 +12,7 @@ import {
   precioCircuito,
   ars,
   porMes,
+  CLASE_CORTESIA,
 } from '@/data/leven'
 
 export const dynamic = 'force-static'
@@ -120,8 +121,17 @@ ${
   CAMPANA_VERANO.activa
     ? `## Campaña ${CAMPANA_VERANO.nombre} (promoción especial, por única vez)
 
-"${CAMPANA_VERANO.titular}" ${CAMPANA_VERANO.bajada} La campaña invita a agendar una clase de cortesía sin cargo en Leven Motion por WhatsApp. Las condiciones comerciales de la campaña se informan únicamente por WhatsApp: no hay precio de campaña publicado en el sitio.
+"${CAMPANA_VERANO.titular}" ${CAMPANA_VERANO.bajada} La campaña invita a conocer Leven Motion con una clase de cortesía sin cargo. Las condiciones comerciales de la campaña se informan únicamente por WhatsApp: no hay precio de campaña publicado en el sitio.
 WhatsApp: https://wa.me/${SITE.whatsapp}
+`
+    : ''
+}
+${
+  CLASE_CORTESIA.activa
+    ? `## Clase de cortesía en Leven Motion
+
+${CLASE_CORTESIA.bajada} Dura 2 horas y se reserva online eligiendo día y horario, de 8 a 22, todos los días. Es una sola por persona y no está disponible para quienes ya son socios. La confirmación llega por mail con el día, el horario y la dirección.
+Reservas: ${CLASE_CORTESIA.url}
 `
     : ''
 }

@@ -12,6 +12,7 @@ import {
   LETRA_CHICA_MOTION,
   CAMPANA_FUNDADORES,
   CAMPANA_VERANO,
+  CLASE_CORTESIA,
   SITE,
   ars,
   porMes,
@@ -53,6 +54,10 @@ const FAQ_MOTION = [
   {
     q: '¿Dónde queda Leven Motion?',
     a: `Leven Motion funciona dentro de Casa Leven, en el ${SITE.direccion.edificio} (${SITE.direccion.calle}, ${SITE.direccion.ciudad}, provincia de ${SITE.direccion.provincia}, Argentina), a 20 minutos de Rosario por autopista. Atiende a socios y a huéspedes del hotel.`,
+  },
+  {
+    q: '¿Se puede probar el gimnasio antes de asociarse?',
+    a: 'Sí. Leven Motion tiene una clase de cortesía de 2 horas, sin cargo y sin compromiso, que se reserva online eligiendo día y horario: hay turnos de 8 a 22, todos los días. La confirmación llega por mail con el día, el horario y la dirección. Es una sola por persona y no está disponible para quienes ya son socios.',
   },
   {
     q: '¿El gimnasio tiene cupo limitado?',
@@ -152,15 +157,46 @@ export default function MotionPage() {
               <p className="font-sans text-white/35 leading-relaxed mb-10" style={{ fontSize: '14px', maxWidth: '46ch' }}>
                 Venís, entrenás una clase de cortesía y conocés la casa. Después decidís.
               </p>
-              <a
-                href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(CAMPANA_VERANO.whatsappTexto)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-leven btn-leven-filled self-start"
-                style={{ fontSize: '11px', padding: '16px 36px', background: '#ffffff', borderColor: '#ffffff', color: '#1c1519' }}
-              >
-                {CAMPANA_VERANO.cta} →
-              </a>
+              {/* La reserva es el camino principal: se agenda sola, sin que nadie
+                  tenga que contestar. WhatsApp queda abajo como enlace, para quien
+                  quiera preguntar antes y para las condiciones de la campaña, que
+                  no se publican. Un solo botón: esta columna es angosta y dos
+                  botones al lado quedaban al límite del ancho disponible. */}
+              {CLASE_CORTESIA.activa ? (
+                <>
+                  <a
+                    href={CLASE_CORTESIA.url}
+                    // En mobile ocupa todo el ancho y deja partir el texto: con
+                    // `nowrap` el botón medía más que su contenedor y se desbordaba.
+                    className="btn-leven btn-leven-filled w-full sm:w-auto sm:self-start justify-center text-center whitespace-normal sm:whitespace-nowrap"
+                    style={{ fontSize: '11px', padding: '16px 36px', background: '#ffffff', borderColor: '#ffffff', color: '#1c1519' }}
+                  >
+                    {CLASE_CORTESIA.cta} →
+                  </a>
+                  <p className="font-sans text-white/30 mt-4" style={{ fontSize: '12px' }}>
+                    {CLASE_CORTESIA.letraChica}
+                  </p>
+                  <a
+                    href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(CAMPANA_VERANO.whatsappTexto)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans self-start mt-5 text-white/50 hover:text-white transition-colors"
+                    style={{ fontSize: '13px', textDecoration: 'underline', textUnderlineOffset: '4px' }}
+                  >
+                    ¿Preferís preguntar antes? Escribinos por WhatsApp
+                  </a>
+                </>
+              ) : (
+                <a
+                  href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(CAMPANA_VERANO.whatsappTexto)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-leven btn-leven-filled self-start"
+                  style={{ fontSize: '11px', padding: '16px 36px', background: '#ffffff', borderColor: '#ffffff', color: '#1c1519' }}
+                >
+                  {CAMPANA_VERANO.cta} →
+                </a>
+              )}
             </RevealSection>
           </div>
         </section>
@@ -232,6 +268,39 @@ export default function MotionPage() {
               {LETRA_CHICA_MOTION}
             </p>
           </RevealSection>
+
+          {/* ─── CLASE DE CORTESÍA ──────────────────────────
+              Va acá, después de los planes, porque es la respuesta a "no sé
+              cuál elegir". No está dentro de ninguna campaña a propósito: si
+              se da de baja "Activá el Verano", este camino tiene que seguir
+              abierto. */}
+          {CLASE_CORTESIA.activa && (
+            <RevealSection className="mt-12">
+              <div
+                className="flex flex-col md:flex-row items-center justify-between gap-6 p-8"
+                style={{ border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.03)' }}
+              >
+                <div>
+                  <p className="font-display font-bold text-white/35 mb-2" style={{ fontSize: '9px', letterSpacing: '0.35em' }}>
+                    CLASE DE CORTESÍA
+                  </p>
+                  <p className="font-display font-bold text-white mb-2" style={{ fontSize: 'clamp(18px, 2.4vw, 26px)', letterSpacing: '-0.01em' }}>
+                    {CLASE_CORTESIA.titular}
+                  </p>
+                  <p className="font-sans text-white/45" style={{ fontSize: '13px', maxWidth: '54ch', lineHeight: 1.6 }}>
+                    {CLASE_CORTESIA.bajada} {CLASE_CORTESIA.letraChica}
+                  </p>
+                </div>
+                <a
+                  href={CLASE_CORTESIA.url}
+                  className="btn-leven btn-leven-filled w-full md:w-auto justify-center text-center whitespace-normal md:whitespace-nowrap"
+                  style={{ background: '#ffffff', borderColor: '#ffffff', color: '#1c1519' }}
+                >
+                  {CLASE_CORTESIA.cta} →
+                </a>
+              </div>
+            </RevealSection>
+          )}
 
           {CAMPANA_FUNDADORES.activa && (
             <RevealSection className="mt-12">
