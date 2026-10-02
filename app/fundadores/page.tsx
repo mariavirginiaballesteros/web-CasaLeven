@@ -35,11 +35,11 @@ const COLOR = '#b23a3a'
 
 export const metadata: Metadata = {
   title: 'Socios Fundadores · Casa Leven Funes',
-  description: `Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven entran como Fundadores: un descuento de por vida en el plan anual, eventos VIP y beneficios en Motion, Therma y Nourish. Funes, Santa Fe.`,
+  description: `Casa Leven ya abrió en Funes. Los primeros ${CAMPANA_FUNDADORES.cupo} socios entran como Fundadores: un descuento de por vida en el plan anual, eventos VIP y beneficios en Motion, Therma y Nourish. El círculo todavía no se cerró.`,
   alternates: { canonical: '/fundadores' },
   openGraph: {
-    title: 'Sé parte de esta casa antes de que abra sus puertas.',
-    description: `Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven entran como Fundadores.`,
+    title: 'La casa ya abrió. El círculo de Fundadores, todavía no se cerró.',
+    description: `Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven entran como Fundadores. Quedan lugares.`,
     url: `${SITE.url}/fundadores`,
     type: 'website',
   },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 const FAQ_FUNDADORES = [
   {
     q: '¿Qué es ser Socio Fundador de Casa Leven?',
-    a: `Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven, en Funes, Santa Fe, entran antes de la apertura y se quedan con las mejores condiciones de la casa: un descuento de por vida sobre el plan anual, acceso prioritario a eventos VIP y condiciones preferenciales en las tres unidades de la casa —Leven Motion (movimiento), Leven Therma (recuperación) y Leven Nourish (nutrición)—.`,
+    a: `Los primeros ${CAMPANA_FUNDADORES.cupo} socios de Casa Leven, en Funes, Santa Fe, entran al círculo que le dio forma a la casa y se quedan con las mejores condiciones: un descuento de por vida sobre el plan anual, acceso prioritario a eventos VIP y condiciones preferenciales en las tres unidades de la casa —Leven Motion (movimiento), Leven Therma (recuperación) y Leven Nourish (nutrición)—.`,
   },
   {
     q: '¿Qué incluye la membresía de Casa Leven?',
@@ -114,21 +114,22 @@ export default function FundadoresPage() {
                     lineHeight: 1.05,
                   }}
                 >
-                  Sé parte de esta casa antes de que abra sus puertas.
+                  La casa ya abrió. El círculo de Fundadores, todavía no se cerró.
                 </h1>
                 <p
                   className="font-sans text-white/60 leading-relaxed mt-7"
                   style={{ fontSize: '17px', maxWidth: '52ch' }}
                 >
-                  Casa Leven abre en Funes: movimiento, recuperación y nutrición pensados juntos,
-                  bajo un mismo techo.
+                  Casa Leven ya está abierta en Funes: movimiento, recuperación y nutrición
+                  pensados juntos, bajo un mismo techo. Hay gente entrenando, recuperándose y
+                  comiendo acá todos los días.
                 </p>
                 <p
                   className="font-sans text-white/60 leading-relaxed mt-4"
                   style={{ fontSize: '17px', maxWidth: '52ch' }}
                 >
-                  Los primeros {CAMPANA_FUNDADORES.cupo} son los Fundadores. Tienen la llave antes
-                  que nadie, y un descuento que los acompaña de por vida.
+                  Los primeros {CAMPANA_FUNDADORES.cupo} socios son los Fundadores: un descuento
+                  que los acompaña de por vida. El cupo se sigue completando, y todavía hay lugares.
                 </p>
 
                 <div className="flex flex-wrap gap-4 mt-10">
@@ -167,7 +168,7 @@ export default function FundadoresPage() {
                   {[
                     { n: '01', t: 'Elegís tu membresía anual', d: 'El plan de 12 meses es el que te abre la puerta al círculo de Fundadores.' },
                     { n: '02', t: 'Tu descuento te acompaña siempre', d: 'Año tras año conservás tu beneficio de Fundador, mientras tu membresía siga activa.' },
-                    { n: '03', t: `Sos uno de ${CAMPANA_FUNDADORES.cupo}`, d: 'Un círculo que se cierra cuando se completa. Los lugares se toman por orden de llegada.' },
+                    { n: '03', t: `Sos uno de ${CAMPANA_FUNDADORES.cupo}`, d: 'Un círculo que se cierra cuando se completa. Ya hay Fundadores adentro y los lugares que quedan se toman por orden de llegada.' },
                   ].map((item) => (
                     <div
                       key={item.n}
@@ -262,13 +263,13 @@ export default function FundadoresPage() {
                   className="font-display font-bold text-white"
                   style={{ fontSize: 'clamp(28px, 4vw, 50px)', letterSpacing: '-0.02em', lineHeight: 1.08 }}
                 >
-                  Tener la llave de una casa que todavía no abrió.
+                  Tener la llave de una casa que ya está en movimiento.
                 </h2>
               </div>
               <div className="lg:col-span-5">
                 <p className="font-sans text-white/55 leading-relaxed" style={{ fontSize: '16px' }}>
                   Fundador es quien llega primero: elegís tu membresía anual y entrás al círculo que
-                  le da forma a Casa Leven desde el día uno.
+                  le da forma a Casa Leven. Los que ya están caminan los pasillos todos los días.
                 </p>
                 <p className="font-sans text-white/40 leading-relaxed mt-4" style={{ fontSize: '15px' }}>
                   Se entra una vez. Después, estas tres cosas te acompañan siempre.
@@ -331,7 +332,8 @@ export default function FundadoresPage() {
                 </p>
                 <p className="font-sans text-leven-purple/45 leading-relaxed mt-3" style={{ fontSize: '14px' }}>
                   Los valores se muestran como equivalente mensual para que compares fácil; el plan
-                  se contrata por 12 meses. Quedan {CAMPANA_FUNDADORES.cupo} lugares.
+                  se contrata por 12 meses. Son {CAMPANA_FUNDADORES.cupo} lugares en total y el
+                  círculo todavía no se cerró.
                 </p>
               </div>
             </div>
@@ -440,7 +442,8 @@ export default function FundadoresPage() {
               Reservá tu lugar de Fundador.
             </h2>
             <p className="font-sans text-white/45 mx-auto" style={{ fontSize: '15px', maxWidth: '460px' }}>
-              Dejanos tus datos y te escribimos para coordinar la visita y guardarte la llave.
+              Dejanos tus datos y te escribimos para coordinar tu visita a la casa y guardarte
+              la llave. Ya podés venir a conocerla.
             </p>
           </RevealSection>
 
@@ -457,7 +460,7 @@ export default function FundadoresPage() {
       <section className="py-20" style={{ background: COLOR }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8">
           <h2 className="font-display font-bold text-white" style={{ fontSize: 'clamp(22px, 3vw, 36px)', letterSpacing: '-0.01em' }}>
-            Los primeros {CAMPANA_FUNDADORES.cupo} lo construyen con nosotros.
+            Los primeros {CAMPANA_FUNDADORES.cupo} la construyen con nosotros.
           </h2>
           <div className="flex gap-4">
             <a href="#sumarme" className="btn-leven btn-leven-filled" style={{ background: '#fff', borderColor: '#fff', color: COLOR, whiteSpace: 'nowrap' }}>
