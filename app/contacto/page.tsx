@@ -5,7 +5,7 @@ import { SITE } from '@/data/leven'
 
 export const metadata: Metadata = {
   title: 'Contacto · Casa Leven · Funes, Argentina',
-  description: 'Escribinos. Te contamos todo sobre Casa Leven, membresías y próxima apertura.',
+  description: 'Escribinos. Te contamos todo sobre Casa Leven, las membresías y cómo venir a conocer la casa.',
 }
 
 export default function ContactoPage() {
