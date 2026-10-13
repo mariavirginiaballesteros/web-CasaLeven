@@ -128,16 +128,16 @@ export default function ThermaPage() {
                   <p className="font-sans text-white/30 mb-3" style={{ fontSize: '11px' }}>{c.tagline}</p>
                   <p className="text-white/30 font-sans mb-4" style={{ fontSize: '11px' }}>{c.duracion}</p>
                   {THERMA_PRECIOS_PUBLICADOS ? (
-                    <div className="grid grid-cols-3 mb-5" style={{ borderTop: `1px solid ${COLOR}40`, borderBottom: `1px solid ${COLOR}40` }}>
+                    <div className="flex flex-col mb-5" style={{ borderTop: `1px solid ${COLOR}40`, borderBottom: `1px solid ${COLOR}40` }}>
                       {CIRCUITO_TRAMOS.map((n, k) => (
-                        <div key={n} className="py-3 text-center" style={{ borderLeft: k === 0 ? 'none' : '1px solid rgba(255,255,255,0.08)' }}>
-                          <div className="font-display font-medium text-white/40" style={{ fontSize: '9px', letterSpacing: '0.2em' }}>
+                        <div key={n} className="flex justify-between items-baseline py-2.5" style={{ borderTop: k === 0 ? 'none' : '1px solid rgba(255,255,255,0.07)' }}>
+                          <span className="font-display font-medium text-white/40" style={{ fontSize: '9px', letterSpacing: '0.2em' }}>
                             {n === 1 ? '1 PERSONA' : `${n} PERSONAS`}
-                          </div>
-                          <div className="font-display font-bold text-white mt-1" style={{ fontSize: '17px', letterSpacing: '-0.02em' }}>
+                          </span>
+                          <span className="font-display font-bold text-white" style={{ fontSize: '18px', letterSpacing: '-0.02em' }}>
                             {precioCircuitoTramo(c, n)}
-                          </div>
-                          <div className="font-sans text-white/30" style={{ fontSize: '9px', letterSpacing: '0.1em' }}>por persona</div>
+                            <span className="font-sans font-normal text-white/30 ml-1.5" style={{ fontSize: '9px', letterSpacing: '0.1em' }}>por persona</span>
+                          </span>
                         </div>
                       ))}
                     </div>
