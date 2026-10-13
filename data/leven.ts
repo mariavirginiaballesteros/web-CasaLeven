@@ -338,20 +338,19 @@ export const PLANES: Plan[] = [
 export const LETRA_CHICA_MOTION =
   'Precios en pesos argentinos, vigentes al 10/08/2026. Los valores trimestral y anual se muestran como equivalente mensual; se abonan por adelantado. Los 4 accesos mensuales al circuito hídrico no son acumulables ni transferibles. Permanencia mínima: 3 meses.'
 
-/* ─── CIRCUITOS LEVEN THERMA (day pass) ──────────────────────────
- * ⚠️ PRECIOS PENDIENTES DE DEFINICIÓN (04/08/2026).
- *
- * Los valores de `precioUSD` vienen del resumen de reunión, pero falta
- * confirmar moneda y cifras finales. Hasta entonces la web muestra
- * "A confirmar" y los datos estructurados no declaran ningún precio.
- *
- * PARA PUBLICARLOS: revisar números y moneda acá abajo y poner
- * THERMA_PRECIOS_PUBLICADOS = true. Se actualizan de una sola vez la
- * página de Therma, /membresias, el schema.org, las FAQ y /llms.txt.
+/* ─── CIRCUITOS LEVEN THERMA (día de spa) ────────────────────────
+ * Precios vigentes al 13/10/2026, en pesos argentinos, por persona.
+ * Cada circuito tiene tres valores según cuántas personas vienen
+ * juntas (1, 2 o 4). Para ocultar los precios en toda la web, poner
+ * THERMA_PRECIOS_PUBLICADOS = false: se actualizan de una sola vez
+ * la página de Therma, /membresias, el schema.org, las FAQ y /llms.txt.
  * ──────────────────────────────────────────────────────────────── */
 
-export const THERMA_PRECIOS_PUBLICADOS = false
-export const THERMA_MONEDA: 'ARS' | 'USD' = 'USD' // ← confirmar
+export const THERMA_PRECIOS_PUBLICADOS = true
+export const THERMA_MONEDA: 'ARS' | 'USD' = 'ARS'
+
+/** Precio por persona según cantidad de personas que reservan juntas. */
+export type PreciosCircuito = { 1: number; 2: number; 4: number }
 
 export type Circuito = {
   id: string
@@ -359,87 +358,88 @@ export type Circuito = {
   tagline: string
   duracion: string
   minutos: number
-  precioUSD: number
+  precios: PreciosCircuito
   proximamente?: boolean
   nota?: string
   includes: string[]
 }
 
+/** Lo que incluyen todos los circuitos (base ESENCIAL). */
+const INCLUYE_BASE_THERMA = [
+  'Sauna, baño de vapor y ducha escocesa · 40 min',
+  'Masaje descontracturante o relajante · 40 min',
+  'Break drink en sala de relax: jugo, frutas y frutos secos',
+  'Piscina climatizada',
+  'Desayuno o merienda: infusión, tostado y porción dulce',
+]
+
 export const CIRCUITOS: Circuito[] = [
   {
-    id: 'reset',
-    name: 'RESET',
-    tagline: 'Entrada al equilibrio',
-    duracion: '60 min',
-    minutos: 60,
-    precioUSD: 100,
+    id: 'esencial',
+    name: 'ESENCIAL',
+    tagline: 'El circuito completo: calor, agua y descanso',
+    duracion: '2:15 hs aprox.',
+    minutos: 135,
+    precios: { 1: 170_000, 2: 160_000, 4: 150_000 },
+    includes: INCLUYE_BASE_THERMA,
+  },
+  {
+    id: 'claridad',
+    name: 'CLARIDAD',
+    tagline: 'El circuito completo, más un facial profesional',
+    duracion: '3 hs aprox.',
+    minutos: 180,
+    precios: { 1: 210_000, 2: 200_000, 4: 190_000 },
     includes: [
-      'Circuito hídrico: sauna seco, ducha escocesa y baño de vapor',
-      'Sala de relax',
-      'Pileta climatizada',
-      'Colación',
+      INCLUYE_BASE_THERMA[0],
+      INCLUYE_BASE_THERMA[1],
+      'Limpieza facial completa: punta de diamante, máscara correctiva e hidratación',
+      ...INCLUYE_BASE_THERMA.slice(2),
     ],
   },
   {
-    id: 'restore',
-    name: 'RESTORE',
-    tagline: 'Cuerpo y profundidad',
-    duracion: '90 min',
-    minutos: 90,
-    precioUSD: 180,
+    id: 'pulso',
+    name: 'PULSO',
+    tagline: 'El circuito completo, más entrenamiento guiado',
+    duracion: '3 hs aprox.',
+    minutos: 180,
+    precios: { 1: 210_000, 2: 200_000, 4: 190_000 },
     includes: [
-      'Circuito hídrico completo',
-      'Exfoliación corporal',
-      'Nutrición corporal',
-      'Sala de relax',
-      'Pileta climatizada',
+      INCLUYE_BASE_THERMA[0],
+      INCLUYE_BASE_THERMA[1],
+      'Acceso al gimnasio · 45 min · aforo limitado',
+      ...INCLUYE_BASE_THERMA.slice(2),
     ],
   },
   {
-    id: 'deep',
-    name: 'DEEP',
-    tagline: 'La experiencia completa',
-    duracion: '150 min',
-    minutos: 150,
-    precioUSD: 280,
+    id: 'vitalidad',
+    name: 'VITALIDAD',
+    tagline: 'Cuerpo y rostro renovados de pies a cabeza',
+    duracion: '3 hs aprox.',
+    minutos: 180,
+    precios: { 1: 210_000, 2: 200_000, 4: 190_000 },
     includes: [
-      'Circuito hídrico completo',
-      'Exfoliación corporal',
-      'Masaje 30 min',
-      'Nutrición corporal',
-      'Sala de relax',
-      'Pileta climatizada',
-      'Merienda',
-    ],
-  },
-  {
-    id: 'leven-ritual',
-    name: 'LEVEN RITUAL',
-    tagline: 'El día completo',
-    duracion: '290 min',
-    minutos: 290,
-    precioUSD: 300,
-    proximamente: true,
-    nota: 'Disponible desde septiembre',
-    includes: [
-      'Gym 60 min',
-      'Sauna + ducha escocesa',
-      'Almuerzo saludable',
-      'Piscina Kneipp',
-      'Masajes completos',
-      'Limpieza facial',
+      'Sauna, baño de vapor y ducha escocesa · 40 min',
+      'Exfoliación y nutrición corporal · 45 min',
+      'Higiene, mascarilla y masaje facial · 45 min',
+      'Break drink en sala de relax',
+      'Piscina climatizada',
+      'Desayuno o merienda',
     ],
   },
 ]
 
 export const LETRA_CHICA_THERMA = THERMA_PRECIOS_PUBLICADOS
-  ? 'Los circuitos se reservan con turno previo. Consultá disponibilidad por WhatsApp o desde la sección de reservas.'
+  ? 'Precios en pesos argentinos, por persona, vigentes al 13/10/2026. El valor para 2 y 4 personas aplica cuando reservan y asisten juntas. Los circuitos se reservan con turno previo y los cupos por turno son limitados. Consultá disponibilidad por WhatsApp o desde la sección de reservas.'
   : 'Los valores de los circuitos se confirman al momento de la reserva. Los circuitos se reservan con turno previo.'
 
-/** Texto que se muestra donde iría el precio de un circuito. */
+/** Cantidades de personas para las que hay precio publicado, en orden. */
+export const CIRCUITO_TRAMOS: (keyof PreciosCircuito)[] = [1, 2, 4]
+
+/** Formatea un precio de circuito según la moneda vigente. */
+export const precioCircuitoTramo = (c: Circuito, personas: keyof PreciosCircuito) =>
+  THERMA_MONEDA === 'USD' ? `USD ${c.precios[personas]}` : ars(c.precios[personas])
+
+/** Texto corto que se muestra donde iría "el" precio de un circuito (valor para 1 persona). */
 export const precioCircuito = (c: Circuito) =>
-  THERMA_PRECIOS_PUBLICADOS
-    ? THERMA_MONEDA === 'USD'
-      ? `USD ${c.precioUSD}`
-      : ars(c.precioUSD)
-    : 'A confirmar'
+  THERMA_PRECIOS_PUBLICADOS ? `${precioCircuitoTramo(c, 1)} p/persona` : 'A confirmar'

@@ -12,6 +12,8 @@ import {
   THERMA_PRECIOS_PUBLICADOS,
   THERMA_MONEDA,
   precioCircuito,
+  precioCircuitoTramo,
+  CIRCUITO_TRAMOS,
   LINEA_ESTETICA,
   ESTETICA_CTA,
   ESTETICA_NOTA,
@@ -22,12 +24,12 @@ import {
 export const metadata: Metadata = {
   title: 'Leven Therma · Spa y circuito hídrico en Funes',
   description:
-    'Spa con circuito hídrico —sauna seco, ducha escocesa, baño de vapor y jacuzzi—, masajes con protocolo, tratamientos faciales y línea estética con aparatología en Funes, Santa Fe. Day pass RESET, RESTORE y DEEP con turno previo. Consulta estética sin cargo.',
+    'Spa con circuito hídrico —sauna seco, ducha escocesa, baño de vapor y jacuzzi—, masajes con protocolo, tratamientos faciales y línea estética con aparatología en Funes, Santa Fe. Día de spa ESENCIAL, CLARIDAD, PULSO y VITALIDAD con turno previo. Consulta estética sin cargo.',
   alternates: { canonical: '/therma' },
   openGraph: {
     title: 'Leven Therma · Spa y circuito hídrico en Funes',
     description:
-      'Circuitos termales RESET, RESTORE y DEEP. Recuperación profunda con turno previo. Funes, Santa Fe.',
+      'Día de spa ESENCIAL, CLARIDAD, PULSO y VITALIDAD. Recuperación profunda con turno previo. Funes, Santa Fe.',
     url: `${SITE.url}/therma`,
     type: 'website',
   },
@@ -41,8 +43,8 @@ const FAQ_THERMA = [
     a: 'El circuito hídrico de Leven Therma incluye sauna seco, ducha escocesa, baño de vapor y jacuzzi, más sala de relax y pileta climatizada. Se puede acceder con day pass o incluido en las membresías Performance, Flow, Sport y Power Sport, con 4 accesos por mes.',
   },
   {
-    q: '¿Qué day pass de spa ofrece Casa Leven?',
-    a: 'Leven Therma tiene tres packs de day pass: RESET de 60 minutos, RESTORE de 90 minutos y DEEP de 150 minutos. Desde septiembre se suma LEVEN RITUAL, la experiencia de día completo de 290 minutos. Los valores se confirman al reservar el turno.',
+    q: '¿Qué circuitos de día de spa ofrece Casa Leven?',
+    a: 'Leven Therma tiene cuatro circuitos de día de spa. ESENCIAL (2:15 hs aprox.) es el circuito completo: sauna, baño de vapor y ducha escocesa, masaje de 40 minutos, break drink en sala de relax, piscina climatizada y desayuno o merienda. CLARIDAD (3 hs) suma una limpieza facial completa, PULSO (3 hs) suma 45 minutos de gimnasio con entrenamiento guiado, y VITALIDAD (3 hs) reemplaza el masaje por exfoliación y nutrición corporal más higiene, mascarilla y masaje facial. Los precios son por persona y bajan cuando vienen 2 o 4 personas juntas.',
   },
   {
     q: '¿Hace falta reservar turno para el spa?',
@@ -124,22 +126,31 @@ export default function ThermaPage() {
                 >
                   <div className="font-display font-bold text-white mb-1" style={{ fontSize: '11px', letterSpacing: '0.2em' }}>{c.name}</div>
                   <p className="font-sans text-white/30 mb-3" style={{ fontSize: '11px' }}>{c.tagline}</p>
-                  <div className="flex items-baseline gap-3 mb-1">
-                    <span
-                      className="font-display font-bold text-white"
-                      style={{
-                        fontSize: THERMA_PRECIOS_PUBLICADOS ? '22px' : '13px',
-                        letterSpacing: THERMA_PRECIOS_PUBLICADOS ? '-0.02em' : '0.15em',
-                        opacity: THERMA_PRECIOS_PUBLICADOS ? 1 : 0.45,
-                      }}
-                    >
+                  <p className="text-white/30 font-sans mb-4" style={{ fontSize: '11px' }}>{c.duracion}</p>
+                  {THERMA_PRECIOS_PUBLICADOS ? (
+                    <div className="grid grid-cols-3 mb-5" style={{ borderTop: `1px solid ${COLOR}40`, borderBottom: `1px solid ${COLOR}40` }}>
+                      {CIRCUITO_TRAMOS.map((n, k) => (
+                        <div key={n} className="py-3 text-center" style={{ borderLeft: k === 0 ? 'none' : '1px solid rgba(255,255,255,0.08)' }}>
+                          <div className="font-display font-medium text-white/40" style={{ fontSize: '9px', letterSpacing: '0.2em' }}>
+                            {n === 1 ? '1 PERSONA' : `${n} PERSONAS`}
+                          </div>
+                          <div className="font-display font-bold text-white mt-1" style={{ fontSize: '17px', letterSpacing: '-0.02em' }}>
+                            {precioCircuitoTramo(c, n)}
+                          </div>
+                          <div className="font-sans text-white/30" style={{ fontSize: '9px', letterSpacing: '0.1em' }}>por persona</div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="font-display font-bold text-white mb-5" style={{ fontSize: '13px', letterSpacing: '0.15em', opacity: 0.45 }}>
                       {precioCircuito(c)}
-                    </span>
-                    <span className="text-white/30 font-sans" style={{ fontSize: '11px' }}>{c.duracion}</span>
-                  </div>
-                  <p className="font-sans mb-5" style={{ fontSize: '10px', letterSpacing: '0.15em', color: c.nota ? COLOR : 'transparent', minHeight: '14px' }}>
-                    {c.nota ? c.nota.toUpperCase() : '·'}
-                  </p>
+                    </p>
+                  )}
+                  {c.nota && (
+                    <p className="font-sans mb-5" style={{ fontSize: '10px', letterSpacing: '0.15em', color: COLOR }}>
+                      {c.nota.toUpperCase()}
+                    </p>
+                  )}
                   <div className="flex flex-col gap-2 flex-1 mb-6">
                     {c.includes.map((s, j) => (
                       <div key={j} className="flex items-start gap-2">
@@ -349,7 +360,7 @@ export default function ThermaPage() {
               // Los precios se publican cuando THERMA_PRECIOS_PUBLICADOS = true.
               // Declarar un precio incorrecto en schema.org es peor que no declararlo.
               ...(THERMA_PRECIOS_PUBLICADOS
-                ? { price: c.precioUSD, priceCurrency: THERMA_MONEDA }
+                ? { price: c.precios[1], priceCurrency: THERMA_MONEDA }
                 : {}),
               availability: c.proximamente
                 ? 'https://schema.org/PreOrder'

@@ -10,6 +10,8 @@ import {
   LETRA_CHICA_THERMA,
   THERMA_PRECIOS_PUBLICADOS,
   precioCircuito,
+  precioCircuitoTramo,
+  CIRCUITO_TRAMOS,
   CAMPANA_FUNDADORES,
   SITE,
   ars,
@@ -57,7 +59,7 @@ const FAQ = [
   },
   {
     q: '¿Se puede usar el spa sin membresía?',
-    a: `Sí. Leven Therma vende day pass por separado: ${CIRCUITOS[0].name} de ${CIRCUITOS[0].duracion}, ${CIRCUITOS[1].name} de ${CIRCUITOS[1].duracion} y ${CIRCUITOS[2].name} de ${CIRCUITOS[2].duracion}. Los valores se confirman al reservar el turno.`,
+    a: `Sí. Leven Therma vende el día de spa por separado, sin membresía: ${CIRCUITOS.map((c) => `${c.name} (${c.duracion})`).join(', ')}. Los precios son por persona y bajan cuando vienen 2 o 4 personas juntas.`,
   },
   {
     q: '¿Cuál es la permanencia mínima?',
@@ -275,16 +277,24 @@ export default function MembresiasPage() {
                 <div className="p-6 h-full flex flex-col" style={{ border: '1px solid rgba(255,255,255,0.09)', background: 'rgba(255,255,255,0.03)' }}>
                   <div className="font-display font-bold text-white mb-1" style={{ fontSize: '11px', letterSpacing: '0.2em' }}>{c.name}</div>
                   <p className="font-sans text-white/30 mb-4" style={{ fontSize: '11px' }}>{c.tagline} · {c.duracion}</p>
-                  <div
-                    className="font-display font-bold text-white mb-4"
-                    style={{
-                      fontSize: THERMA_PRECIOS_PUBLICADOS ? '22px' : '13px',
-                      letterSpacing: THERMA_PRECIOS_PUBLICADOS ? '-0.02em' : '0.15em',
-                      opacity: THERMA_PRECIOS_PUBLICADOS ? 1 : 0.45,
-                    }}
-                  >
-                    {precioCircuito(c)}
-                  </div>
+                  {THERMA_PRECIOS_PUBLICADOS ? (
+                    <div className="flex flex-col gap-1 mb-4 pb-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.09)' }}>
+                      {CIRCUITO_TRAMOS.map((n) => (
+                        <div key={n} className="flex justify-between items-baseline">
+                          <span className="font-display font-medium text-white/40" style={{ fontSize: '9px', letterSpacing: '0.2em' }}>
+                            {n === 1 ? '1 PERSONA' : `${n} PERSONAS`}
+                          </span>
+                          <span className="font-display font-bold text-white" style={{ fontSize: '16px', letterSpacing: '-0.02em' }}>
+                            {precioCircuitoTramo(c, n)} <span className="font-sans font-normal text-white/30" style={{ fontSize: '9px' }}>c/u</span>
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="font-display font-bold text-white mb-4" style={{ fontSize: '13px', letterSpacing: '0.15em', opacity: 0.45 }}>
+                      {precioCircuito(c)}
+                    </div>
+                  )}
                   <ul className="flex flex-col gap-1 flex-1">
                     {c.includes.map((s, j) => (
                       <li key={j} className="font-sans text-white/50" style={{ fontSize: '12px' }}>· {s}</li>

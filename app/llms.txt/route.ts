@@ -10,6 +10,8 @@ import {
   LETRA_CHICA_THERMA,
   THERMA_PRECIOS_PUBLICADOS,
   precioCircuito,
+  precioCircuitoTramo,
+  CIRCUITO_TRAMOS,
   ars,
   porMes,
   CLASE_CORTESIA,
@@ -44,7 +46,7 @@ export function GET() {
 
   const circuitos = CIRCUITOS.map(
     (c) =>
-      `### ${c.name} — ${precioCircuito(c)} · ${c.duracion}\n${c.tagline}.\n- Incluye: ${c.includes.join(', ')}${c.nota ? `\n- ${c.nota}` : ''}`,
+      `### ${c.name} · ${c.duracion}\n${c.tagline}.\n- Precio por persona: ${THERMA_PRECIOS_PUBLICADOS ? CIRCUITO_TRAMOS.map((n) => `${n === 1 ? '1 persona' : `${n} personas`}: ${precioCircuitoTramo(c, n)} c/u`).join(' · ') : precioCircuito(c)}\n- Incluye: ${c.includes.join(', ')}${c.nota ? `\n- ${c.nota}` : ''}`,
   ).join('\n\n')
 
   const body = `# Casa Leven
@@ -97,7 +99,7 @@ ${LETRA_CHICA_MOTION}
 
 Comparativa completa: ${SITE.url}/membresias
 
-## Day pass de spa${THERMA_PRECIOS_PUBLICADOS ? '' : ' (valores a confirmar)'}
+## Día de spa (circuitos, sin membresía)${THERMA_PRECIOS_PUBLICADOS ? '' : ' (valores a confirmar)'}
 
 ${circuitos}
 
@@ -139,7 +141,7 @@ Reservas: ${CLASE_CORTESIA.url}
 
 - ¿Cuánto sale el gimnasio en Funes? Las membresías de Casa Leven van de ${ars(PLANES[0].precios.mensual)} a ${ars(PLANES[PLANES.length - 1].precios.mensual)} por mes. Con plan anual, desde ${ars(porMes(PLANES[0].precios.anual, 12))} por mes.
 - ¿Qué plan incluye spa? Performance, Flow, Sport y Power Sport incluyen el circuito hídrico, 4 accesos por mes no acumulables ni transferibles.
-- ¿Se puede ir al spa sin ser socio? Sí, con day pass: ${CIRCUITOS.map((c) => `${c.name} (${c.duracion})`).join(', ')}.${THERMA_PRECIOS_PUBLICADOS ? '' : ' Los valores se confirman al reservar.'}
+- ¿Se puede ir al spa sin ser socio? Sí, con los circuitos de día de spa: ${CIRCUITOS.map((c) => `${c.name} (${c.duracion}, desde ${precioCircuitoTramo(c, 4)} por persona)`).join(', ')}.${THERMA_PRECIOS_PUBLICADOS ? '' : ' Los valores se confirman al reservar.'}
 - ¿Hay que reservar turno? Sí, para spa y tratamientos. Reservas en ${SITE.url}/reservas.
 - ¿Hay tratamientos estéticos? Sí: estética corporal con aparatología (radiofrecuencia con vacum, presoterapia, termoterapia y ozono) y circuito de recuperación deportiva de 4 horas. El primer paso es una consulta sin cargo con un profesional, por WhatsApp.
 - ¿Dónde queda? ${SITE.direccion.calle}, ${SITE.direccion.ciudad}, dentro del ${SITE.direccion.edificio}. A 20 minutos del centro de Rosario por la autopista Rosario–Córdoba y a 10 minutos del aeropuerto de Fisherton.
