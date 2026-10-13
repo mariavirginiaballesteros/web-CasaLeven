@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import RevealSection from '@/components/RevealSection'
 import JsonLd from '@/components/JsonLd'
@@ -273,7 +274,11 @@ export default function MembresiasPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {CIRCUITOS.map((c, i) => (
               <RevealSection key={c.id} delay={i * 70} className="h-full">
-                <div className="p-6 h-full flex flex-col" style={{ border: '1px solid rgba(255,255,255,0.09)', background: 'rgba(255,255,255,0.03)' }}>
+                <div className="p-6 h-full flex flex-col overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.09)', background: 'rgba(255,255,255,0.03)' }}>
+                  <div className="relative" style={{ margin: '-24px -24px 20px', aspectRatio: '4 / 3' }}>
+                    <Image src={c.img} alt={`Circuito ${c.name}`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" style={{ objectPosition: c.imgPos ?? 'center' }} />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0) 55%, var(--dark) 100%)' }} />
+                  </div>
                   <div className="font-display font-bold text-white mb-1" style={{ fontSize: '11px', letterSpacing: '0.2em' }}>{c.name}</div>
                   <p className="font-sans text-white/30 mb-4" style={{ fontSize: '11px' }}>{c.tagline} · {c.duracion}</p>
                   {THERMA_PRECIOS_PUBLICADOS ? (

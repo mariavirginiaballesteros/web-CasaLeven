@@ -359,6 +359,9 @@ export type Circuito = {
   duracion: string
   minutos: number
   precios: PreciosCircuito
+  /** Foto de la tarjeta (ruta en /public) y posición del encuadre. */
+  img: string
+  imgPos?: string
   proximamente?: boolean
   nota?: string
   includes: string[]
@@ -381,6 +384,8 @@ export const CIRCUITOS: Circuito[] = [
     duracion: '2:15 hs aprox.',
     minutos: 135,
     precios: { 1: 170_000, 2: 160_000, 4: 150_000 },
+    img: '/images/spa/circuitos/esencial.jpg',
+    imgPos: 'center 55%',
     includes: INCLUYE_BASE_THERMA,
   },
   {
@@ -390,6 +395,8 @@ export const CIRCUITOS: Circuito[] = [
     duracion: '3 hs aprox.',
     minutos: 180,
     precios: { 1: 210_000, 2: 200_000, 4: 190_000 },
+    img: '/images/spa/circuitos/claridad.jpg',
+    imgPos: 'center 40%',
     includes: [
       INCLUYE_BASE_THERMA[0],
       INCLUYE_BASE_THERMA[1],
@@ -404,6 +411,8 @@ export const CIRCUITOS: Circuito[] = [
     duracion: '3 hs aprox.',
     minutos: 180,
     precios: { 1: 210_000, 2: 200_000, 4: 190_000 },
+    img: '/images/spa/circuitos/pulso.jpg',
+    imgPos: 'center 30%',
     includes: [
       INCLUYE_BASE_THERMA[0],
       INCLUYE_BASE_THERMA[1],
@@ -418,6 +427,8 @@ export const CIRCUITOS: Circuito[] = [
     duracion: '3 hs aprox.',
     minutos: 180,
     precios: { 1: 210_000, 2: 200_000, 4: 190_000 },
+    img: '/images/spa/circuitos/vitalidad.jpg',
+    imgPos: 'center 45%',
     includes: [
       'Sauna, baño de vapor y ducha escocesa · 40 min',
       'Exfoliación y nutrición corporal · 45 min',

@@ -123,6 +123,10 @@ export default function ThermaPage() {
                   id={c.id}
                   style={{ background: c.proximamente ? `${COLOR}12` : 'rgba(255,255,255,0.03)', border: c.proximamente ? `1px solid ${COLOR}50` : '1px solid rgba(255,255,255,0.07)' }}
                 >
+                  <div className="relative" style={{ margin: '-40px -32px 24px', aspectRatio: '4 / 3' }}>
+                    <Image src={c.img} alt={`Circuito ${c.name}`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" style={{ objectPosition: c.imgPos ?? 'center' }} />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0) 55%, var(--dark) 100%)' }} />
+                  </div>
                   <div className="font-display font-bold text-white mb-1" style={{ fontSize: '11px', letterSpacing: '0.2em' }}>{c.name}</div>
                   <p className="font-sans text-white/30 mb-3" style={{ fontSize: '11px' }}>{c.tagline}</p>
                   <p className="text-white/30 font-sans mb-4" style={{ fontSize: '11px' }}>{c.duracion}</p>
