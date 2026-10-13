@@ -11,7 +11,6 @@ import {
   THERMA_PRECIOS_PUBLICADOS,
   precioCircuito,
   precioCircuitoTramo,
-  CIRCUITO_TRAMOS,
   CAMPANA_FUNDADORES,
   SITE,
   ars,
@@ -278,17 +277,36 @@ export default function MembresiasPage() {
                   <div className="font-display font-bold text-white mb-1" style={{ fontSize: '11px', letterSpacing: '0.2em' }}>{c.name}</div>
                   <p className="font-sans text-white/30 mb-4" style={{ fontSize: '11px' }}>{c.tagline} · {c.duracion}</p>
                   {THERMA_PRECIOS_PUBLICADOS ? (
-                    <div className="flex flex-col gap-1 mb-4 pb-4" style={{ borderBottom: '1px solid rgba(255,255,255,0.09)' }}>
-                      {CIRCUITO_TRAMOS.map((n) => (
-                        <div key={n} className="flex justify-between items-baseline">
-                          <span className="font-display font-medium text-white/40" style={{ fontSize: '9px', letterSpacing: '0.2em' }}>
-                            {n === 1 ? '1 PERSONA' : `${n} PERSONAS`}
-                          </span>
-                          <span className="font-display font-bold text-white" style={{ fontSize: '16px', letterSpacing: '-0.02em' }}>
-                            {precioCircuitoTramo(c, n)} <span className="font-sans font-normal text-white/30" style={{ fontSize: '9px' }}>c/u</span>
-                          </span>
-                        </div>
-                      ))}
+                    <div className="mb-5">
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-display font-bold text-white" style={{ fontSize: '28px', letterSpacing: '-0.03em', lineHeight: 1 }}>
+                          {precioCircuitoTramo(c, 1)}
+                        </span>
+                        <span className="font-sans text-white/35" style={{ fontSize: '11px' }}>por persona</span>
+                      </div>
+                      <div className="flex flex-col gap-1.5 mt-4">
+                        {([2, 4] as const).map((n) => {
+                          const mejor = n === 4
+                          return (
+                            <div
+                              key={n}
+                              className="flex items-center justify-between px-3 py-2"
+                              style={{
+                                background: mejor ? '#5d6d7e26' : 'rgba(255,255,255,0.04)',
+                                border: `1px solid ${mejor ? '#5d6d7e70' : 'rgba(255,255,255,0.06)'}`,
+                              }}
+                            >
+                              <span className="font-display font-medium" style={{ fontSize: '9px', letterSpacing: '0.22em', color: mejor ? '#fff' : 'rgba(255,255,255,0.45)' }}>
+                                {n === 2 ? 'DE A DOS' : 'DE A CUATRO'}
+                              </span>
+                              <span className="font-display font-bold text-white" style={{ fontSize: '15px', letterSpacing: '-0.02em' }}>
+                                {precioCircuitoTramo(c, n)}
+                                <span className="font-sans font-normal text-white/40 ml-1" style={{ fontSize: '10px' }}>c/u</span>
+                              </span>
+                            </div>
+                          )
+                        })}
+                      </div>
                     </div>
                   ) : (
                     <div className="font-display font-bold text-white mb-4" style={{ fontSize: '13px', letterSpacing: '0.15em', opacity: 0.45 }}>

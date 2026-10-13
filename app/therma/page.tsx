@@ -13,7 +13,6 @@ import {
   THERMA_MONEDA,
   precioCircuito,
   precioCircuitoTramo,
-  CIRCUITO_TRAMOS,
   LINEA_ESTETICA,
   ESTETICA_CTA,
   ESTETICA_NOTA,
@@ -128,18 +127,36 @@ export default function ThermaPage() {
                   <p className="font-sans text-white/30 mb-3" style={{ fontSize: '11px' }}>{c.tagline}</p>
                   <p className="text-white/30 font-sans mb-4" style={{ fontSize: '11px' }}>{c.duracion}</p>
                   {THERMA_PRECIOS_PUBLICADOS ? (
-                    <div className="flex flex-col mb-5" style={{ borderTop: `1px solid ${COLOR}40`, borderBottom: `1px solid ${COLOR}40` }}>
-                      {CIRCUITO_TRAMOS.map((n, k) => (
-                        <div key={n} className="flex justify-between items-baseline py-2.5" style={{ borderTop: k === 0 ? 'none' : '1px solid rgba(255,255,255,0.07)' }}>
-                          <span className="font-display font-medium text-white/40" style={{ fontSize: '9px', letterSpacing: '0.2em' }}>
-                            {n === 1 ? '1 PERSONA' : `${n} PERSONAS`}
-                          </span>
-                          <span className="font-display font-bold text-white" style={{ fontSize: '18px', letterSpacing: '-0.02em' }}>
-                            {precioCircuitoTramo(c, n)}
-                            <span className="font-sans font-normal text-white/30 ml-1.5" style={{ fontSize: '9px', letterSpacing: '0.1em' }}>por persona</span>
-                          </span>
-                        </div>
-                      ))}
+                    <div className="mb-6">
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-display font-bold text-white" style={{ fontSize: '30px', letterSpacing: '-0.03em', lineHeight: 1 }}>
+                          {precioCircuitoTramo(c, 1)}
+                        </span>
+                        <span className="font-sans text-white/35" style={{ fontSize: '11px' }}>por persona</span>
+                      </div>
+                      <div className="flex flex-col gap-1.5 mt-4">
+                        {([2, 4] as const).map((n) => {
+                          const mejor = n === 4
+                          return (
+                            <div
+                              key={n}
+                              className="flex items-center justify-between px-3 py-2"
+                              style={{
+                                background: mejor ? `${COLOR}26` : 'rgba(255,255,255,0.04)',
+                                border: `1px solid ${mejor ? `${COLOR}70` : 'rgba(255,255,255,0.06)'}`,
+                              }}
+                            >
+                              <span className="font-display font-medium" style={{ fontSize: '9px', letterSpacing: '0.22em', color: mejor ? '#fff' : 'rgba(255,255,255,0.45)' }}>
+                                {n === 2 ? 'DE A DOS' : 'DE A CUATRO'}
+                              </span>
+                              <span className="font-display font-bold text-white" style={{ fontSize: '15px', letterSpacing: '-0.02em' }}>
+                                {precioCircuitoTramo(c, n)}
+                                <span className="font-sans font-normal text-white/40 ml-1" style={{ fontSize: '10px' }}>c/u</span>
+                              </span>
+                            </div>
+                          )
+                        })}
+                      </div>
                     </div>
                   ) : (
                     <p className="font-display font-bold text-white mb-5" style={{ fontSize: '13px', letterSpacing: '0.15em', opacity: 0.45 }}>
