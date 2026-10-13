@@ -180,9 +180,15 @@ export default function ThermaPage() {
                       </div>
                     ))}
                   </div>
-                  <Link href="/reservas" className="btn-leven btn-leven-therma w-full justify-center" style={{ borderColor: `${COLOR}50`, fontSize: '10px' }}>
-                    Reservar →
-                  </Link>
+                  <a
+                    href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(`Hola! Quiero reservar el circuito ${c.name} de Leven Therma. ¿Me ayudan con la reserva?`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-leven btn-leven-therma w-full justify-center"
+                    style={{ borderColor: `${COLOR}50`, fontSize: '10px' }}
+                  >
+                    Reservar por WhatsApp →
+                  </a>
                 </div>
               </RevealSection>
             ))}
