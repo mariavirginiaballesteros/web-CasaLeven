@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import RevealSection from '@/components/RevealSection'
 import JsonLd from '@/components/JsonLd'
@@ -10,6 +11,7 @@ import {
   LETRA_CHICA_THERMA,
   THERMA_PRECIOS_PUBLICADOS,
   precioCircuito,
+  precioCircuitoTramo,
   CAMPANA_FUNDADORES,
   SITE,
   ars,
@@ -57,7 +59,7 @@ const FAQ = [
   },
   {
     q: '¿Se puede usar el spa sin membresía?',
-    a: `Sí. Leven Therma vende day pass por separado: ${CIRCUITOS[0].name} de ${CIRCUITOS[0].duracion}, ${CIRCUITOS[1].name} de ${CIRCUITOS[1].duracion} y ${CIRCUITOS[2].name} de ${CIRCUITOS[2].duracion}. Los valores se confirman al reservar el turno.`,
+    a: `Sí. Leven Therma vende el día de spa por separado, sin membresía: ${CIRCUITOS.map((c) => `${c.name} (${c.duracion})`).join(', ')}. Los precios son por persona y bajan cuando vienen 2 o 4 personas juntas.`,
   },
   {
     q: '¿Cuál es la permanencia mínima?',
@@ -272,19 +274,50 @@ export default function MembresiasPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {CIRCUITOS.map((c, i) => (
               <RevealSection key={c.id} delay={i * 70} className="h-full">
-                <div className="p-6 h-full flex flex-col" style={{ border: '1px solid rgba(255,255,255,0.09)', background: 'rgba(255,255,255,0.03)' }}>
+                <div className="p-6 h-full flex flex-col overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.09)', background: 'rgba(255,255,255,0.03)' }}>
+                  <div className="relative" style={{ margin: '-24px -24px 20px', aspectRatio: '4 / 3' }}>
+                    <Image src={c.img} alt={`Circuito ${c.name}`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" style={{ objectPosition: c.imgPos ?? 'center' }} />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0) 55%, var(--dark) 100%)' }} />
+                  </div>
                   <div className="font-display font-bold text-white mb-1" style={{ fontSize: '11px', letterSpacing: '0.2em' }}>{c.name}</div>
                   <p className="font-sans text-white/30 mb-4" style={{ fontSize: '11px' }}>{c.tagline} · {c.duracion}</p>
-                  <div
-                    className="font-display font-bold text-white mb-4"
-                    style={{
-                      fontSize: THERMA_PRECIOS_PUBLICADOS ? '22px' : '13px',
-                      letterSpacing: THERMA_PRECIOS_PUBLICADOS ? '-0.02em' : '0.15em',
-                      opacity: THERMA_PRECIOS_PUBLICADOS ? 1 : 0.45,
-                    }}
-                  >
-                    {precioCircuito(c)}
-                  </div>
+                  {THERMA_PRECIOS_PUBLICADOS ? (
+                    <div className="mb-5">
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-display font-bold text-white" style={{ fontSize: '28px', letterSpacing: '-0.03em', lineHeight: 1 }}>
+                          {precioCircuitoTramo(c, 1)}
+                        </span>
+                        <span className="font-sans text-white/35" style={{ fontSize: '11px' }}>por persona</span>
+                      </div>
+                      <div className="flex flex-col gap-1.5 mt-4">
+                        {([2, 4] as const).map((n) => {
+                          const mejor = n === 4
+                          return (
+                            <div
+                              key={n}
+                              className="flex items-center justify-between px-3 py-2"
+                              style={{
+                                background: mejor ? '#5d6d7e26' : 'rgba(255,255,255,0.04)',
+                                border: `1px solid ${mejor ? '#5d6d7e70' : 'rgba(255,255,255,0.06)'}`,
+                              }}
+                            >
+                              <span className="font-display font-medium" style={{ fontSize: '9px', letterSpacing: '0.22em', color: mejor ? '#fff' : 'rgba(255,255,255,0.45)' }}>
+                                {n === 2 ? 'DE A DOS' : 'DE A CUATRO'}
+                              </span>
+                              <span className="font-display font-bold text-white" style={{ fontSize: '15px', letterSpacing: '-0.02em' }}>
+                                {precioCircuitoTramo(c, n)}
+                                <span className="font-sans font-normal text-white/40 ml-1" style={{ fontSize: '10px' }}>c/u</span>
+                              </span>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="font-display font-bold text-white mb-4" style={{ fontSize: '13px', letterSpacing: '0.15em', opacity: 0.45 }}>
+                      {precioCircuito(c)}
+                    </div>
+                  )}
                   <ul className="flex flex-col gap-1 flex-1">
                     {c.includes.map((s, j) => (
                       <li key={j} className="font-sans text-white/50" style={{ fontSize: '12px' }}>· {s}</li>

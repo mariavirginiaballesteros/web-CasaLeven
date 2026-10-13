@@ -26,7 +26,7 @@ const FAQ_HOME = [
   },
   {
     q: '¿Puedo ir sin ser socio?',
-    a: `Sí. Leven Therma tiene day pass de spa: ${CIRCUITOS[0].name}, un circuito de ${CIRCUITOS[0].duracion}, y opciones más largas. También se pueden reservar masajes y tratamientos faciales individuales.`,
+    a: `Sí. Leven Therma tiene cuatro circuitos de día de spa sin membresía: ${CIRCUITOS.map((c) => c.name).join(', ')}. ${CIRCUITOS[0].name} dura ${CIRCUITOS[0].duracion} e incluye sauna, vapor y ducha escocesa, masaje, piscina climatizada y merienda. También se pueden reservar masajes y tratamientos faciales individuales.`,
   },
   {
     q: '¿Cómo reservo un turno?',
